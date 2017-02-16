@@ -6,3 +6,4 @@ classes/
 gen/
 out/
 *~
+*.DS_Store
