@@ -3,7 +3,9 @@ package org.usfirst.frc.team4930.robot;
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Solenoid;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into to a variable name.
@@ -20,7 +22,16 @@ public class RobotMap
   public static CANTalon driveTrainRightSlave1;
   public static CANTalon driveTrainRightSlave2;
 
+  public static Solenoid solenoid;
+
+  public static Compressor compressor;
+
   public static void init() {
+
+    solenoid = new Solenoid(50, 0);
+
+    compressor = new Compressor(50);
+
     // right side
     driveTrainRightMaster = new CANTalon(25);
     driveTrainRightSlave1 = new CANTalon(23);
