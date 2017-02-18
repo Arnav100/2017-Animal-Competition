@@ -8,3 +8,5 @@ gen/
 out/
 *~
 .DS_Store
+sysProps.xml
+dist/
