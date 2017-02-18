@@ -4,6 +4,8 @@ import org.usfirst.frc.team4930.robot.commands.Climb;
 import org.usfirst.frc.team4930.robot.commands.PlaceGear;
 import org.usfirst.frc.team4930.robot.commands.Playback;
 import org.usfirst.frc.team4930.robot.commands.Record;
+import org.usfirst.frc.team4930.robot.commands.ShiftDown;
+import org.usfirst.frc.team4930.robot.commands.ShiftUp;
 import org.usfirst.frc.team4930.robot.commands.StopRecord;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -20,6 +22,8 @@ public class OI
   public static JoystickButton joystick0button11;
   public static JoystickButton joystick1Button12;
 
+  public static JoystickButton joystick0Button2;
+  public static JoystickButton joystick0Button3;
   public static JoystickButton joystick0Button7;
   public static JoystickButton joystick0Button8;
   public static JoystickButton joystick0Button9;
@@ -27,6 +31,12 @@ public class OI
   public OI() {
     joystick0 = new Joystick(0);
     joystick1 = new Joystick(1);
+
+    joystick0Button2 = new JoystickButton(joystick0, 2);
+    joystick0Button2.whenPressed(new ShiftUp());
+
+    joystick0Button3 = new JoystickButton(joystick0, 3);
+    joystick0Button3.whenPressed(new ShiftDown());
 
     joystick0Button7 = new JoystickButton(joystick0, 7);
     joystick0Button7.whenPressed(new Record());
