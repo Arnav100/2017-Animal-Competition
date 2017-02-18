@@ -3,6 +3,7 @@ package org.usfirst.frc.team4930.robot;
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.RobotDrive;
 
 /**
@@ -19,6 +20,8 @@ public class RobotMap
   public static CANTalon driveTrainRightMaster;
   public static CANTalon driveTrainRightSlave1;
   public static CANTalon driveTrainRightSlave2;
+
+  public static AnalogPotentiometer dialChooser;
 
   public static void init() {
     // right side
@@ -58,5 +61,8 @@ public class RobotMap
     driveTrainRightSlave2.enableBrakeMode(false);
     driveTrainRightMaster.enableBrakeMode(false);
     driveTrainLeftMaster.enableBrakeMode(false);
+
+    // sensors
+    dialChooser = new AnalogPotentiometer(0);
   }
 }
