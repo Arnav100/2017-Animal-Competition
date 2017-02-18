@@ -1,6 +1,8 @@
 package org.usfirst.frc.team4930.robot;
 
+import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
 import org.usfirst.frc.team4930.robot.subsystems.Pneumatics;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -19,6 +21,8 @@ public class Robot extends IterativeRobot
   public static OI oi;
   public static DriveTrain driveTrain;
   public static Pneumatics pneumatics;
+  public static Climber climber;
+  public static GearGadget gearGadget;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -29,6 +33,8 @@ public class Robot extends IterativeRobot
     RobotMap.init();
     driveTrain = new DriveTrain();
     pneumatics = new Pneumatics();
+    climber = new Climber();
+    gearGadget = new GearGadget();
     oi = new OI();
   }
 
