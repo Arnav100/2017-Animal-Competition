@@ -19,13 +19,20 @@ public class RobotMap
   public static CANTalon driveTrainRightMaster;
   public static CANTalon driveTrainRightSlave1;
   public static CANTalon driveTrainRightSlave2;
-
   public static CANTalon climber;
+  public static CANTalon gearGadgetLeft;
+  public static CANTalon gearGadgetRight;
 
   public static void init() {
 
     climber = new CANTalon(29);
     climber.enableBrakeMode(true);
+
+    // UNKNOWN TALONS
+    gearGadgetLeft = new CANTalon(30);
+    gearGadgetRight = new CANTalon(32);
+    gearGadgetLeft.enableBrakeMode(true);
+    gearGadgetRight.enableBrakeMode(true);
 
     // right side
     driveTrainRightMaster = new CANTalon(25);
