@@ -138,6 +138,26 @@ public class Robot extends IterativeRobot
         autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
         autoCommand = autoPlayback;
         break;
+      case 7:
+        autoFile = "Openfile7";
+        autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
+        autoCommand = autoPlayback;
+        break;
+      case 8:
+        autoFile = "Openfile8";
+        autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
+        autoCommand = autoPlayback;
+        break;
+      case 9:
+        autoFile = "Openfile9";
+        autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
+        autoCommand = autoPlayback;
+        break;
+      case 10:
+        autoFile = "TestModeReplay";
+        autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
+        autoCommand = autoPlayback;
+        break;
     }
     autoCommand.start();
   }
@@ -174,6 +194,19 @@ public class Robot extends IterativeRobot
       case 6:
         autoFile = "FarGearReplay";
         break;
+      case 7:
+        autoFile = "Openfile7";
+        break;
+      case 8:
+        autoFile = "Openfile8";
+        break;
+      case 9:
+        autoFile = "Openfile9";
+        break;
+      case 10:
+        autoFile = "TestModeReplay";
+        break;
+
     }
     autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
 
