@@ -4,9 +4,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import org.usfirst.frc.team4930.robot.Robot;
+import org.usfirst.frc.team4930.robot.RobotMap;
+
+import com.ctre.CANTalon;
 
 public class Recorder
 {
+  public static final CANTalon driveTrainLeftMaster = RobotMap.driveTrainLeftMaster;
+  public static final CANTalon driveTrainRightMaster = RobotMap.driveTrainRightMaster;
+
   FileWriter writer;
   long startTime;
 
@@ -20,8 +26,8 @@ public class Recorder
     // write a timestamp, the motor values, and make a new line
     if (writer != null) {
       writer.append("" + (System.currentTimeMillis() - startTime));
-      writer.append("," + Robot.oi.getJoystick0());
-      writer.append("," + Robot.oi.getJoystick1());
+      writer.append("," + driveTrainLeftMaster.get());
+      writer.append("," + driveTrainRightMaster.get());
       writer.append("\n");
     }
   }
