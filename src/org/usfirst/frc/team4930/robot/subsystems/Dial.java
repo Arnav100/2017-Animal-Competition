@@ -9,11 +9,11 @@ public class Dial extends Subsystem
 
   protected void initDefaultCommand() {}
 
-  private double autoSwitch;
+  private static double autoSwitch;
 
-  private final int dials = 11;
+  private final static int dials = 11;
 
-  public double getDial() {
+  static public double getDial() {
 
     autoSwitch = RobotMap.dialChooser.get();
 

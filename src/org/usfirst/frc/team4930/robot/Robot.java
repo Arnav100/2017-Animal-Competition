@@ -6,6 +6,7 @@ import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -73,6 +74,8 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+
+    SmartDashboard.putNumber("Current Dial Numer ", Dial.getDial());
   }
 
   /**
