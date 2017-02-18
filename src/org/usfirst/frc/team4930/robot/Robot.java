@@ -6,11 +6,14 @@ import org.usfirst.frc.team4930.robot.command.autonomous.MiddleGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.MiddleReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.NearGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.NearReplay;
+import org.usfirst.frc.team4930.robot.subsystems.BallIntake;
 import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.Dial;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
+import org.usfirst.frc.team4930.robot.subsystems.Loader;
 import org.usfirst.frc.team4930.robot.subsystems.Pneumatics;
+import org.usfirst.frc.team4930.robot.subsystems.Shooter;
 import org.usfirst.frc.team4930.robot.utilities.Playbacker;
 import org.usfirst.frc.team4930.robot.utilities.Recorder;
 
@@ -55,6 +58,10 @@ public class Robot extends IterativeRobot
   public static CommandGroup AutoNearGear;
   public static Command AutoNearReplay;
 
+  public static BallIntake ballIntake;
+  public static Loader loader;
+  public static Shooter shooter;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -65,6 +72,9 @@ public class Robot extends IterativeRobot
 
     dial = new Dial();
     driveTrain = new DriveTrain();
+    ballIntake = new BallIntake();
+    loader = new Loader();
+    shooter = new Shooter();
     recorder = new Recorder();
     playbacker = new Playbacker();
     pneumatics = new Pneumatics();

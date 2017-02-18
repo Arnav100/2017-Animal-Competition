@@ -1,11 +1,13 @@
 package org.usfirst.frc.team4930.robot;
 
+import org.usfirst.frc.team4930.robot.commands.ClearBalls;
 import org.usfirst.frc.team4930.robot.commands.Climb;
 import org.usfirst.frc.team4930.robot.commands.PlaceGear;
 import org.usfirst.frc.team4930.robot.commands.Playback;
 import org.usfirst.frc.team4930.robot.commands.Record;
 import org.usfirst.frc.team4930.robot.commands.ShiftDown;
 import org.usfirst.frc.team4930.robot.commands.ShiftUp;
+import org.usfirst.frc.team4930.robot.commands.ShootCommandGroup;
 import org.usfirst.frc.team4930.robot.commands.StopRecord;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -20,13 +22,17 @@ public class OI
   public static Joystick joystick0;
   public static Joystick joystick1;
   public static JoystickButton joystick0button11;
-  public static JoystickButton joystick1Button12;
 
   public static JoystickButton joystick0Button2;
   public static JoystickButton joystick0Button3;
   public static JoystickButton joystick0Button7;
   public static JoystickButton joystick0Button8;
   public static JoystickButton joystick0Button9;
+
+  public static JoystickButton joystick1Button3;
+  public static JoystickButton joystick1Button4;
+
+  public static JoystickButton joystick1Button12;
 
   public OI() {
     joystick0 = new Joystick(0);
@@ -50,9 +56,14 @@ public class OI
     joystick0button11 = new JoystickButton(joystick0, 11);
     joystick0button11.whileHeld(new Climb());
 
+    joystick1Button3 = new JoystickButton(joystick1, 3);
+    joystick1Button3.whileHeld(new ShootCommandGroup());
+
+    joystick1Button4 = new JoystickButton(joystick1, 4);
+    joystick1Button4.whileHeld(new ClearBalls());
+
     joystick1Button12 = new JoystickButton(joystick1, 12);
     joystick1Button12.whileHeld(new PlaceGear());
-
   }
 
   public double getJoystick0() {

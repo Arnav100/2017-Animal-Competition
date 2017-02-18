@@ -31,6 +31,11 @@ public class RobotMap
   public static Solenoid solenoid;
   public static Compressor compressor;
 
+  public static CANTalon ballIntakeLeft;
+  public static CANTalon ballIntakeRight;
+  public static CANTalon loader;
+  public static CANTalon shooter;
+
   public static void init() {
 
     solenoid = new Solenoid(50, 0);
@@ -84,7 +89,14 @@ public class RobotMap
     driveTrainRightMaster.enableBrakeMode(false);
     driveTrainLeftMaster.enableBrakeMode(false);
 
+    ballIntakeLeft = new CANTalon(28);
+    ballIntakeRight = new CANTalon(27);
+    loader = new CANTalon(33);
+    shooter = new CANTalon(31);
+    shooter.enableBrakeMode(false);
+
     // sensors
     dialChooser = new AnalogPotentiometer(2, 300, 0);
+
   }
 }
