@@ -2,7 +2,10 @@ package org.usfirst.frc.team4930.robot;
 
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
@@ -17,6 +20,8 @@ public class Robot extends IterativeRobot
   public static OI oi;
   public static DriveTrain driveTrain;
 
+  public static CANTalon motor;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -26,6 +31,7 @@ public class Robot extends IterativeRobot
     RobotMap.init();
     driveTrain = new DriveTrain();
     oi = new OI();
+
   }
 
   /**
@@ -72,11 +78,26 @@ public class Robot extends IterativeRobot
     Scheduler.getInstance().run();
   }
 
+  public void testInit() {
+    motor = new CANTalon(31);
+  }
+
   /**
    * This function is called periodically during test mode
    */
   @Override
   public void testPeriodic() {
     LiveWindow.run();
+    motor.enableBrakeMode(true);
+    motor.set(0.8);
+    Timer.delay(5);
+    motor.set(0.0);
+    Timer.delay(3);
+    motor.enableBrakeMode(false);
+    motor.set(0.8);
+    Timer.delay(5);
+    motor.set(0.0);
+    Timer.delay(10);
+
   }
 }

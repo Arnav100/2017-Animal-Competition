@@ -21,6 +21,7 @@ public class RobotMap
   public static CANTalon driveTrainRightSlave2;
 
   public static void init() {
+
     // right side
     driveTrainRightMaster = new CANTalon(25);
     driveTrainRightSlave1 = new CANTalon(23);
@@ -51,12 +52,5 @@ public class RobotMap
     driveTrainMasterMotors.setExpiration(0.1);
     driveTrainMasterMotors.setSensitivity(0.5);
     driveTrainMasterMotors.setMaxOutput(1.0);
-    // set brake mode
-    driveTrainLeftSlave1.enableBrakeMode(false);
-    driveTrainLeftSlave2.enableBrakeMode(false);
-    driveTrainRightSlave1.enableBrakeMode(false);
-    driveTrainRightSlave2.enableBrakeMode(false);
-    driveTrainRightMaster.enableBrakeMode(false);
-    driveTrainLeftMaster.enableBrakeMode(false);
   }
 }
