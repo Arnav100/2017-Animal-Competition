@@ -5,14 +5,9 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import org.usfirst.frc.team4930.robot.Robot;
-import org.usfirst.frc.team4930.robot.RobotMap;
-
-import com.ctre.CANTalon;
 
 public class Playbacker
 {
-  public static final CANTalon driveTrainLeftMaster = RobotMap.driveTrainLeftMaster;
-  public static final CANTalon driveTrainRightMaster = RobotMap.driveTrainRightMaster;
   Scanner scanner;
   boolean onTime;
   double nextTimestamp;
@@ -36,8 +31,8 @@ public class Playbacker
         nextTimestamp = scanner.nextDouble();
       }
       // deltaTime makes sure that the player sets the motor values at the correct times
-      double deltaTime = nextTimestamp - (System.currentTimeMillis() - startTime);
-      if (deltaTime <= 0) {
+      double timeDelta = nextTimestamp - (System.currentTimeMillis() - startTime);
+      if (timeDelta <= 0) {
         double joystick0Y = scanner.nextDouble();
         double joystick1Y = scanner.nextDouble();
         if (isInverted) {
@@ -57,8 +52,7 @@ public class Playbacker
 
   public void endPlayback() {
     // clean up
-    driveTrainLeftMaster.set(0);
-    driveTrainRightMaster.set(0);
+    Robot.driveTrain.stop();
     if (scanner != null) {
       scanner.close();
       scanner = null;
