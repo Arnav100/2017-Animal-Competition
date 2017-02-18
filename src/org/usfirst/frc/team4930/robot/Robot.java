@@ -31,7 +31,6 @@ public class Robot extends IterativeRobot
     RobotMap.init();
     driveTrain = new DriveTrain();
     oi = new OI();
-
   }
 
   /**
@@ -57,7 +56,9 @@ public class Robot extends IterativeRobot
    * strings & commands.
    */
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {
+
+  }
 
   /**
    * This function is called periodically during autonomous
@@ -65,6 +66,7 @@ public class Robot extends IterativeRobot
   @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
+    Robot.driveTrain.enableBrakeMode(true);
   }
 
   @Override
@@ -76,6 +78,7 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    Robot.driveTrain.enableBrakeMode(false);
   }
 
   public void testInit() {
@@ -98,6 +101,5 @@ public class Robot extends IterativeRobot
     Timer.delay(5);
     motor.set(0.0);
     Timer.delay(10);
-
   }
 }
