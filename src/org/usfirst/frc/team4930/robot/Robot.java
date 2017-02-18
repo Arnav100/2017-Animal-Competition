@@ -1,10 +1,13 @@
 package org.usfirst.frc.team4930.robot;
 
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4930.robot.utilities.Playbacker;
+import org.usfirst.frc.team4930.robot.utilities.Recorder;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -17,6 +20,12 @@ public class Robot extends IterativeRobot
   public static OI oi;
   public static DriveTrain driveTrain;
 
+  public static Recorder recorder;
+  public static Playbacker playbacker;
+  public static final String autoFile = "/home/lvuser/recordedAuto.csv";
+  public static boolean isRecording;
+  public static boolean isPlaying;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -25,6 +34,10 @@ public class Robot extends IterativeRobot
   public void robotInit() {
     RobotMap.init();
     driveTrain = new DriveTrain();
+    recorder = new Recorder();
+    playbacker = new Playbacker();
+    isRecording = false;
+    isPlaying = false;
     oi = new OI();
   }
 
@@ -70,6 +83,10 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+
+    SmartDashboard.putBoolean("isRecording: ", isRecording);
+    SmartDashboard.putBoolean("isPlaying: ", isPlaying);
+    SmartDashboard.putString("autoFile: ", autoFile);
   }
 
   /**
