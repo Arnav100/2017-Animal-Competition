@@ -1,6 +1,9 @@
 package org.usfirst.frc.team4930.robot;
 
+import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
+import org.usfirst.frc.team4930.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team4930.robot.utilities.Playbacker;
 import org.usfirst.frc.team4930.robot.utilities.Recorder;
 
@@ -19,6 +22,9 @@ public class Robot extends IterativeRobot
 {
   public static OI oi;
   public static DriveTrain driveTrain;
+  public static Pneumatics pneumatics;
+  public static Climber climber;
+  public static GearGadget gearGadget;
 
   public static Recorder recorder;
   public static Playbacker playbacker;
@@ -37,9 +43,13 @@ public class Robot extends IterativeRobot
     driveTrain = new DriveTrain();
     recorder = new Recorder();
     playbacker = new Playbacker();
+    pneumatics = new Pneumatics();
+    climber = new Climber();
+    gearGadget = new GearGadget();
+    oi = new OI();
+
     isRecording = false;
     isPlaying = false;
-    oi = new OI();
   }
 
   /**
@@ -91,6 +101,8 @@ public class Robot extends IterativeRobot
     autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
     SmartDashboard.putString("autoFile: ", autoFile);
     SmartDashboard.putString("autoFilePath: ", autoFilePath);
+
+    SmartDashboard.putBoolean("solenoid value", RobotMap.solenoid.get());
   }
 
   /**
