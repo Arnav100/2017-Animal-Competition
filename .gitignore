@@ -1,3 +1,4 @@
+dist/
 .gradle
 bin/
 build/
@@ -6,4 +7,4 @@ classes/
 gen/
 out/
 *~
-*.DS_Store
+.DS_Store
