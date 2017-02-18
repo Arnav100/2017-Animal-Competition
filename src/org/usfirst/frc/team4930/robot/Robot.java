@@ -88,7 +88,7 @@ public class Robot extends IterativeRobot
     SmartDashboard.putBoolean("isRecording: ", isRecording);
     SmartDashboard.putBoolean("isPlaying: ", isPlaying);
 
-    autoFilePath = new String("/home/lvuser/" + autoFile + ".csv");
+    autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
     SmartDashboard.putString("autoFile: ", autoFile);
     SmartDashboard.putString("autoFilePath: ", autoFilePath);
   }
