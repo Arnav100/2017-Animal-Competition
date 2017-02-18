@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4930.robot;
 
+import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
 
@@ -17,6 +18,7 @@ public class Robot extends IterativeRobot
 {
   public static OI oi;
   public static DriveTrain driveTrain;
+  public static Climber climber;
   public static GearGadget gearGadget;
 
   /**
@@ -27,6 +29,7 @@ public class Robot extends IterativeRobot
   public void robotInit() {
     RobotMap.init();
     driveTrain = new DriveTrain();
+    climber = new Climber();
     gearGadget = new GearGadget();
     oi = new OI();
   }
