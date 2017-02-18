@@ -1,6 +1,9 @@
 package org.usfirst.frc.team4930.robot;
 
+import org.usfirst.frc.team4930.robot.subsystems.BallIntake;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4930.robot.subsystems.Loader;
+import org.usfirst.frc.team4930.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -17,6 +20,10 @@ public class Robot extends IterativeRobot
   public static OI oi;
   public static DriveTrain driveTrain;
 
+  public static BallIntake ballIntake;
+  public static Loader loader;
+  public static Shooter shooter;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -25,6 +32,11 @@ public class Robot extends IterativeRobot
   public void robotInit() {
     RobotMap.init();
     driveTrain = new DriveTrain();
+
+    ballIntake = new BallIntake();
+    loader = new Loader();
+    shooter = new Shooter();
+
     oi = new OI();
   }
 

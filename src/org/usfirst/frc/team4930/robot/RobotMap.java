@@ -20,6 +20,11 @@ public class RobotMap
   public static CANTalon driveTrainRightSlave1;
   public static CANTalon driveTrainRightSlave2;
 
+  public static CANTalon ballIntakeLeft;
+  public static CANTalon ballIntakeRight;
+  public static CANTalon loader;
+  public static CANTalon shooter;
+
   public static void init() {
     // right side
     driveTrainRightMaster = new CANTalon(25);
@@ -58,5 +63,11 @@ public class RobotMap
     driveTrainRightSlave2.enableBrakeMode(false);
     driveTrainRightMaster.enableBrakeMode(false);
     driveTrainLeftMaster.enableBrakeMode(false);
+
+    ballIntakeLeft = new CANTalon(28);
+    ballIntakeRight = new CANTalon(27);
+    loader = new CANTalon(33);
+    shooter = new CANTalon(31);
+    shooter.enableBrakeMode(false);
   }
 }
