@@ -76,6 +76,7 @@ public class Robot extends IterativeRobot
     Scheduler.getInstance().run();
 
     SmartDashboard.putNumber("Current Dial Numer ", Dial.getDial());
+    SmartDashboard.putNumber("Dial degrees", RobotMap.dialChooser.get());
   }
 
   /**
