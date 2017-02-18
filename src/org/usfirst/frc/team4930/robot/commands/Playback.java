@@ -8,11 +8,15 @@ public class Playback extends Command
 {
 
   protected void initialize() {
-    Robot.isPlaying = true;
-    try {
-      Robot.playbacker.setupPlayback();
-    } catch (Exception e) {
-      e.printStackTrace();
+    if (Robot.oi.getJoystick2Button11()) {
+      Robot.isPlaying = true;
+      try {
+        Robot.playbacker.setupPlayback();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    } else {
+      end();
     }
   }
 

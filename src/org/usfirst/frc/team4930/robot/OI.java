@@ -21,13 +21,19 @@ public class OI
 {
   public static Joystick joystick0;
   public static Joystick joystick1;
+  public static Joystick joystick2;
+
   public static JoystickButton joystick0button11;
 
   public static JoystickButton joystick0Button2;
   public static JoystickButton joystick0Button3;
-  public static JoystickButton joystick0Button7;
-  public static JoystickButton joystick0Button8;
-  public static JoystickButton joystick0Button9;
+  public static JoystickButton joystick2Button8;
+  public static JoystickButton joystick2Button10;
+  public static JoystickButton joystick2Button12;
+
+  public static JoystickButton joystick2Button7;
+  public static JoystickButton joystick2Button9;
+  public static JoystickButton joystick2Button11;
 
   public static JoystickButton joystick1Button3;
   public static JoystickButton joystick1Button4;
@@ -37,6 +43,7 @@ public class OI
   public OI() {
     joystick0 = new Joystick(0);
     joystick1 = new Joystick(1);
+    joystick2 = new Joystick(2);
 
     joystick0Button2 = new JoystickButton(joystick0, 2);
     joystick0Button2.whenPressed(new ShiftUp());
@@ -44,14 +51,14 @@ public class OI
     joystick0Button3 = new JoystickButton(joystick0, 3);
     joystick0Button3.whenPressed(new ShiftDown());
 
-    joystick0Button7 = new JoystickButton(joystick0, 7);
-    joystick0Button7.whenPressed(new Record());
+    joystick2Button8 = new JoystickButton(joystick2, 8);
+    joystick2Button8.whenPressed(new Record());
 
-    joystick0Button8 = new JoystickButton(joystick0, 8);
-    joystick0Button8.whenPressed(new StopRecord());
+    joystick2Button10 = new JoystickButton(joystick2, 10);
+    joystick2Button10.whenPressed(new StopRecord());
 
-    joystick0Button9 = new JoystickButton(joystick0, 9);
-    joystick0Button9.whenPressed(new Playback());
+    joystick2Button12 = new JoystickButton(joystick2, 12);
+    joystick2Button12.whenPressed(new Playback());
 
     joystick0button11 = new JoystickButton(joystick0, 11);
     joystick0button11.whileHeld(new Climb());
@@ -64,6 +71,11 @@ public class OI
 
     joystick1Button12 = new JoystickButton(joystick1, 12);
     joystick1Button12.whileHeld(new PlaceGear());
+
+    // used the prevent accidental recording button presses
+    joystick2Button7 = new JoystickButton(joystick2, 7);
+    joystick2Button9 = new JoystickButton(joystick2, 9);
+    joystick2Button11 = new JoystickButton(joystick2, 11);
   }
 
   public double getJoystick0() {
@@ -72,5 +84,17 @@ public class OI
 
   public double getJoystick1() {
     return joystick1.getY();
+  }
+
+  public boolean getJoystick2Button7() {
+    return joystick2Button7.get();
+  }
+
+  public boolean getJoystick2Button9() {
+    return joystick2Button9.get();
+  }
+
+  public boolean getJoystick2Button11() {
+    return joystick2Button11.get();
   }
 }

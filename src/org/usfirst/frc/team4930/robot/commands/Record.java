@@ -8,11 +8,15 @@ public class Record extends Command
 {
 
   protected void initialize() {
-    Robot.isRecording = true;
-    try {
-      Robot.recorder.setupRecorder();
-    } catch (Exception e) {
-      e.printStackTrace();
+    if (Robot.oi.getJoystick2Button7()) {
+      Robot.isRecording = true;
+      try {
+        Robot.recorder.setupRecorder();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    } else {
+      end();
     }
   }
 
