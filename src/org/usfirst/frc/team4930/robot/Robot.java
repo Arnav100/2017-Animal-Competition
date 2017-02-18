@@ -1,12 +1,12 @@
 package org.usfirst.frc.team4930.robot;
 
-import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.command.autonomous.FarGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.FarReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.MiddleGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.MiddleReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.NearGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.NearReplay;
+import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.Dial;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
@@ -151,7 +151,6 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    motor = new CANTalon(21);
 
     SmartDashboard.putBoolean("isRecording: ", isRecording);
     SmartDashboard.putBoolean("isPlaying: ", isPlaying);
@@ -164,6 +163,10 @@ public class Robot extends IterativeRobot
 
     SmartDashboard.putNumber("Current Dial Numer ", Dial.getDial());
     SmartDashboard.putNumber("Dial degrees", RobotMap.dialChooser.get());
+  }
+
+  public void testInit() {
+    motor = new CANTalon(25);
   }
 
   /**

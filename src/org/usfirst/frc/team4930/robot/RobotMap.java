@@ -49,26 +49,27 @@ public class RobotMap
     driveTrainRightMaster = new CANTalon(25);
     driveTrainRightSlave1 = new CANTalon(23);
     driveTrainRightSlave2 = new CANTalon(21);
-    // left side
-    driveTrainLeftMaster = new CANTalon(26);
-    driveTrainLeftSlave1 = new CANTalon(24);
-    driveTrainLeftSlave2 = new CANTalon(22);
-    // 23
+
     driveTrainRightSlave1.changeControlMode(TalonControlMode.Follower);
     driveTrainRightSlave1.set(driveTrainRightMaster.getDeviceID());
     driveTrainRightSlave1.reverseOutput(true);
-    // 21
+
     driveTrainRightSlave2.changeControlMode(TalonControlMode.Follower);
     driveTrainRightSlave2.set(driveTrainRightMaster.getDeviceID());
     driveTrainRightSlave2.reverseOutput(true);
-    // 24
+
+    // left side
+    driveTrainLeftMaster = new CANTalon(22);
+    driveTrainLeftSlave1 = new CANTalon(24);
+    driveTrainLeftSlave2 = new CANTalon(26);
+
     driveTrainLeftSlave1.changeControlMode(TalonControlMode.Follower);
     driveTrainLeftSlave1.set(driveTrainLeftMaster.getDeviceID());
     driveTrainLeftSlave1.reverseOutput(true);
-    // 22
+
     driveTrainLeftSlave2.changeControlMode(TalonControlMode.Follower);
     driveTrainLeftSlave2.set(driveTrainLeftMaster.getDeviceID());
-    driveTrainLeftSlave2.reverseOutput(true);
+
     // initialize drive motors
     driveTrainMasterMotors = new RobotDrive(driveTrainLeftMaster, driveTrainRightMaster);
     driveTrainMasterMotors.setSafetyEnabled(true);
