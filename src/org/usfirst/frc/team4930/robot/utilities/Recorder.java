@@ -12,7 +12,7 @@ public class Recorder
 
   public void setupRecorder() throws IOException {
     // instantiate writer and set startTime
-    writer = new FileWriter(Robot.autoFile);
+    writer = new FileWriter(Robot.autoFilePath);
     startTime = System.currentTimeMillis();
   }
 

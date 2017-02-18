@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Playback extends Command
 {
+
   protected void initialize() {
     Robot.isPlaying = true;
     try {

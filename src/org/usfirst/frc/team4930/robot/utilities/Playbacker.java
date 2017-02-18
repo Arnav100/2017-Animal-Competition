@@ -17,7 +17,7 @@ public class Playbacker
 
   public void setupPlayback() throws FileNotFoundException {
     // set boolean values, instaniate scanner, and set startTime
-    scanner = new Scanner(new File(Robot.autoFile));
+    scanner = new Scanner(new File(Robot.autoFilePath));
     // useDelimiter lets the scanner know to to differentiate between values
     scanner.useDelimiter(",|\\n");
     onTime = true;

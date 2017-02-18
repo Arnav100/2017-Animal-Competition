@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Record extends Command
 {
+
   protected void initialize() {
     Robot.isRecording = true;
     try {
