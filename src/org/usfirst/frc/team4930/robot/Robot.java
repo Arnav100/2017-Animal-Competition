@@ -7,6 +7,8 @@ import org.usfirst.frc.team4930.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team4930.robot.utilities.Playbacker;
 import org.usfirst.frc.team4930.robot.utilities.Recorder;
 
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -32,6 +34,8 @@ public class Robot extends IterativeRobot
   public static String autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
   public static boolean isRecording;
   public static boolean isPlaying;
+
+  public static CANTalon motor;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -94,6 +98,7 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    motor = new CANTalon(21);
 
     SmartDashboard.putBoolean("isRecording: ", isRecording);
     SmartDashboard.putBoolean("isPlaying: ", isPlaying);
@@ -111,5 +116,6 @@ public class Robot extends IterativeRobot
   @Override
   public void testPeriodic() {
     LiveWindow.run();
+    motor.set(0.5);
   }
 }
