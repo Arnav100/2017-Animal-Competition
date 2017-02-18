@@ -15,7 +15,7 @@ public class Dial extends Subsystem
 
   static public double getDial() {
 
-    autoSwitch = RobotMap.dialChooser.get();
+    autoSwitch = RobotMap.dialChooser.get() + 4;
 
     double dialNum = autoSwitch / (360 / dials);
 

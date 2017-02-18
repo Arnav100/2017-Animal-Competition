@@ -1,9 +1,17 @@
 package org.usfirst.frc.team4930.robot;
 
+import org.usfirst.frc.team4930.robot.command.autonomous.FarGear;
+import org.usfirst.frc.team4930.robot.command.autonomous.FarReplay;
+import org.usfirst.frc.team4930.robot.command.autonomous.MiddleGear;
+import org.usfirst.frc.team4930.robot.command.autonomous.MiddleReplay;
+import org.usfirst.frc.team4930.robot.command.autonomous.NearGear;
+import org.usfirst.frc.team4930.robot.command.autonomous.NearReplay;
 import org.usfirst.frc.team4930.robot.subsystems.Dial;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,6 +28,14 @@ public class Robot extends IterativeRobot
   public static DriveTrain driveTrain;
   public static Dial dial;
 
+  public static Command autoCommand;
+  public static CommandGroup AutoFarGear;
+  public static Command AutoFarReplay;
+  public static CommandGroup AutoMiddleGear;
+  public static Command AutoMiddleReplay;
+  public static CommandGroup AutoNearGear;
+  public static Command AutoNearReplay;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -27,6 +43,7 @@ public class Robot extends IterativeRobot
   @Override
   public void robotInit() {
     RobotMap.init();
+
     dial = new Dial();
     driveTrain = new DriveTrain();
     oi = new OI();
@@ -55,7 +72,36 @@ public class Robot extends IterativeRobot
    * strings & commands.
    */
   @Override
-  public void autonomousInit() {}
+  public void autonomousInit() {
+    AutoFarGear = new FarGear();
+    AutoFarReplay = new FarReplay();
+    AutoMiddleGear = new MiddleGear();
+    AutoMiddleReplay = new MiddleReplay();
+    AutoNearGear = new NearGear();
+    AutoNearReplay = new NearReplay();
+
+    switch ((int) Dial.getDial()) {
+      case 1:
+        autoCommand = AutoNearGear;
+        break;
+      case 2:
+        autoCommand = AutoNearReplay;
+        break;
+      case 3:
+        autoCommand = AutoMiddleGear;
+        break;
+      case 4:
+        autoCommand = AutoMiddleReplay;
+        break;
+      case 5:
+        autoCommand = AutoFarGear;
+        break;
+      case 6:
+        autoCommand = AutoFarReplay;
+        break;
+    }
+    autoCommand.start();
+  }
 
   /**
    * This function is called periodically during autonomous
@@ -66,7 +112,11 @@ public class Robot extends IterativeRobot
   }
 
   @Override
-  public void teleopInit() {}
+  public void teleopInit() {
+    if (autoCommand != null) {
+      autoCommand.cancel();
+    }
+  }
 
   /**
    * This function is called periodically during operator control

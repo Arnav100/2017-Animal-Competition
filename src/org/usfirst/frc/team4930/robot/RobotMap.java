@@ -63,6 +63,6 @@ public class RobotMap
     driveTrainLeftMaster.enableBrakeMode(false);
 
     // sensors
-    dialChooser = new AnalogPotentiometer(2, 360, 0);
+    dialChooser = new AnalogPotentiometer(2, 300, 0);
   }
 }
