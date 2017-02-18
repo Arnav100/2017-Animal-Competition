@@ -1,20 +1,20 @@
 package org.usfirst.frc.team4930.robot;
 
-import org.usfirst.frc.team4930.robot.subsystems.Climber;
+import org.usfirst.frc.team4930.robot.command.autonomous.DoNothing;
 import org.usfirst.frc.team4930.robot.command.autonomous.FarGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.FarReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.MiddleGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.MiddleReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.NearGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.NearReplay;
+import org.usfirst.frc.team4930.robot.command.autonomous.Playback;
+import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.Dial;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
 import org.usfirst.frc.team4930.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team4930.robot.utilities.Playbacker;
 import org.usfirst.frc.team4930.robot.utilities.Recorder;
-
-import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -45,8 +45,7 @@ public class Robot extends IterativeRobot
   public static boolean isRecording;
   public static boolean isPlaying;
 
-  public static CANTalon motor;
-
+  public static Command AutoDoNothing;
   public static Command autoCommand;
   public static CommandGroup AutoFarGear;
   public static Command AutoFarReplay;
@@ -54,6 +53,7 @@ public class Robot extends IterativeRobot
   public static Command AutoMiddleReplay;
   public static CommandGroup AutoNearGear;
   public static Command AutoNearReplay;
+  public static Command autoPlayback;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -106,25 +106,37 @@ public class Robot extends IterativeRobot
     AutoMiddleReplay = new MiddleReplay();
     AutoNearGear = new NearGear();
     AutoNearReplay = new NearReplay();
+    AutoDoNothing = new DoNothing();
+    autoPlayback = new Playback();
 
     switch ((int) Dial.getDial()) {
+
+      case 0:
+        autoCommand = AutoDoNothing;
+        break;
       case 1:
         autoCommand = AutoNearGear;
         break;
       case 2:
-        autoCommand = AutoNearReplay;
+        autoFile = "NearGearReplay";
+        autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
+        autoCommand = autoPlayback;
         break;
       case 3:
         autoCommand = AutoMiddleGear;
         break;
       case 4:
-        autoCommand = AutoMiddleReplay;
+        autoFile = "MiddleGearReplay";
+        autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
+        autoCommand = autoPlayback;
         break;
       case 5:
         autoCommand = AutoFarGear;
         break;
       case 6:
-        autoCommand = AutoFarReplay;
+        autoFile = "FarGearReplay";
+        autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
+        autoCommand = autoPlayback;
         break;
     }
     autoCommand.start();
@@ -151,17 +163,25 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    motor = new CANTalon(21);
+
+    switch ((int) (Dial.getDial())) {
+      case 2:
+        autoFile = "NearGearReplay";
+        break;
+      case 4:
+        autoFile = "MiddleGearReplay";
+        break;
+      case 6:
+        autoFile = "FarGearReplay";
+        break;
+    }
+    autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
 
     SmartDashboard.putBoolean("isRecording: ", isRecording);
     SmartDashboard.putBoolean("isPlaying: ", isPlaying);
-
-    autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
     SmartDashboard.putString("autoFile: ", autoFile);
     SmartDashboard.putString("autoFilePath: ", autoFilePath);
-
     SmartDashboard.putBoolean("solenoid value", RobotMap.solenoid.get());
-
     SmartDashboard.putNumber("Current Dial Numer ", Dial.getDial());
     SmartDashboard.putNumber("Dial degrees", RobotMap.dialChooser.get());
   }
@@ -172,6 +192,6 @@ public class Robot extends IterativeRobot
   @Override
   public void testPeriodic() {
     LiveWindow.run();
-    motor.set(0.5);
+
   }
 }
