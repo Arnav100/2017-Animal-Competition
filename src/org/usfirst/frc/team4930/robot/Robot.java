@@ -22,7 +22,8 @@ public class Robot extends IterativeRobot
 
   public static Recorder recorder;
   public static Playbacker playbacker;
-  public static final String autoFile = "/home/lvuser/recordedAuto.csv";
+  public static String autoFile = "NearReplay";
+  public static String autoFilePath = new String("/home/lvuser/" + autoFile + ".csv");
   public static boolean isRecording;
   public static boolean isPlaying;
 
@@ -87,6 +88,8 @@ public class Robot extends IterativeRobot
     SmartDashboard.putBoolean("isRecording: ", isRecording);
     SmartDashboard.putBoolean("isPlaying: ", isPlaying);
     SmartDashboard.putString("autoFile: ", autoFile);
+
+    autoFilePath = new String("/home/lvuser/" + autoFile + ".csv");
   }
 
   /**

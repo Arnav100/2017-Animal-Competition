@@ -18,6 +18,8 @@ public class Playbacker
   double nextTimestamp;
   long startTime;
 
+  boolean isInverted = false;
+
   public void setupPlayback() throws FileNotFoundException {
     // set boolean values, instaniate scanner, and set startTime
     scanner = new Scanner(new File(Robot.autoFile));
@@ -36,8 +38,13 @@ public class Playbacker
       // deltaTime makes sure that the player sets the motor values at the correct times
       double deltaTime = nextTimestamp - (System.currentTimeMillis() - startTime);
       if (deltaTime <= 0) {
-        driveTrainLeftMaster.set(scanner.nextDouble());
-        driveTrainRightMaster.set(scanner.nextDouble());
+        double joystick0Y = scanner.nextDouble();
+        double joystick1Y = scanner.nextDouble();
+        if (isInverted) {
+          Robot.driveTrain.move(joystick1Y, joystick0Y);
+        } else {
+          Robot.driveTrain.move(joystick0Y, joystick1Y);
+        }
         onTime = true;
       } else {
         // hold the player back until the current time matches the timestamp
