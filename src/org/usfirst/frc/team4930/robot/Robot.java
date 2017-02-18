@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4930.robot;
 
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -16,6 +17,7 @@ public class Robot extends IterativeRobot
 {
   public static OI oi;
   public static DriveTrain driveTrain;
+  public static GearGadget gearGadget;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -25,6 +27,7 @@ public class Robot extends IterativeRobot
   public void robotInit() {
     RobotMap.init();
     driveTrain = new DriveTrain();
+    gearGadget = new GearGadget();
     oi = new OI();
   }
 
