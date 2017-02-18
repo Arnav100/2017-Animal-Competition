@@ -20,7 +20,13 @@ public class RobotMap
   public static CANTalon driveTrainRightSlave1;
   public static CANTalon driveTrainRightSlave2;
 
+  public static CANTalon climber;
+
   public static void init() {
+
+    climber = new CANTalon(29);
+    climber.enableBrakeMode(true);
+
     // right side
     driveTrainRightMaster = new CANTalon(25);
     driveTrainRightSlave1 = new CANTalon(23);

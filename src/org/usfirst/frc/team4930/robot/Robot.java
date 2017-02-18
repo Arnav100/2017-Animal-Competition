@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4930.robot;
 
+import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -16,6 +17,7 @@ public class Robot extends IterativeRobot
 {
   public static OI oi;
   public static DriveTrain driveTrain;
+  public static Climber climber;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -25,6 +27,7 @@ public class Robot extends IterativeRobot
   public void robotInit() {
     RobotMap.init();
     driveTrain = new DriveTrain();
+    climber = new Climber();
     oi = new OI();
   }
 
