@@ -3,6 +3,7 @@ package org.usfirst.frc.team4930.robot;
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
@@ -24,6 +25,8 @@ public class RobotMap
   public static CANTalon climber;
   public static CANTalon gearGadgetLeft;
   public static CANTalon gearGadgetRight;
+
+  public static AnalogPotentiometer dialChooser;
 
   public static Solenoid solenoid;
   public static Compressor compressor;
@@ -79,5 +82,8 @@ public class RobotMap
     driveTrainRightSlave2.enableBrakeMode(false);
     driveTrainRightMaster.enableBrakeMode(false);
     driveTrainLeftMaster.enableBrakeMode(false);
+
+    // sensors
+    dialChooser = new AnalogPotentiometer(2, 300, 0);
   }
 }
