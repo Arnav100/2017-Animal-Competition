@@ -4,6 +4,8 @@ import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
 import org.usfirst.frc.team4930.robot.subsystems.Pneumatics;
+import org.usfirst.frc.team4930.robot.utilities.Playbacker;
+import org.usfirst.frc.team4930.robot.utilities.Recorder;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -24,6 +26,13 @@ public class Robot extends IterativeRobot
   public static Climber climber;
   public static GearGadget gearGadget;
 
+  public static Recorder recorder;
+  public static Playbacker playbacker;
+  public static String autoFile = "TestReplay";
+  public static String autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
+  public static boolean isRecording;
+  public static boolean isPlaying;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -32,10 +41,15 @@ public class Robot extends IterativeRobot
   public void robotInit() {
     RobotMap.init();
     driveTrain = new DriveTrain();
+    recorder = new Recorder();
+    playbacker = new Playbacker();
     pneumatics = new Pneumatics();
     climber = new Climber();
     gearGadget = new GearGadget();
     oi = new OI();
+
+    isRecording = false;
+    isPlaying = false;
   }
 
   /**
@@ -80,6 +94,14 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+
+    SmartDashboard.putBoolean("isRecording: ", isRecording);
+    SmartDashboard.putBoolean("isPlaying: ", isPlaying);
+
+    autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
+    SmartDashboard.putString("autoFile: ", autoFile);
+    SmartDashboard.putString("autoFilePath: ", autoFilePath);
+
     SmartDashboard.putBoolean("solenoid value", RobotMap.solenoid.get());
   }
 
