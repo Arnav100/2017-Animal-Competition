@@ -42,11 +42,9 @@ public class Playbacker
         double driveTrainLeftMasterValue = scanner.nextDouble();
         double driveTrainRightMasterValue = scanner.nextDouble();
         if (isInverted) {
-          driveTrainLeftMaster.set(driveTrainRightMasterValue);
-          driveTrainLeftMaster.set(driveTrainLeftMasterValue);
+          Robot.driveTrain.move(driveTrainRightMasterValue, driveTrainLeftMasterValue);
         } else {
-          driveTrainLeftMaster.set(driveTrainLeftMasterValue);
-          driveTrainRightMaster.set(driveTrainRightMasterValue);
+          Robot.driveTrain.move(driveTrainLeftMasterValue, driveTrainRightMasterValue);
         }
         onTime = true;
       } else {
