@@ -3,10 +3,12 @@ package org.usfirst.frc.team4930.robot;
 import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
+import org.usfirst.frc.team4930.robot.subsystems.Pneumatics;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -18,6 +20,7 @@ public class Robot extends IterativeRobot
 {
   public static OI oi;
   public static DriveTrain driveTrain;
+  public static Pneumatics pneumatics;
   public static Climber climber;
   public static GearGadget gearGadget;
 
@@ -29,6 +32,7 @@ public class Robot extends IterativeRobot
   public void robotInit() {
     RobotMap.init();
     driveTrain = new DriveTrain();
+    pneumatics = new Pneumatics();
     climber = new Climber();
     gearGadget = new GearGadget();
     oi = new OI();
@@ -76,6 +80,7 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    SmartDashboard.putBoolean("solenoid value", RobotMap.solenoid.get());
   }
 
   /**
