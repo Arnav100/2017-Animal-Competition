@@ -42,13 +42,10 @@ public class RobotMap
     compressor = new Compressor(50);
 
     climber = new CANTalon(29);
-    climber.enableBrakeMode(true);
 
     // UNKNOWN TALONS
     gearGadgetLeft = new CANTalon(30);
     gearGadgetRight = new CANTalon(32);
-    gearGadgetLeft.enableBrakeMode(true);
-    gearGadgetRight.enableBrakeMode(true);
 
     // right side
     driveTrainRightMaster = new CANTalon(25);

@@ -85,6 +85,13 @@ public class Robot extends IterativeRobot
 
     isRecording = false;
     isPlaying = false;
+
+    Robot.ballIntake.enableBrakeMode();
+    Robot.climber.enableBrakeMode();
+    Robot.gearGadget.enableBrakeMode();
+    Robot.loader.enableBrakeMode();
+    Robot.shooter.disableBrakeMode();
+
   }
 
   /**
@@ -111,6 +118,8 @@ public class Robot extends IterativeRobot
    */
   @Override
   public void autonomousInit() {
+
+    Robot.driveTrain.enableBrakeMode(true);
 
     AutoFarGear = new FarGear();
     AutoFarReplay = new FarReplay();
@@ -148,7 +157,7 @@ public class Robot extends IterativeRobot
   @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
-    Robot.driveTrain.enableBrakeMode(true);
+
   }
 
   @Override
@@ -156,6 +165,7 @@ public class Robot extends IterativeRobot
     if (autoCommand != null) {
       autoCommand.cancel();
     }
+    Robot.driveTrain.enableBrakeMode(false);
   }
 
   /**
@@ -164,7 +174,7 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    Robot.driveTrain.enableBrakeMode(false);
+
   }
 
   public void testInit() {
