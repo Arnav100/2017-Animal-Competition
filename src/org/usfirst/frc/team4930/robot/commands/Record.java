@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Record extends Command
 {
+  // used to check for intentional button press
+  private boolean isIntentional = false;
 
   protected void initialize() {
     if (Robot.oi.getJoystick2Button7()) {
@@ -15,16 +17,17 @@ public class Record extends Command
       } catch (Exception e) {
         e.printStackTrace();
       }
-    } else {
-      end();
+      isIntentional = true;
     }
   }
 
   protected void execute() {
-    try {
-      Robot.recorder.record();
-    } catch (Exception e) {
-      e.printStackTrace();
+    if (isIntentional) {
+      try {
+        Robot.recorder.record();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
     }
   }
 

@@ -10,8 +10,6 @@ public class StopRecord extends Command
   protected void initialize() {
     if (Robot.oi.getJoystick2Button9()) {
       Robot.isRecording = false;
-    } else {
-      end();
     }
   }
 
