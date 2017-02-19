@@ -91,7 +91,6 @@ public class Robot extends IterativeRobot
     Robot.gearGadget.enableBrakeMode();
     Robot.loader.enableBrakeMode();
     Robot.shooter.disableBrakeMode();
-
   }
 
   /**
@@ -119,7 +118,7 @@ public class Robot extends IterativeRobot
   @Override
   public void autonomousInit() {
 
-    Robot.driveTrain.enableBrakeMode(true);
+    Robot.driveTrain.toggleBrakeMode(true);
 
     AutoFarGear = new FarGear();
     AutoFarReplay = new FarReplay();
@@ -165,7 +164,7 @@ public class Robot extends IterativeRobot
     if (autoCommand != null) {
       autoCommand.cancel();
     }
-    Robot.driveTrain.enableBrakeMode(false);
+    Robot.driveTrain.toggleBrakeMode(false);
   }
 
   /**

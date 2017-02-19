@@ -18,7 +18,7 @@ public class DriveTrain extends Subsystem
     RobotMap.driveTrainMasterMotors.tankDrive(-left, right);
   }
 
-  public void enableBrakeMode(boolean state) {
+  public void toggleBrakeMode(boolean state) {
     RobotMap.driveTrainLeftMaster.enableBrakeMode(state);
     RobotMap.driveTrainLeftSlave1.enableBrakeMode(state);
     RobotMap.driveTrainLeftSlave2.enableBrakeMode(state);
