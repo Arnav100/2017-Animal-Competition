@@ -20,6 +20,7 @@ import org.usfirst.frc.team4930.robot.utilities.Recorder;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -48,8 +49,6 @@ public class Robot extends IterativeRobot
   public static boolean isRecording;
   public static boolean isPlaying;
 
-  public static CANTalon motor;
-
   public static Command autoCommand;
   public static CommandGroup AutoFarGear;
   public static Command AutoFarReplay;
@@ -61,6 +60,8 @@ public class Robot extends IterativeRobot
   public static BallIntake ballIntake;
   public static Loader loader;
   public static Shooter shooter;
+
+  public static CANTalon motor;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -110,6 +111,7 @@ public class Robot extends IterativeRobot
    */
   @Override
   public void autonomousInit() {
+
     AutoFarGear = new FarGear();
     AutoFarReplay = new FarReplay();
     AutoMiddleGear = new MiddleGear();
@@ -146,6 +148,7 @@ public class Robot extends IterativeRobot
   @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
+    Robot.driveTrain.enableBrakeMode(true);
   }
 
   @Override
@@ -161,6 +164,11 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    Robot.driveTrain.enableBrakeMode(false);
+  }
+
+  public void testInit() {
+    motor = new CANTalon(31);
 
     SmartDashboard.putBoolean("isRecording: ", isRecording);
     SmartDashboard.putBoolean("isPlaying: ", isPlaying);
@@ -175,16 +183,22 @@ public class Robot extends IterativeRobot
     SmartDashboard.putNumber("Dial degrees", RobotMap.dialChooser.get());
   }
 
-  public void testInit() {
-    motor = new CANTalon(25);
-  }
-
   /**
    * This function is called periodically during test mode
    */
   @Override
   public void testPeriodic() {
     LiveWindow.run();
+    motor.enableBrakeMode(true);
+    motor.set(0.8);
+    Timer.delay(5);
+    motor.set(0.0);
+    Timer.delay(3);
+    motor.enableBrakeMode(false);
+    motor.set(0.8);
+    Timer.delay(5);
+    motor.set(0.0);
+    Timer.delay(10);
     motor.set(0.5);
   }
 }

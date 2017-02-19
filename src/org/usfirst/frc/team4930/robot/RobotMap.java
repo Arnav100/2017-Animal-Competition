@@ -81,6 +81,7 @@ public class RobotMap
     driveTrainMasterMotors.setExpiration(0.1);
     driveTrainMasterMotors.setSensitivity(0.5);
     driveTrainMasterMotors.setMaxOutput(1.0);
+
     // set brake mode
     driveTrainLeftSlave1.enableBrakeMode(false);
     driveTrainLeftSlave2.enableBrakeMode(false);
@@ -97,6 +98,5 @@ public class RobotMap
 
     // sensors
     dialChooser = new AnalogPotentiometer(2, 300, 0);
-
   }
 }
