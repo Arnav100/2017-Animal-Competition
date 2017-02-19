@@ -24,6 +24,11 @@ public class GearGadget extends Subsystem
     RobotMap.gearGadgetRight.set(-x);
   }
 
+  public void enableBrakeMode() {
+    RobotMap.gearGadgetLeft.enableBrakeMode(true);
+    RobotMap.gearGadgetRight.enableBrakeMode(true);
+  }
+
   public void stop() {
     Timer.delay(.3);
     RobotMap.gearGadgetLeft.set(-0.3);

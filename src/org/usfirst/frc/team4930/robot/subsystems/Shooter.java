@@ -18,6 +18,10 @@ public class Shooter extends Subsystem
     shooter.set(-0.9);
   }
 
+  public void disableBrakeMode() {
+    shooter.enableBrakeMode(false);
+  }
+
   public void stop() {
     shooter.set(0);
   }
