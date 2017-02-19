@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ShiftToggle extends Command
 {
-  public static boolean lastState;
 
   public ShiftToggle() {
     requires(Robot.pneumatics);
@@ -21,8 +20,8 @@ public class ShiftToggle extends Command
 
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
-    lastState = OI.joystick0Button1.get();
-    if (lastState) {
+
+    if (OI.joystick0Button1.get()) {
       Robot.pneumatics.enableHighGear();
     } else {
       Robot.pneumatics.enableLowGear();
