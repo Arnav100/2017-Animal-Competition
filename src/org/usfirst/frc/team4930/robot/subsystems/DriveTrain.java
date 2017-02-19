@@ -15,7 +15,7 @@ public class DriveTrain extends Subsystem
   }
 
   public void move(double left, double right) {
-    RobotMap.driveTrainMasterMotors.tankDrive(left, right);
+    RobotMap.driveTrainMasterMotors.tankDrive(-left, right);
   }
 
   public void enableBrakeMode(boolean state) {
