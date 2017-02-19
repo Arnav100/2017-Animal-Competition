@@ -7,26 +7,25 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PlaceGear extends Command
+public class CloseGearGadget extends Command
 {
 
-  public PlaceGear() {
+  public CloseGearGadget() {
     requires(Robot.gearGadget);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.open();
+    Robot.gearGadget.close();
   }
 
   protected boolean isFinished() {
-    return timeSinceInitialized() > 0.1;
+    return false;
   }
 
   protected void end() {
     Robot.gearGadget.stop();
-    new CloseGearGadget().start();
   }
 
   protected void interrupted() {
