@@ -42,13 +42,10 @@ public class RobotMap
     compressor = new Compressor(50);
 
     climber = new CANTalon(29);
-    climber.enableBrakeMode(true);
 
     // UNKNOWN TALONS
     gearGadgetLeft = new CANTalon(30);
     gearGadgetRight = new CANTalon(32);
-    gearGadgetLeft.enableBrakeMode(true);
-    gearGadgetRight.enableBrakeMode(true);
 
     // right side
     driveTrainRightMaster = new CANTalon(25);
@@ -81,6 +78,7 @@ public class RobotMap
     driveTrainMasterMotors.setExpiration(0.1);
     driveTrainMasterMotors.setSensitivity(0.5);
     driveTrainMasterMotors.setMaxOutput(1.0);
+
     // set brake mode
     driveTrainLeftSlave1.enableBrakeMode(false);
     driveTrainLeftSlave2.enableBrakeMode(false);
@@ -97,6 +95,5 @@ public class RobotMap
 
     // sensors
     dialChooser = new AnalogPotentiometer(2, 300, 0);
-
   }
 }

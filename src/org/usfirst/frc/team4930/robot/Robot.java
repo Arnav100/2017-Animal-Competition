@@ -20,6 +20,7 @@ import org.usfirst.frc.team4930.robot.utilities.Recorder;
 import com.ctre.CANTalon;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -34,21 +35,23 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot
 {
-  public static OI oi;
-  public static DriveTrain driveTrain;
-  public static Pneumatics pneumatics;
-  public static Climber climber;
-  public static GearGadget gearGadget;
-  public static Dial dial;
 
-  public static Recorder recorder;
+  public static Pneumatics pneumatics;
+  public static BallIntake ballIntake;
+  public static Climber climber;
+  public static Dial dial;
+  public static DriveTrain driveTrain;
+  public static GearGadget gearGadget;
+  public static Loader loader;
+  public static OI oi;
   public static Playbacker playbacker;
+  public static Recorder recorder;
+  public static Shooter shooter;
+
   public static String autoFile = "TestReplay";
   public static String autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
   public static boolean isRecording;
   public static boolean isPlaying;
-
-  public static CANTalon motor;
 
   public static Command autoCommand;
   public static CommandGroup AutoFarGear;
@@ -58,9 +61,7 @@ public class Robot extends IterativeRobot
   public static CommandGroup AutoNearGear;
   public static Command AutoNearReplay;
 
-  public static BallIntake ballIntake;
-  public static Loader loader;
-  public static Shooter shooter;
+  public static CANTalon motor;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -70,20 +71,27 @@ public class Robot extends IterativeRobot
   public void robotInit() {
     RobotMap.init();
 
+    ballIntake = new BallIntake();
+    climber = new Climber();
     dial = new Dial();
     driveTrain = new DriveTrain();
-    ballIntake = new BallIntake();
+    gearGadget = new GearGadget();
     loader = new Loader();
-    shooter = new Shooter();
-    recorder = new Recorder();
     playbacker = new Playbacker();
     pneumatics = new Pneumatics();
-    climber = new Climber();
-    gearGadget = new GearGadget();
+    recorder = new Recorder();
+    shooter = new Shooter();
+
     oi = new OI();
 
     isRecording = false;
     isPlaying = false;
+
+    Robot.ballIntake.enableBrakeMode();
+    Robot.climber.enableBrakeMode();
+    Robot.gearGadget.enableBrakeMode();
+    Robot.loader.enableBrakeMode();
+    Robot.shooter.disableBrakeMode();
   }
 
   /**
@@ -110,6 +118,9 @@ public class Robot extends IterativeRobot
    */
   @Override
   public void autonomousInit() {
+
+    Robot.driveTrain.toggleBrakeMode(true);
+
     AutoFarGear = new FarGear();
     AutoFarReplay = new FarReplay();
     AutoMiddleGear = new MiddleGear();
@@ -146,6 +157,7 @@ public class Robot extends IterativeRobot
   @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
+
   }
 
   @Override
@@ -153,6 +165,7 @@ public class Robot extends IterativeRobot
     if (autoCommand != null) {
       autoCommand.cancel();
     }
+    Robot.driveTrain.toggleBrakeMode(false);
   }
 
   /**
@@ -161,6 +174,11 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+
+  }
+
+  public void testInit() {
+    motor = new CANTalon(31);
 
     SmartDashboard.putBoolean("isRecording: ", isRecording);
     SmartDashboard.putBoolean("isPlaying: ", isPlaying);
@@ -175,16 +193,22 @@ public class Robot extends IterativeRobot
     SmartDashboard.putNumber("Dial degrees", RobotMap.dialChooser.get());
   }
 
-  public void testInit() {
-    motor = new CANTalon(25);
-  }
-
   /**
    * This function is called periodically during test mode
    */
   @Override
   public void testPeriodic() {
     LiveWindow.run();
+    motor.enableBrakeMode(true);
+    motor.set(0.8);
+    Timer.delay(5);
+    motor.set(0.0);
+    Timer.delay(3);
+    motor.enableBrakeMode(false);
+    motor.set(0.8);
+    Timer.delay(5);
+    motor.set(0.0);
+    Timer.delay(10);
     motor.set(0.5);
   }
 }

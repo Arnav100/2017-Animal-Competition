@@ -7,26 +7,25 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PlaceGear extends Command
+public class Intake extends Command
 {
 
-  public PlaceGear() {
-    requires(Robot.gearGadget);
+  public Intake() {
+    requires(Robot.ballIntake);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.open();
+    Robot.ballIntake.intake(0.9);
   }
 
   protected boolean isFinished() {
-    return timeSinceInitialized() > 0.1;
+    return false;
   }
 
   protected void end() {
-    Robot.gearGadget.stop();
-    new CloseGearGadget().start();
+    Robot.ballIntake.stop();
   }
 
   protected void interrupted() {
