@@ -17,9 +17,9 @@ public class BallIntake extends Subsystem
     ballIntakeRight.set(-0.6);
   }
 
-  public void intake() {
-    ballIntakeLeft.set(0.9);
-    ballIntakeRight.set(-0.9);
+  public void intake(double x) {
+    ballIntakeLeft.set(x);
+    ballIntakeRight.set(-x);
   }
 
   public void enableBrakeMode() {
