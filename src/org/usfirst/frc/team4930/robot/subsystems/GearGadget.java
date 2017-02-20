@@ -1,9 +1,10 @@
 package org.usfirst.frc.team4930.robot.subsystems;
 
 import org.usfirst.frc.team4930.robot.RobotMap;
-import org.usfirst.frc.team4930.robot.commands.PlaceGear;
+import org.usfirst.frc.team4930.robot.commands.CloseGearGadget;
 
-import edu.wpi.first.wpilibj.Timer;
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -11,30 +12,31 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class GearGadget extends Subsystem
 {
-
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+  private final CANTalon gearGadgetLeft = RobotMap.gearGadgetLeft;
+  private final CANTalon gearGadgetRight = RobotMap.gearGadgetRight;
+  // gearGadgetRight is inverted?
 
   public void initDefaultCommand() {
-    setDefaultCommand(new PlaceGear());
+    setDefaultCommand(new CloseGearGadget());
   }
 
-  public void openGearPlacer(double x) {
-    RobotMap.gearGadgetLeft.set(x);
-    RobotMap.gearGadgetRight.set(-x);
+  public void open() {
+    gearGadgetLeft.set(1);
+    gearGadgetRight.set(-1);
+  }
+
+  public void close() {
+    gearGadgetLeft.set(-0.1);
+    gearGadgetRight.set(0.1);
   }
 
   public void enableBrakeMode() {
-    RobotMap.gearGadgetLeft.enableBrakeMode(true);
-    RobotMap.gearGadgetRight.enableBrakeMode(true);
+    gearGadgetLeft.enableBrakeMode(true);
+    gearGadgetRight.enableBrakeMode(true);
   }
 
   public void stop() {
-    Timer.delay(.3);
-    RobotMap.gearGadgetLeft.set(-0.3);
-    RobotMap.gearGadgetRight.set(0.3);
-    Timer.delay(0.75);
-    RobotMap.gearGadgetLeft.set(0.0);
-    RobotMap.gearGadgetRight.set(0.0);
+    gearGadgetLeft.set(0);
+    gearGadgetRight.set(0);
   }
 }
