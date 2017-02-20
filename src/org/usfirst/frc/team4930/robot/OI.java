@@ -4,6 +4,7 @@ import org.usfirst.frc.team4930.robot.commands.ChangeOrientation;
 import org.usfirst.frc.team4930.robot.commands.ClearBalls;
 import org.usfirst.frc.team4930.robot.commands.Climb;
 import org.usfirst.frc.team4930.robot.commands.Intake;
+import org.usfirst.frc.team4930.robot.commands.PlaceGear;
 import org.usfirst.frc.team4930.robot.commands.Playback;
 import org.usfirst.frc.team4930.robot.commands.Record;
 import org.usfirst.frc.team4930.robot.commands.ShiftDown;
@@ -41,6 +42,7 @@ public class OI
   public static JoystickButton joystick1Button12;
 
   public static JoystickButton joystick2Button1;
+  public static JoystickButton joystick2Button2;
   public static JoystickButton joystick2Button3;
   public static JoystickButton joystick2Button4;
   public static JoystickButton joystick2Button5;
@@ -82,6 +84,9 @@ public class OI
 
     joystick2Button1 = new JoystickButton(joystick2, 1);
     joystick2Button1.whileHeld(new ShootCommandGroup());
+
+    joystick2Button2 = new JoystickButton(joystick2, 2);
+    joystick2Button2.whenPressed(new PlaceGear());
 
     joystick2Button3 = new JoystickButton(joystick2, 3);
     joystick2Button3.whileHeld(new Climb());

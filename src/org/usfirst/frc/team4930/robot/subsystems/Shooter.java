@@ -11,7 +11,7 @@ public class Shooter extends Subsystem
   private final CANTalon shooter = RobotMap.shooter;
 
   public void spinUp() {
-    shooter.set(1);
+    shooter.set(0.9);
   }
 
   public void clearBalls() {
