@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4930.robot.subsystems;
 
 import org.usfirst.frc.team4930.robot.RobotMap;
-import org.usfirst.frc.team4930.robot.commands.PlaceGear;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -15,9 +14,7 @@ public class GearGadget extends Subsystem
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  public void initDefaultCommand() {
-    setDefaultCommand(new PlaceGear());
-  }
+  public void initDefaultCommand() {}
 
   public void openGearPlacer(double x) {
     RobotMap.gearGadgetLeft.set(x);

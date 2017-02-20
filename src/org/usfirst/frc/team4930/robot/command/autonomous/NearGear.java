@@ -9,8 +9,11 @@ public class NearGear extends CommandGroup
 {
 
   public NearGear() {
+    addSequential(new EncoderMove(-0.3, -3));
+    addSequential(new GyroTurn(45));
+    addSequential(new EncoderMove(-0.3, -1));
+    // addSequential(new NearReplay());
 
-    addSequential(new NearReplay());
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());

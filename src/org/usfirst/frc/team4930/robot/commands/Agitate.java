@@ -17,7 +17,7 @@ public class Agitate extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.ballIntake.agitate();
+    // Robot.ballIntake.agitate();
   }
 
   protected boolean isFinished() {
@@ -25,7 +25,7 @@ public class Agitate extends Command
   }
 
   protected void end() {
-    Robot.ballIntake.stop();
+    // Robot.ballIntake.stop();
   }
 
   protected void interrupted() {

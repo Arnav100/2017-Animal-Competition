@@ -15,8 +15,8 @@ public class ClearBalls extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.shooter.clearBalls();
-    Robot.loader.clearBalls();
+    // Robot.shooter.clearBalls();
+    // Robot.loader.clearBalls();
   }
 
   protected boolean isFinished() {
@@ -24,8 +24,8 @@ public class ClearBalls extends Command
   }
 
   protected void end() {
-    Robot.shooter.stop();
-    Robot.loader.stop();
+    // Robot.shooter.stop();
+    // Robot.loader.stop();
   }
 
   protected void interrupted() {

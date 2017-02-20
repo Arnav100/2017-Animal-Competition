@@ -28,5 +28,7 @@ public class PlaceGear extends Command
     Robot.gearGadget.stop();
   }
 
-  protected void interrupted() {}
+  protected void interrupted() {
+    end();
+  }
 }

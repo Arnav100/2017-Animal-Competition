@@ -1,7 +1,9 @@
 package org.usfirst.frc.team4930.robot;
 
+import org.usfirst.frc.team4930.robot.command.autonomous.EncoderMove;
 import org.usfirst.frc.team4930.robot.command.autonomous.FarGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.FarReplay;
+import org.usfirst.frc.team4930.robot.command.autonomous.GyroTurn;
 import org.usfirst.frc.team4930.robot.command.autonomous.MiddleGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.MiddleReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.NearGear;
@@ -16,6 +18,8 @@ import org.usfirst.frc.team4930.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team4930.robot.subsystems.Shooter;
 import org.usfirst.frc.team4930.robot.utilities.Playbacker;
 import org.usfirst.frc.team4930.robot.utilities.Recorder;
+import org.usfirst.frc.team4930.sensors.Encoders;
+import org.usfirst.frc.team4930.sensors.Gyro;
 
 import com.ctre.CANTalon;
 
@@ -41,6 +45,7 @@ public class Robot extends IterativeRobot
   public static Climber climber;
   public static GearGadget gearGadget;
   public static Dial dial;
+  public static Gyro gyro;
 
   public static Recorder recorder;
   public static Playbacker playbacker;
@@ -50,6 +55,8 @@ public class Robot extends IterativeRobot
   public static boolean isPlaying;
 
   public static Command autoCommand;
+  public static Command autoEncoderMove;
+  public static Command autoGyroTurn;
   public static CommandGroup AutoFarGear;
   public static Command AutoFarReplay;
   public static CommandGroup AutoMiddleGear;
@@ -60,6 +67,7 @@ public class Robot extends IterativeRobot
   public static BallIntake ballIntake;
   public static Loader loader;
   public static Shooter shooter;
+  public static Encoders encoder;
 
   public static CANTalon motor;
 
@@ -71,6 +79,7 @@ public class Robot extends IterativeRobot
   public void robotInit() {
     RobotMap.init();
 
+    encoder = new Encoders();
     dial = new Dial();
     driveTrain = new DriveTrain();
     ballIntake = new BallIntake();
@@ -81,16 +90,17 @@ public class Robot extends IterativeRobot
     pneumatics = new Pneumatics();
     climber = new Climber();
     gearGadget = new GearGadget();
+    gyro = new Gyro();
     oi = new OI();
 
     isRecording = false;
     isPlaying = false;
 
-    Robot.ballIntake.enableBrakeMode();
-    Robot.climber.enableBrakeMode();
-    Robot.gearGadget.enableBrakeMode();
-    Robot.loader.enableBrakeMode();
-    Robot.shooter.disableBrakeMode();
+    // Robot.ballIntake.enableBrakeMode();
+    // Robot.climber.enableBrakeMode();
+    // Robot.gearGadget.enableBrakeMode();
+    // Robot.loader.enableBrakeMode();
+    // Robot.shooter.disableBrakeMode();
   }
 
   /**
@@ -103,6 +113,7 @@ public class Robot extends IterativeRobot
   @Override
   public void disabledPeriodic() {
     Scheduler.getInstance().run();
+    gyro.calibrating();
   }
 
   /**
@@ -120,6 +131,8 @@ public class Robot extends IterativeRobot
 
     Robot.driveTrain.toggleBrakeMode(true);
 
+    autoGyroTurn = new GyroTurn(45);
+    autoEncoderMove = new EncoderMove(0.6, 2);
     AutoFarGear = new FarGear();
     AutoFarReplay = new FarReplay();
     AutoMiddleGear = new MiddleGear();
@@ -147,7 +160,9 @@ public class Robot extends IterativeRobot
         autoCommand = AutoFarReplay;
         break;
     }
+
     autoCommand.start();
+
   }
 
   /**
@@ -156,7 +171,10 @@ public class Robot extends IterativeRobot
   @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
-
+    SmartDashboard.putNumber("Right Encoder", RobotMap.driveTrainRightMaster.getEncPosition());
+    SmartDashboard.putNumber("Left Encoder", RobotMap.driveTrainLeftMaster.getEncPosition());
+    SmartDashboard.putNumber("Gyro Angle", gyro.getAngle());
+    SmartDashboard.putNumber("Dial Position", Dial.getDial());
   }
 
   @Override
@@ -173,6 +191,10 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    SmartDashboard.putNumber("Right Encoder", RobotMap.driveTrainRightMaster.getEncPosition());
+    SmartDashboard.putNumber("Left Encoder", RobotMap.driveTrainLeftMaster.getEncPosition());
+    SmartDashboard.putNumber("Gyro Angle", gyro.getAngle());
+    SmartDashboard.putNumber("Dial Position", Dial.getDial());
 
   }
 

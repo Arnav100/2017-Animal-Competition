@@ -18,7 +18,7 @@ public class SpinUpShooter extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.shooter.spinUp();
+    // Robot.shooter.spinUp();
     Timer.delay(1);
   }
 
@@ -27,7 +27,7 @@ public class SpinUpShooter extends Command
   }
 
   protected void end() {
-    Robot.shooter.stop();
+    // Robot.shooter.stop();
   }
 
   protected void interrupted() {

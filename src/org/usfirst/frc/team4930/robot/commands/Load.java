@@ -17,7 +17,7 @@ public class Load extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.loader.load();
+    // Robot.loader.load();
   }
 
   protected boolean isFinished() {
@@ -25,7 +25,7 @@ public class Load extends Command
   }
 
   protected void end() {
-    Robot.loader.stop();
+    // Robot.loader.stop();
   }
 
   protected void interrupted() {
