@@ -1,6 +1,5 @@
 package org.usfirst.frc.team4930.robot.commands;
 
-import org.usfirst.frc.team4930.robot.OI;
 import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -10,6 +9,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ShiftToggle extends Command
 {
+
+  private static boolean isLowGear = true;
 
   public ShiftToggle() {
     requires(Robot.pneumatics);
@@ -21,16 +22,18 @@ public class ShiftToggle extends Command
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
 
-    if (OI.joystick0Button1.get()) {
+    if (isLowGear) {
       Robot.pneumatics.enableHighGear();
+      isLowGear = false;
     } else {
       Robot.pneumatics.enableLowGear();
+      isLowGear = true;
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
