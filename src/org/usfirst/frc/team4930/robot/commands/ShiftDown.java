@@ -7,28 +7,24 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CloseGearGadget extends Command
+public class ShiftDown extends Command
 {
 
-  public CloseGearGadget() {
-    requires(Robot.gearGadget);
+  public ShiftDown() {
+    requires(Robot.pneumatics);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.close();
+    Robot.pneumatics.enableLowGear();
   }
 
   protected boolean isFinished() {
     return false;
   }
 
-  protected void end() {
-    Robot.gearGadget.stop();
-  }
+  protected void end() {}
 
-  protected void interrupted() {
-    end();
-  }
+  protected void interrupted() {}
 }
