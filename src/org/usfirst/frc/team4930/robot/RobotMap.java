@@ -87,7 +87,6 @@ public class RobotMap
     driveTrainRightMaster.enableBrakeMode(false);
     driveTrainLeftMaster.enableBrakeMode(false);
 
-    ballIntakeLeft = new CANTalon(28);
     ballIntakeRight = new CANTalon(27);
     loader = new CANTalon(33);
     shooter = new CANTalon(31);

@@ -17,7 +17,7 @@ public class Intake extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.ballIntake.intake(0.9);
+    Robot.ballIntake.intake(0.45);
   }
 
   protected boolean isFinished() {
