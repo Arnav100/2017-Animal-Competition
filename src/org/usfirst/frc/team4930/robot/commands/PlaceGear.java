@@ -17,19 +17,18 @@ public class PlaceGear extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.open();
+    Robot.gearGadget.openGearPlacer(0.8);
   }
 
   protected boolean isFinished() {
-    return timeSinceInitialized() > 0.1;
+    return false;
   }
 
   protected void end() {
     Robot.gearGadget.stop();
-    new CloseGearGadget().start();
   }
 
   protected void interrupted() {
-    end();
+    Robot.gearGadget.stop();
   }
 }
