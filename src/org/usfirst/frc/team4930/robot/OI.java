@@ -24,19 +24,14 @@ public class OI
   public static Joystick joystick1;
   public static Joystick joystick2;
 
-  public static JoystickButton joystick0button11;
-
   public static JoystickButton joystick0Button1;
   public static JoystickButton joystick0Button2;
   public static JoystickButton joystick0Button3;
-
-  public static JoystickButton joystick2Button7;
-  public static JoystickButton joystick2Button9;
-  public static JoystickButton joystick2Button11;
   public static JoystickButton joystick0Button6;
   public static JoystickButton joystick0Button7;
   public static JoystickButton joystick0Button8;
   public static JoystickButton joystick0Button9;
+  public static JoystickButton joystick0button11;
 
   public static JoystickButton joystick1Button1;
   public static JoystickButton joystick1Button3;
@@ -48,8 +43,11 @@ public class OI
   public static JoystickButton joystick2Button3;
   public static JoystickButton joystick2Button4;
   public static JoystickButton joystick2Button5;
+  public static JoystickButton joystick2Button7;
   public static JoystickButton joystick2Button8;
+  public static JoystickButton joystick2Button9;
   public static JoystickButton joystick2Button10;
+  public static JoystickButton joystick2Button11;
   public static JoystickButton joystick2Button12;
 
   public OI() {
@@ -63,17 +61,8 @@ public class OI
     joystick0Button6 = new JoystickButton(joystick0, 6);
     joystick0Button6.whenPressed(new ChangeOrientation());
 
-    joystick0button11 = new JoystickButton(joystick0, 11);
-    joystick0button11.whileHeld(new Climb());
-
     joystick1Button1 = new JoystickButton(joystick1, 1);
     joystick1Button1.whileHeld(new Intake());
-
-    joystick1Button3 = new JoystickButton(joystick1, 3);
-    joystick1Button3.whileHeld(new ShootCommandGroup());
-
-    joystick1Button4 = new JoystickButton(joystick1, 4);
-    joystick1Button4.whileHeld(new ClearBalls());
 
     // ChangeCamera not yet implemented.....
     joystick1Button5 = new JoystickButton(joystick1, 5);
