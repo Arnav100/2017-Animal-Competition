@@ -23,7 +23,7 @@ public class Pneumatics extends Subsystem
   }
 
   public void enableLowGear() {
-    RobotMap.solenoid.set(true);
+    RobotMap.solenoid.set(false);
   }
 
 }

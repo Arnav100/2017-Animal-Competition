@@ -6,8 +6,7 @@ import org.usfirst.frc.team4930.robot.commands.Intake;
 import org.usfirst.frc.team4930.robot.commands.PlaceGear;
 import org.usfirst.frc.team4930.robot.commands.Playback;
 import org.usfirst.frc.team4930.robot.commands.Record;
-import org.usfirst.frc.team4930.robot.commands.ShiftDown;
-import org.usfirst.frc.team4930.robot.commands.ShiftUp;
+import org.usfirst.frc.team4930.robot.commands.ShiftToggle;
 import org.usfirst.frc.team4930.robot.commands.ShootCommandGroup;
 import org.usfirst.frc.team4930.robot.commands.StopRecord;
 
@@ -57,25 +56,12 @@ public class OI
     joystick1 = new Joystick(1);
     joystick2 = new Joystick(2);
 
-    // delete these when ShiftToggle is implemented....
-    joystick0Button2 = new JoystickButton(joystick0, 2);
-    joystick0Button2.whenPressed(new ShiftUp());
-    joystick0Button3 = new JoystickButton(joystick0, 3);
-    joystick0Button3.whenPressed(new ShiftDown());
-
-    // ShiftToggle not yet implemented...
     joystick0Button1 = new JoystickButton(joystick0, 1);
-    // joystick0Button1.whenPressed(new ShiftToggle());
+    joystick0Button1.whenPressed(new ShiftToggle());
 
     // ChangeOrientation not yet implemented....
     joystick0Button6 = new JoystickButton(joystick0, 6);
     // joystick0Button6.whenPressed(new ChangeOrientation());
-
-    // ChangeCamera not yet implemented.....
-    joystick1Button5 = new JoystickButton(joystick1, 5);
-    // joystick1Button5.whenPressed(new ChangeCamera());
-    joystick2Button5 = new JoystickButton(joystick2, 5);
-    // joystick2Button5.whenPressed(new ChangeCamera);
 
     joystick0button11 = new JoystickButton(joystick0, 11);
     joystick0button11.whileHeld(new Climb());
@@ -88,6 +74,10 @@ public class OI
 
     joystick1Button4 = new JoystickButton(joystick1, 4);
     joystick1Button4.whileHeld(new ClearBalls());
+
+    // ChangeCamera not yet implemented.....
+    joystick1Button5 = new JoystickButton(joystick1, 5);
+    // joystick1Button5.whenPressed(new ChangeCamera());
 
     joystick1Button12 = new JoystickButton(joystick1, 12);
     joystick1Button12.whileHeld(new PlaceGear());
@@ -105,6 +95,9 @@ public class OI
 
     joystick2Button4 = new JoystickButton(joystick2, 4);
     joystick2Button4.whileHeld(new ClearBalls());
+
+    joystick2Button5 = new JoystickButton(joystick2, 5);
+    // joystick2Button5.whenPressed(new ChangeCamera);
 
     joystick2Button8 = new JoystickButton(joystick2, 8);
     joystick2Button8.whenPressed(new Record());
