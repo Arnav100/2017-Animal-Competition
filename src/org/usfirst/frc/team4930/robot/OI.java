@@ -59,14 +59,14 @@ public class OI
     joystick0Button1 = new JoystickButton(joystick0, 1);
     joystick0Button1.whenPressed(new ShiftToggle());
 
-    joystick0Button2 = new JoystickButton(joystick0, 6);
-    joystick0Button2.whenPressed(new ShiftUp());
-
     joystick0Button3 = new JoystickButton(joystick0, 4);
     joystick0Button3.whenPressed(new ShiftDown());
 
-    joystick0Button6 = new JoystickButton(joystick0, 6);
+    joystick0Button6 = new JoystickButton(joystick0, 5);
     joystick0Button6.whenPressed(new ChangeOrientation());
+
+    joystick0Button2 = new JoystickButton(joystick0, 6);
+    joystick0Button2.whenPressed(new ShiftUp());
 
     joystick1Button1 = new JoystickButton(joystick1, 1);
     joystick1Button1.whileHeld(new Intake());
