@@ -17,7 +17,7 @@ public class PlaceGear extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.open();
+    Robot.gearGadget.open(1);
   }
 
   protected boolean isFinished() {

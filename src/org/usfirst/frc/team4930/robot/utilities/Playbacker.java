@@ -35,7 +35,11 @@ public class Playbacker
       }
       // deltaTime makes sure that the player sets the motor values at the correct times
       double timeDelta = nextTimestamp - (System.currentTimeMillis() - startTime);
+      /*
+       * MAKE SURE TO SET THE VALUES IN THE ORDER YOU RECORDED THEM
+       */
       if (timeDelta <= 0) {
+        // driveTrain
         double joystick0Y = scanner.nextDouble();
         double joystick1Y = scanner.nextDouble();
         if (isInverted) {
@@ -43,6 +47,16 @@ public class Playbacker
         } else {
           Robot.driveTrain.move(joystick0Y, joystick1Y);
         }
+        // ballIntake
+        Robot.ballIntake.intake(scanner.nextDouble());
+        // climber
+        Robot.climber.climb(scanner.nextDouble());
+        // gearGadget
+        Robot.gearGadget.open(scanner.nextDouble());
+        // loader
+        Robot.loader.load(scanner.nextDouble());
+        // shooter
+        Robot.shooter.spinUp(scanner.nextDouble());
         onTime = true;
       } else {
         // hold the player back until the current time matches the timestamp

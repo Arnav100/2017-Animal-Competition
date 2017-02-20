@@ -18,7 +18,7 @@ public class SpinUpShooter extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.shooter.spinUp();
+    Robot.shooter.spinUp(0.9);
     Timer.delay(1);
   }
 

@@ -27,10 +27,19 @@ public class BallIntake extends Subsystem
     ballIntakeRight.enableBrakeMode(true);
   }
 
+  public void disableBrakeMode() {
+    ballIntakeLeft.enableBrakeMode(false);
+    ballIntakeRight.enableBrakeMode(false);
+  }
+
   public void stop() {
     ballIntakeLeft.set(0);
     ballIntakeRight.set(0);
   }
 
   protected void initDefaultCommand() {}
+
+  public double getBallIntakeLeft() {
+    return ballIntakeLeft.get();
+  }
 }

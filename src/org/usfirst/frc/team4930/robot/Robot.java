@@ -87,7 +87,7 @@ public class Robot extends IterativeRobot
     isRecording = false;
     isPlaying = false;
 
-    Robot.ballIntake.enableBrakeMode();
+    Robot.ballIntake.disableBrakeMode();
     Robot.climber.enableBrakeMode();
     Robot.loader.enableBrakeMode();
     Robot.gearGadget.enableBrakeMode();
