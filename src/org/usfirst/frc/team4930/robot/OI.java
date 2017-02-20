@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4930.robot;
 
+import org.usfirst.frc.team4930.robot.commands.ChangeOrientation;
 import org.usfirst.frc.team4930.robot.commands.ClearBalls;
 import org.usfirst.frc.team4930.robot.commands.Climb;
 import org.usfirst.frc.team4930.robot.commands.Intake;
@@ -59,9 +60,8 @@ public class OI
     joystick0Button1 = new JoystickButton(joystick0, 1);
     joystick0Button1.whenPressed(new ShiftToggle());
 
-    // ChangeOrientation not yet implemented....
     joystick0Button6 = new JoystickButton(joystick0, 6);
-    // joystick0Button6.whenPressed(new ChangeOrientation());
+    joystick0Button6.whenPressed(new ChangeOrientation());
 
     joystick0button11 = new JoystickButton(joystick0, 11);
     joystick0button11.whileHeld(new Climb());

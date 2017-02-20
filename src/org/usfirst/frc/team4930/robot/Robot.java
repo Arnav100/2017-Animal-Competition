@@ -35,7 +35,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot
 {
-
   public static Pneumatics pneumatics;
   public static BallIntake ballIntake;
   public static Climber climber;
@@ -52,6 +51,7 @@ public class Robot extends IterativeRobot
   public static String autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
   public static boolean isRecording;
   public static boolean isPlaying;
+  public static boolean orientation = true;
 
   public static Command autoCommand;
   public static CommandGroup AutoFarGear;

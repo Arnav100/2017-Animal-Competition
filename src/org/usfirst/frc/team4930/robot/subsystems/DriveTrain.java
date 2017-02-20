@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4930.robot.subsystems;
 
+import org.usfirst.frc.team4930.robot.Robot;
 import org.usfirst.frc.team4930.robot.RobotMap;
 import org.usfirst.frc.team4930.robot.commands.TankDrive;
 
@@ -15,7 +16,12 @@ public class DriveTrain extends Subsystem
   }
 
   public void move(double left, double right) {
-    RobotMap.driveTrainMasterMotors.tankDrive(-left, right);
+    if (Robot.orientation) {
+      RobotMap.driveTrainMasterMotors.tankDrive(-left, right);
+    } else {
+      RobotMap.driveTrainMasterMotors.tankDrive(-right, left);
+    }
+
   }
 
   public void toggleBrakeMode(boolean state) {
