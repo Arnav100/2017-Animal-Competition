@@ -4,10 +4,11 @@ import org.usfirst.frc.team4930.robot.commands.ChangeOrientation;
 import org.usfirst.frc.team4930.robot.commands.ClearBalls;
 import org.usfirst.frc.team4930.robot.commands.Climb;
 import org.usfirst.frc.team4930.robot.commands.Intake;
-import org.usfirst.frc.team4930.robot.commands.PlaceGear;
 import org.usfirst.frc.team4930.robot.commands.Playback;
 import org.usfirst.frc.team4930.robot.commands.Record;
+import org.usfirst.frc.team4930.robot.commands.ShiftDown;
 import org.usfirst.frc.team4930.robot.commands.ShiftToggle;
+import org.usfirst.frc.team4930.robot.commands.ShiftUp;
 import org.usfirst.frc.team4930.robot.commands.ShootCommandGroup;
 import org.usfirst.frc.team4930.robot.commands.StopRecord;
 
@@ -24,19 +25,14 @@ public class OI
   public static Joystick joystick1;
   public static Joystick joystick2;
 
-  public static JoystickButton joystick0button11;
-
   public static JoystickButton joystick0Button1;
   public static JoystickButton joystick0Button2;
   public static JoystickButton joystick0Button3;
-
-  public static JoystickButton joystick2Button7;
-  public static JoystickButton joystick2Button9;
-  public static JoystickButton joystick2Button11;
   public static JoystickButton joystick0Button6;
   public static JoystickButton joystick0Button7;
   public static JoystickButton joystick0Button8;
   public static JoystickButton joystick0Button9;
+  public static JoystickButton joystick0button11;
 
   public static JoystickButton joystick1Button1;
   public static JoystickButton joystick1Button3;
@@ -48,8 +44,11 @@ public class OI
   public static JoystickButton joystick2Button3;
   public static JoystickButton joystick2Button4;
   public static JoystickButton joystick2Button5;
+  public static JoystickButton joystick2Button7;
   public static JoystickButton joystick2Button8;
+  public static JoystickButton joystick2Button9;
   public static JoystickButton joystick2Button10;
+  public static JoystickButton joystick2Button11;
   public static JoystickButton joystick2Button12;
 
   public OI() {
@@ -60,27 +59,21 @@ public class OI
     joystick0Button1 = new JoystickButton(joystick0, 1);
     joystick0Button1.whenPressed(new ShiftToggle());
 
-    joystick0Button6 = new JoystickButton(joystick0, 6);
+    joystick0Button3 = new JoystickButton(joystick0, 4);
+    joystick0Button3.whenPressed(new ShiftDown());
+
+    joystick0Button6 = new JoystickButton(joystick0, 5);
     joystick0Button6.whenPressed(new ChangeOrientation());
 
-    joystick0button11 = new JoystickButton(joystick0, 11);
-    joystick0button11.whileHeld(new Climb());
+    joystick0Button2 = new JoystickButton(joystick0, 6);
+    joystick0Button2.whenPressed(new ShiftUp());
 
     joystick1Button1 = new JoystickButton(joystick1, 1);
     joystick1Button1.whileHeld(new Intake());
 
-    joystick1Button3 = new JoystickButton(joystick1, 3);
-    joystick1Button3.whileHeld(new ShootCommandGroup());
-
-    joystick1Button4 = new JoystickButton(joystick1, 4);
-    joystick1Button4.whileHeld(new ClearBalls());
-
     // ChangeCamera not yet implemented.....
     joystick1Button5 = new JoystickButton(joystick1, 5);
     // joystick1Button5.whenPressed(new ChangeCamera());
-
-    joystick1Button12 = new JoystickButton(joystick1, 12);
-    joystick1Button12.whileHeld(new PlaceGear());
 
     // used the prevent accidental recording button presses
     joystick2Button7 = new JoystickButton(joystick2, 7);

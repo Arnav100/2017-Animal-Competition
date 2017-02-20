@@ -38,14 +38,14 @@ public class RobotMap
 
   public static void init() {
 
-    solenoid = new Solenoid(50, 0);
+    solenoid = new Solenoid(50, 5);
     compressor = new Compressor(50);
 
     climber = new CANTalon(29);
 
-    // UNKNOWN TALONS
-    gearGadgetLeft = new CANTalon(30);
-    gearGadgetRight = new CANTalon(32);
+    // // UNKNOWN TALONS
+    // gearGadgetLeft = new CANTalon(30);
+    // gearGadgetRight = new CANTalon(32);
 
     // right side
     driveTrainRightMaster = new CANTalon(25);
