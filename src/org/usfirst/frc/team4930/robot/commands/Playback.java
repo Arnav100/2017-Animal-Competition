@@ -6,18 +6,25 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Playback extends Command
 {
+  // used to check for intentional button press
+  private boolean isIntentional = false;
 
   protected void initialize() {
-    Robot.isPlaying = true;
-    try {
-      Robot.playbacker.setupPlayback();
-    } catch (Exception e) {
-      e.printStackTrace();
+    if (Robot.oi.getJoystick2Button11()) {
+      Robot.isPlaying = true;
+      try {
+        Robot.playbacker.setupPlayback();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+      isIntentional = true;
     }
   }
 
   protected void execute() {
-    Robot.playbacker.play();
+    if (isIntentional) {
+      Robot.playbacker.play();
+    }
   }
 
   protected boolean isFinished() {

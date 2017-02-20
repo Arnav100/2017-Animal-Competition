@@ -23,11 +23,16 @@ public class OI
   public static Joystick joystick0;
   public static Joystick joystick1;
   public static Joystick joystick2;
+
   public static JoystickButton joystick0button11;
 
   public static JoystickButton joystick0Button1;
   public static JoystickButton joystick0Button2;
   public static JoystickButton joystick0Button3;
+
+  public static JoystickButton joystick2Button7;
+  public static JoystickButton joystick2Button9;
+  public static JoystickButton joystick2Button11;
   public static JoystickButton joystick0Button6;
   public static JoystickButton joystick0Button7;
   public static JoystickButton joystick0Button8;
@@ -50,6 +55,7 @@ public class OI
   public OI() {
     joystick0 = new Joystick(0);
     joystick1 = new Joystick(1);
+    joystick2 = new Joystick(2);
 
     // delete these when ShiftToggle is implemented....
     joystick0Button2 = new JoystickButton(joystick0, 2);
@@ -86,6 +92,11 @@ public class OI
     joystick1Button12 = new JoystickButton(joystick1, 12);
     joystick1Button12.whileHeld(new PlaceGear());
 
+    // used the prevent accidental recording button presses
+    joystick2Button7 = new JoystickButton(joystick2, 7);
+    joystick2Button9 = new JoystickButton(joystick2, 9);
+    joystick2Button11 = new JoystickButton(joystick2, 11);
+
     joystick2Button1 = new JoystickButton(joystick2, 1);
     joystick2Button1.whileHeld(new ShootCommandGroup());
 
@@ -111,5 +122,17 @@ public class OI
 
   public double getJoystick1() {
     return joystick1.getY();
+  }
+
+  public boolean getJoystick2Button7() {
+    return joystick2Button7.get();
+  }
+
+  public boolean getJoystick2Button9() {
+    return joystick2Button9.get();
+  }
+
+  public boolean getJoystick2Button11() {
+    return joystick2Button11.get();
   }
 }

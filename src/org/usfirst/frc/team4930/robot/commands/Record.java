@@ -6,21 +6,28 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Record extends Command
 {
+  // used to check for intentional button press
+  private boolean isIntentional = false;
 
   protected void initialize() {
-    Robot.isRecording = true;
-    try {
-      Robot.recorder.setupRecorder();
-    } catch (Exception e) {
-      e.printStackTrace();
+    if (Robot.oi.getJoystick2Button7()) {
+      Robot.isRecording = true;
+      try {
+        Robot.recorder.setupRecorder();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+      isIntentional = true;
     }
   }
 
   protected void execute() {
-    try {
-      Robot.recorder.record();
-    } catch (Exception e) {
-      e.printStackTrace();
+    if (isIntentional) {
+      try {
+        Robot.recorder.record();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
     }
   }
 
