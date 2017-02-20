@@ -10,6 +10,7 @@ import org.usfirst.frc.team4930.robot.subsystems.BallIntake;
 import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.Dial;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
 import org.usfirst.frc.team4930.robot.subsystems.Loader;
 import org.usfirst.frc.team4930.robot.subsystems.Pneumatics;
 import org.usfirst.frc.team4930.robot.subsystems.Shooter;
@@ -39,6 +40,7 @@ public class Robot extends IterativeRobot
   public static Climber climber;
   public static Dial dial;
   public static DriveTrain driveTrain;
+  public static GearGadget gearGadget;
   public static Loader loader;
   public static OI oi;
   public static Playbacker playbacker;
@@ -73,6 +75,7 @@ public class Robot extends IterativeRobot
     climber = new Climber();
     dial = new Dial();
     driveTrain = new DriveTrain();
+    gearGadget = new GearGadget();
     loader = new Loader();
     playbacker = new Playbacker();
     pneumatics = new Pneumatics();
@@ -87,6 +90,7 @@ public class Robot extends IterativeRobot
     Robot.ballIntake.enableBrakeMode();
     Robot.climber.enableBrakeMode();
     Robot.loader.enableBrakeMode();
+    Robot.gearGadget.enableBrakeMode();
     Robot.shooter.disableBrakeMode();
   }
 
