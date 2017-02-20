@@ -1,9 +1,8 @@
 package org.usfirst.frc.team4930.robot.subsystems;
 
 import org.usfirst.frc.team4930.robot.RobotMap;
-import org.usfirst.frc.team4930.robot.commands.PlaceGear;
+import org.usfirst.frc.team4930.robot.commands.CloseGearGadget;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -16,12 +15,12 @@ public class GearGadget extends Subsystem
   // here. Call these from Commands.
 
   public void initDefaultCommand() {
-    setDefaultCommand(new PlaceGear());
+    setDefaultCommand(new CloseGearGadget());
   }
 
-  public void openGearPlacer(double x) {
-    RobotMap.gearGadgetLeft.set(x);
-    RobotMap.gearGadgetRight.set(-x);
+  public void open() {
+    RobotMap.gearGadgetLeft.set(1);
+    RobotMap.gearGadgetRight.set(-1);
   }
 
   public void enableBrakeMode() {
@@ -29,11 +28,12 @@ public class GearGadget extends Subsystem
     RobotMap.gearGadgetRight.enableBrakeMode(true);
   }
 
+  public void close() {
+    RobotMap.gearGadgetLeft.set(-0.1);
+    RobotMap.gearGadgetRight.set(0.1);
+  }
+
   public void stop() {
-    Timer.delay(.3);
-    RobotMap.gearGadgetLeft.set(-0.3);
-    RobotMap.gearGadgetRight.set(0.3);
-    Timer.delay(0.75);
     RobotMap.gearGadgetLeft.set(0.0);
     RobotMap.gearGadgetRight.set(0.0);
   }

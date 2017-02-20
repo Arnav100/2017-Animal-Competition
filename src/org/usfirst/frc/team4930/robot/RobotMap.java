@@ -43,9 +43,9 @@ public class RobotMap
 
     climber = new CANTalon(29);
 
-    // // UNKNOWN TALONS
-    // gearGadgetLeft = new CANTalon(30);
-    // gearGadgetRight = new CANTalon(32);
+    // UNKNOWN TALONS
+    gearGadgetLeft = new CANTalon(32);
+    gearGadgetRight = new CANTalon(34);
 
     // right side
     driveTrainRightMaster = new CANTalon(25);
