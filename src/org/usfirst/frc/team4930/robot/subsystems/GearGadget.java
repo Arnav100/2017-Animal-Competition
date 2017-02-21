@@ -18,9 +18,9 @@ public class GearGadget extends Subsystem
     setDefaultCommand(new CloseGearGadget());
   }
 
-  public void open() {
-    RobotMap.gearGadgetLeft.set(1);
-    RobotMap.gearGadgetRight.set(-1);
+  public void open(double amount) {
+    RobotMap.gearGadgetLeft.set(amount);
+    RobotMap.gearGadgetRight.set(-amount);
   }
 
   public void enableBrakeMode() {
@@ -36,5 +36,9 @@ public class GearGadget extends Subsystem
   public void stop() {
     RobotMap.gearGadgetLeft.set(0.0);
     RobotMap.gearGadgetRight.set(0.0);
+  }
+
+  public double getGearGadgetLeft() {
+    return RobotMap.gearGadgetLeft.get();
   }
 }

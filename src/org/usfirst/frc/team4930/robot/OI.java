@@ -89,7 +89,7 @@ public class OI
     joystick2Button2.whenPressed(new PlaceGear());
 
     joystick2Button3 = new JoystickButton(joystick2, 3);
-    joystick2Button3.whileHeld(new Climb());
+    joystick2Button3.whenPressed(new Climb());
 
     joystick2Button4 = new JoystickButton(joystick2, 4);
     joystick2Button4.whileHeld(new ClearBalls());

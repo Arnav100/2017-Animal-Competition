@@ -23,8 +23,18 @@ public class Recorder
     // write a timestamp, the motor values, and make a new line
     if (writer != null) {
       writer.append("" + (System.currentTimeMillis() - startTime));
+      // driveTrain
       writer.append("," + Robot.oi.getJoystick0());
       writer.append("," + Robot.oi.getJoystick1());
+      // ballIntakev
+      // climber
+      writer.append("," + Robot.climber.getClimber());
+      // gearGadget
+      writer.append("," + Robot.gearGadget.getGearGadgetLeft());
+      // loader
+      writer.append("," + Robot.loader.getLoader());
+      // shooter
+      writer.append("," + Robot.shooter.getShooter());
       writer.append("\n");
     }
   }

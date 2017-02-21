@@ -87,7 +87,7 @@ public class Robot extends IterativeRobot
     isRecording = false;
     isPlaying = false;
 
-    Robot.ballIntake.enableBrakeMode();
+    Robot.ballIntake.disableBrakeMode();
     Robot.climber.enableBrakeMode();
     Robot.loader.enableBrakeMode();
     Robot.gearGadget.enableBrakeMode();
@@ -174,6 +174,7 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    SmartDashboard.putBoolean("isClimbing:", true);
 
   }
 

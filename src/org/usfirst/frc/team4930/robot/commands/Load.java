@@ -17,7 +17,7 @@ public class Load extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.loader.load();
+    Robot.loader.load(0.9);
   }
 
   protected boolean isFinished() {

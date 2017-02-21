@@ -11,8 +11,8 @@ public class Loader extends Subsystem
   private final CANTalon loader = RobotMap.loader;
   // loader is inverted
 
-  public void load() {
-    loader.set(-0.9);
+  public void load(double amount) {
+    loader.set(-amount);
   }
 
   public void clearBalls() {
@@ -28,4 +28,8 @@ public class Loader extends Subsystem
   }
 
   protected void initDefaultCommand() {}
+
+  public double getLoader() {
+    return -loader.get();
+  }
 }
