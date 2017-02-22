@@ -44,7 +44,7 @@ public class OI
     j1b2.whileHeld(new UnloadHopper());
 
     // joystick2 button actions
-    j2b1.whileHeld(new ShootingCG());
+    j2b1.whileHeld(new ShotSequence());
     j2b2.whenPressed(new PlaceGear());
     j2b3.whileHeld(new ClimbRope());
     j2b4.whileHeld(new ClearShooter());
