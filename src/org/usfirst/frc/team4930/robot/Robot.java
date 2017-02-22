@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4930.robot;
 
-import org.usfirst.frc.team4930.autonomous.*;
-import org.usfirst.frc.team4930.robot.command.autonomous.*;
+import org.usfirst.frc.team4930.robot.autonomous.*;
 import org.usfirst.frc.team4930.robot.subsystems.*;
 import org.usfirst.frc.team4930.robot.utilities.*;
 
