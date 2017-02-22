@@ -5,10 +5,6 @@ import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-/**
- * This class is the glue that binds the controls on the physical operator interface to the commands
- * and command groups that allow control of the robot.
- */
 public class OI
 {
   public static Joystick joystick0;
@@ -39,7 +35,7 @@ public class OI
     joystick1 = new Joystick(1);
     joystick2 = new Joystick(2);
 
-    // create buttons
+    // setup buttons
     joystick0Button1 = new JoystickButton(joystick0, 1);
     joystick0Button4 = new JoystickButton(joystick0, 4);
     joystick0Button6 = new JoystickButton(joystick0, 6);
@@ -57,7 +53,7 @@ public class OI
     joystick2Button11 = new JoystickButton(joystick2, 11);
     joystick2Button12 = new JoystickButton(joystick2, 12);
 
-    // button commands
+    // attach commands to buttons
     joystick0Button1.whenPressed(new ShiftToggle());
     joystick0Button4.whenPressed(new ShiftDown());
     joystick0Button6.whenPressed(new ShiftUp());
@@ -66,7 +62,7 @@ public class OI
 
     joystick2Button1.whileHeld(new ShootCommandGroup());
     joystick2Button2.whenPressed(new PlaceGear());
-    joystick2Button3.whenPressed(new Climb());
+    joystick2Button3.whileHeld(new Climb());
     joystick2Button4.whileHeld(new ClearBalls());
     joystick2Button8.whenPressed(new Record());
     joystick2Button10.whenPressed(new StopRecord());
