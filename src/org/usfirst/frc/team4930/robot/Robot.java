@@ -27,8 +27,8 @@ public class Robot extends IterativeRobot
 
   public static String autoFile = "TestReplay";
   public static String autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
-  public static boolean isRecording;
-  public static boolean isPlaying;
+  public static boolean isRecording = false;
+  public static boolean isPlaying = false;
   public static boolean orientation = true;
 
   public static Command autoCommand;
@@ -57,9 +57,6 @@ public class Robot extends IterativeRobot
     shooter = new Shooter();
 
     oi = new OI();
-
-    isRecording = false;
-    isPlaying = false;
 
     Robot.ballIntake.disableBrakeMode();
     Robot.climber.enableBrakeMode();
@@ -129,7 +126,6 @@ public class Robot extends IterativeRobot
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     SmartDashboard.putBoolean("isClimbing:", true);
-
   }
 
   @Override

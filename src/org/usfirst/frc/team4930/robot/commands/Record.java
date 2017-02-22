@@ -6,9 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Record extends Command
 {
-  // used to check for intentional button press
+
   private boolean isIntentional = false;
 
+  @Override
   protected void initialize() {
     if (Robot.oi.getJoystick2Button7()) {
       Robot.isRecording = true;
@@ -21,6 +22,7 @@ public class Record extends Command
     }
   }
 
+  @Override
   protected void execute() {
     if (isIntentional) {
       try {
@@ -31,10 +33,12 @@ public class Record extends Command
     }
   }
 
+  @Override
   protected boolean isFinished() {
     return !Robot.isRecording;
   }
 
+  @Override
   protected void end() {
     try {
       Robot.recorder.endRecord();
@@ -43,6 +47,7 @@ public class Record extends Command
     }
   }
 
+  @Override
   protected void interrupted() {
     end();
   }

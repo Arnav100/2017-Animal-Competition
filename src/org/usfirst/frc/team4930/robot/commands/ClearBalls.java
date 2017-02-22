@@ -12,22 +12,27 @@ public class ClearBalls extends Command
     requires(Robot.loader);
   }
 
+  @Override
   protected void initialize() {}
 
+  @Override
   protected void execute() {
     Robot.shooter.clearBalls();
     Robot.loader.clearBalls();
   }
 
+  @Override
   protected boolean isFinished() {
     return false;
   }
 
+  @Override
   protected void end() {
     Robot.shooter.stop();
     Robot.loader.stop();
   }
 
+  @Override
   protected void interrupted() {
     end();
   }

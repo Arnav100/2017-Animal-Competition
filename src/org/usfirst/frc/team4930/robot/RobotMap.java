@@ -5,20 +5,18 @@ import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.*;
 
-/**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into to a variable name.
- * This provides flexibility changing wiring, makes checking the wiring easier and significantly
- * reduces the number of magic numbers floating around.
- */
 public class RobotMap
 {
   public static RobotDrive driveTrainMasterMotors;
+
   public static CANTalon driveTrainLeftMaster;
   public static CANTalon driveTrainLeftSlave1;
   public static CANTalon driveTrainLeftSlave2;
+
   public static CANTalon driveTrainRightMaster;
   public static CANTalon driveTrainRightSlave1;
   public static CANTalon driveTrainRightSlave2;
+
   public static CANTalon climber;
   public static CANTalon gearGadgetLeft;
   public static CANTalon gearGadgetRight;
@@ -35,16 +33,6 @@ public class RobotMap
 
   public static void init() {
 
-    solenoid = new Solenoid(50, 5);
-    compressor = new Compressor(50);
-
-    climber = new CANTalon(29);
-
-    // UNKNOWN TALONS
-    gearGadgetLeft = new CANTalon(32);
-    gearGadgetRight = new CANTalon(34);
-
-    // right side
     driveTrainRightMaster = new CANTalon(25);
     driveTrainRightSlave1 = new CANTalon(23);
     driveTrainRightSlave2 = new CANTalon(21);
@@ -57,7 +45,6 @@ public class RobotMap
     driveTrainRightSlave2.set(driveTrainRightMaster.getDeviceID());
     driveTrainRightSlave2.reverseOutput(true);
 
-    // left side
     driveTrainLeftMaster = new CANTalon(22);
     driveTrainLeftSlave1 = new CANTalon(24);
     driveTrainLeftSlave2 = new CANTalon(26);
@@ -69,27 +56,21 @@ public class RobotMap
     driveTrainLeftSlave2.changeControlMode(TalonControlMode.Follower);
     driveTrainLeftSlave2.set(driveTrainLeftMaster.getDeviceID());
 
-    // initialize drive motors
     driveTrainMasterMotors = new RobotDrive(driveTrainLeftMaster, driveTrainRightMaster);
     driveTrainMasterMotors.setSafetyEnabled(true);
     driveTrainMasterMotors.setExpiration(0.1);
     driveTrainMasterMotors.setSensitivity(0.5);
     driveTrainMasterMotors.setMaxOutput(1.0);
 
-    // set brake mode
-    driveTrainLeftSlave1.enableBrakeMode(false);
-    driveTrainLeftSlave2.enableBrakeMode(false);
-    driveTrainRightSlave1.enableBrakeMode(false);
-    driveTrainRightSlave2.enableBrakeMode(false);
-    driveTrainRightMaster.enableBrakeMode(false);
-    driveTrainLeftMaster.enableBrakeMode(false);
-
     ballIntakeRight = new CANTalon(27);
-    loader = new CANTalon(33);
+    climber = new CANTalon(29);
     shooter = new CANTalon(31);
-    shooter.enableBrakeMode(false);
+    gearGadgetLeft = new CANTalon(32);
+    loader = new CANTalon(33);
+    gearGadgetRight = new CANTalon(34);
 
-    // sensors
+    solenoid = new Solenoid(50, 5);
+    compressor = new Compressor(50);
     dialChooser = new AnalogPotentiometer(2, 300, 0);
   }
 }

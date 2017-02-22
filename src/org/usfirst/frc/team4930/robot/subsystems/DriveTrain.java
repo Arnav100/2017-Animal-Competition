@@ -1,16 +1,13 @@
 package org.usfirst.frc.team4930.robot.subsystems;
 
-import org.usfirst.frc.team4930.robot.Robot;
-import org.usfirst.frc.team4930.robot.RobotMap;
+import org.usfirst.frc.team4930.robot.*;
 import org.usfirst.frc.team4930.robot.commands.TankDrive;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
 public class DriveTrain extends Subsystem
 {
+  @Override
   public void initDefaultCommand() {
     setDefaultCommand(new TankDrive());
   }
@@ -21,7 +18,6 @@ public class DriveTrain extends Subsystem
     } else {
       RobotMap.driveTrainMasterMotors.tankDrive(-right, left);
     }
-
   }
 
   public void toggleBrakeMode(boolean state) {

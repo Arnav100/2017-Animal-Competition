@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Shooter extends Subsystem
 {
+
   private final CANTalon shooter = RobotMap.shooter;
 
   public void spinUp(double amount) {
@@ -26,9 +27,11 @@ public class Shooter extends Subsystem
     shooter.set(0);
   }
 
+  @Override
   protected void initDefaultCommand() {}
 
   public double getShooter() {
     return shooter.get();
   }
+
 }

@@ -5,15 +5,10 @@ import org.usfirst.frc.team4930.robot.commands.CloseGearGadget;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- *
- */
 public class GearGadget extends Subsystem
 {
 
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-
+  @Override
   public void initDefaultCommand() {
     setDefaultCommand(new CloseGearGadget());
   }

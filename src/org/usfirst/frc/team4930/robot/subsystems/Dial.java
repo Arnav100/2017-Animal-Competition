@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Dial extends Subsystem
 {
 
+  @Override
   protected void initDefaultCommand() {}
 
   private static double autoSwitch;

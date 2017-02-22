@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4930.robot.utilities;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 import org.usfirst.frc.team4930.robot.Robot;
 

@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class BallIntake extends Subsystem
 {
   private final CANTalon ballIntakeRight = RobotMap.ballIntakeRight;
-  // ballIntakeRight is inverted
 
   public void agitate() {
     ballIntakeRight.set(-0.45);
@@ -27,6 +26,7 @@ public class BallIntake extends Subsystem
     ballIntakeRight.set(0);
   }
 
+  @Override
   protected void initDefaultCommand() {}
 
 }
