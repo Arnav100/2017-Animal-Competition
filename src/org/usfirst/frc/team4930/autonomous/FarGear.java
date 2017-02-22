@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4930.robot.command.autonomous;
+package org.usfirst.frc.team4930.autonomous;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 

@@ -1,8 +1,8 @@
-package org.usfirst.frc.team4930.robot.command.autonomous;
+package org.usfirst.frc.team4930.autonomous;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class FarReplay extends Command
+public class MiddleReplay extends Command
 {
 
   @Override
