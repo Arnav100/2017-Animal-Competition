@@ -17,7 +17,7 @@ public class Robot extends IterativeRobot
   public static Intake intake = new Intake();
   public static Loader loader = new Loader();
   public static Playbacker playbacker = new Playbacker();
-  public static Pneumatics pneumatics = new Pneumatics();
+  public static Shifter pneumatics = new Shifter();
   public static Recorder recorder = new Recorder();
   public static Shooter shooter = new Shooter();
 

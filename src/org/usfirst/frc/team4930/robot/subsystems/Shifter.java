@@ -4,7 +4,7 @@ import org.usfirst.frc.team4930.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Pneumatics extends Subsystem
+public class Shifter extends Subsystem
 {
   public void initDefaultCommand() {}
 
