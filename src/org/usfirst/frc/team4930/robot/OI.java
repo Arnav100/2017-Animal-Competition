@@ -17,6 +17,7 @@ public class OI
   public static JoystickButton joystick0Button6;
 
   public static JoystickButton joystick1Button1;
+  public static JoystickButton joystick1Button2;
 
   public static JoystickButton joystick2Button1;
   public static JoystickButton joystick2Button2;
@@ -40,7 +41,8 @@ public class OI
     joystick0Button4 = new JoystickButton(joystick0, 4);
     joystick0Button6 = new JoystickButton(joystick0, 6);
 
-    joystick1Button1 = new JoystickButton(joystick1, 1);;
+    joystick1Button1 = new JoystickButton(joystick1, 1);
+    joystick1Button2 = new JoystickButton(joystick1, 2);
 
     joystick2Button1 = new JoystickButton(joystick2, 1);
     joystick2Button2 = new JoystickButton(joystick2, 2);
@@ -59,6 +61,7 @@ public class OI
     joystick0Button6.whenPressed(new ShiftUp());
 
     joystick1Button1.whileHeld(new Intake());
+    joystick1Button2.whileHeld(new Outtake());
 
     joystick2Button1.whileHeld(new ShootCommandGroup());
     joystick2Button2.whenPressed(new PlaceGear());

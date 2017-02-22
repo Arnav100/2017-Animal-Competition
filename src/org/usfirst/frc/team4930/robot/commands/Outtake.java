@@ -4,11 +4,11 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Climb extends Command
+public class Outtake extends Command
 {
 
-  public Climb() {
-    requires(Robot.climber);
+  public Outtake() {
+    requires(Robot.ballIntake);
   }
 
   @Override
@@ -16,7 +16,7 @@ public class Climb extends Command
 
   @Override
   protected void execute() {
-    Robot.climber.climb(1.0);
+    Robot.ballIntake.outtake(0.9);
   }
 
   @Override
@@ -26,12 +26,11 @@ public class Climb extends Command
 
   @Override
   protected void end() {
-    Robot.climber.stop();
+    Robot.ballIntake.stop();
   }
 
   @Override
   protected void interrupted() {
     end();
   }
-
 }

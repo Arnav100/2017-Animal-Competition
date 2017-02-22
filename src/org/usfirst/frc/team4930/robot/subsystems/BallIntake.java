@@ -18,6 +18,10 @@ public class BallIntake extends Subsystem
     ballIntakeRight.set(-x);
   }
 
+  public void outtake(double x) {
+    ballIntakeRight.set(x);
+  }
+
   public void disableBrakeMode() {
     ballIntakeRight.enableBrakeMode(false);
   }
