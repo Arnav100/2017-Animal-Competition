@@ -19,16 +19,16 @@ public class DriveTrain extends Subsystem
     RobotMap.dtMasterMotors.tankDrive(-left, right);
   }
 
-  public void toggleBrakeMode(boolean state) {
+  public void stop() {
+    RobotMap.dtMasterMotors.stopMotor();
+  }
+
+  public void brakeMode(boolean state) {
     RobotMap.dtLMaster.enableBrakeMode(state);
     RobotMap.dtLSlave1.enableBrakeMode(state);
     RobotMap.dtLSlave2.enableBrakeMode(state);
     RobotMap.dtRMaster.enableBrakeMode(state);
     RobotMap.dtRSlave1.enableBrakeMode(state);
     RobotMap.dtRSlave2.enableBrakeMode(state);
-  }
-
-  public void stop() {
-    RobotMap.dtMasterMotors.stopMotor();
   }
 }

@@ -4,7 +4,7 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class StopRecord extends Command
+public class ReplayStopRecord extends Command
 {
   protected void initialize() {
     if (Robot.oi.j2b9.get()) {

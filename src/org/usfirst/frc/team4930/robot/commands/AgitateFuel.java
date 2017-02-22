@@ -4,16 +4,16 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Climb extends Command
+public class AgitateFuel extends Command
 {
-  public Climb() {
-    requires(Robot.climber);
+  public AgitateFuel() {
+    requires(Robot.intake);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.climber.climb(1.0);
+    Robot.intake.agitate();
   }
 
   protected boolean isFinished() {
@@ -21,7 +21,7 @@ public class Climb extends Command
   }
 
   protected void end() {
-    Robot.climber.stop();
+    Robot.intake.stop();
   }
 
   protected void interrupted() {

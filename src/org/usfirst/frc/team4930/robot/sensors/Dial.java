@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4930.robot.subsystems;
+package org.usfirst.frc.team4930.robot.sensors;
 
 import org.usfirst.frc.team4930.robot.RobotMap;
 
@@ -8,15 +8,11 @@ public class Dial extends Subsystem
 {
   protected void initDefaultCommand() {}
 
-  private static double autoSwitch;
-
-  private final static int dials = 11;
-
   static public double getDial() {
 
-    autoSwitch = RobotMap.dial.get() + 4;
+    double autoSwitch = RobotMap.dial.get() + 4;
 
-    double dialNum = autoSwitch / (360 / dials);
+    double dialNum = autoSwitch / (360 / 11);
 
     double floor = Math.floor(dialNum);
 

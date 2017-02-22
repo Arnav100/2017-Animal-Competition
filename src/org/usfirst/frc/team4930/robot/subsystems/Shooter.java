@@ -2,33 +2,30 @@ package org.usfirst.frc.team4930.robot.subsystems;
 
 import org.usfirst.frc.team4930.robot.RobotMap;
 
-import com.ctre.CANTalon;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Shooter extends Subsystem
 {
-  private final CANTalon shooter = RobotMap.shooter;
+  protected void initDefaultCommand() {}
 
   public void spinUp(double amount) {
-    shooter.set(amount);
+    RobotMap.shooter.set(amount);
   }
 
   public void clearBalls() {
-    shooter.set(-0.9);
-  }
-
-  public void disableBrakeMode() {
-    shooter.enableBrakeMode(false);
+    double value = RobotMap.values.get("shooting");
+    RobotMap.shooter.set(-value);
   }
 
   public void stop() {
-    shooter.set(0);
+    RobotMap.shooter.set(0);
   }
 
-  protected void initDefaultCommand() {}
-
   public double getShooter() {
-    return shooter.get();
+    return RobotMap.shooter.get();
+  }
+
+  public void brakeMode(boolean state) {
+    RobotMap.shooter.enableBrakeMode(state);
   }
 }

@@ -18,13 +18,13 @@ public class Intake extends Subsystem
     RobotMap.intake.set(x);
   }
 
-  public void disableBrakeMode() {
-    RobotMap.intake.enableBrakeMode(false);
-  }
-
   public void stop() {
     RobotMap.intake.set(0);
   }
 
   protected void initDefaultCommand() {}
+
+  public void brakeMode(boolean state) {
+    RobotMap.intake.enableBrakeMode(state);
+  }
 }

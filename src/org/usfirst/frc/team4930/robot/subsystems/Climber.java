@@ -12,15 +12,15 @@ public class Climber extends Subsystem
     RobotMap.climber.set(-x);
   }
 
-  public void enableBrakeMode() {
-    RobotMap.climber.enableBrakeMode(true);
-  }
-
   public void stop() {
     RobotMap.climber.set(0.0);
   }
 
   public double getClimber() {
     return -RobotMap.climber.get();
+  }
+
+  public void brakeMode(boolean state) {
+    RobotMap.climber.enableBrakeMode(state);
   }
 }

@@ -4,9 +4,9 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Intake extends Command
+public class IntakeFuel extends Command
 {
-  public Intake() {
+  public IntakeFuel() {
     requires(Robot.intake);
   }
 

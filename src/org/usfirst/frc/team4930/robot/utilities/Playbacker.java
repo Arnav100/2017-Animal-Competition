@@ -50,8 +50,6 @@ public class Playbacker
         Robot.intake.in(scanner.nextDouble());
         // climber
         Robot.climber.climb(scanner.nextDouble());
-        // gearGadget
-        Robot.gearGadget.open(scanner.nextDouble());
         // loader
         Robot.loader.load(scanner.nextDouble());
         // shooter

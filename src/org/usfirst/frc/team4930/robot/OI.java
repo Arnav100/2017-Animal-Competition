@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4930.robot;
 
 import org.usfirst.frc.team4930.robot.commands.*;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -40,17 +39,17 @@ public class OI
     j0b6.whenPressed(new ShiftUp());
 
     // joystick1 button actions
-    j1b1.whileHeld(new Intake());
-    j1b2.whileHeld(new Outtake());
+    j1b1.whileHeld(new IntakeFuel());
+    j1b2.whileHeld(new UnloadHopper());
 
     // joystick2 button actions
-    j2b1.whileHeld(new ShootCommandGroup());
+    j2b1.whileHeld(new ShootingCG());
     j2b2.whenPressed(new PlaceGear());
-    j2b3.whileHeld(new Climb());
-    j2b4.whileHeld(new ClearBalls());
-    j2b8.whenPressed(new Record());
-    j2b10.whenPressed(new StopRecord());
-    j2b12.whenPressed(new Playback());
+    j2b3.whileHeld(new ClimbRope());
+    j2b4.whileHeld(new ClearShooter());
+    j2b8.whenPressed(new ReplayRecord());
+    j2b10.whenPressed(new ReplayStopRecord());
+    j2b12.whenPressed(new ReplayPlayback());
   }
 
 }

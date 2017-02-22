@@ -18,10 +18,6 @@ public class Loader extends Subsystem
     loader.set(0.9);
   }
 
-  public void enableBrakeMode() {
-    loader.enableBrakeMode(true);
-  }
-
   public void stop() {
     loader.set(0);
   }
@@ -30,5 +26,9 @@ public class Loader extends Subsystem
 
   public double getLoader() {
     return -loader.get();
+  }
+
+  public void brakeMode(boolean state) {
+    loader.enableBrakeMode(state);
   }
 }

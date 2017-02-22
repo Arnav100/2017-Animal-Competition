@@ -4,18 +4,16 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ClearBalls extends Command
+public class UnloadHopper extends Command
 {
-  public ClearBalls() {
-    requires(Robot.shooter);
-    requires(Robot.loader);
+  public UnloadHopper() {
+    requires(Robot.intake);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.shooter.clearBalls();
-    Robot.loader.clearBalls();
+    Robot.intake.out(0.9);
   }
 
   protected boolean isFinished() {
@@ -23,8 +21,7 @@ public class ClearBalls extends Command
   }
 
   protected void end() {
-    Robot.shooter.stop();
-    Robot.loader.stop();
+    Robot.intake.stop();
   }
 
   protected void interrupted() {

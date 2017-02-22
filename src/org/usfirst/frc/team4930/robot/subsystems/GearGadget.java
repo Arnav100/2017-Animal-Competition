@@ -2,7 +2,6 @@ package org.usfirst.frc.team4930.robot.subsystems;
 
 import org.usfirst.frc.team4930.robot.RobotMap;
 import org.usfirst.frc.team4930.robot.commands.CloseGearGadget;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class GearGadget extends Subsystem
@@ -11,27 +10,23 @@ public class GearGadget extends Subsystem
     setDefaultCommand(new CloseGearGadget());
   }
 
-  public void open(double amount) {
-    RobotMap.gearGadgetL.set(amount);
-    RobotMap.gearGadgetR.set(-amount);
-  }
-
-  public void enableBrakeMode() {
-    RobotMap.gearGadgetL.enableBrakeMode(true);
-    RobotMap.gearGadgetR.enableBrakeMode(true);
+  public void open(double power) {
+    RobotMap.gadgetL.set(power);
+    RobotMap.gadgetR.set(-power);
   }
 
   public void close() {
-    RobotMap.gearGadgetL.set(-0.1);
-    RobotMap.gearGadgetR.set(0.1);
+    RobotMap.gadgetL.set(-0.05);
+    RobotMap.gadgetR.set(0.05);
   }
 
   public void stop() {
-    RobotMap.gearGadgetL.set(0.0);
-    RobotMap.gearGadgetR.set(0.0);
+    RobotMap.gadgetL.set(0.0);
+    RobotMap.gadgetR.set(0.0);
   }
 
-  public double getGearGadgetLeft() {
-    return RobotMap.gearGadgetL.get();
+  public void brakeMode(boolean state) {
+    RobotMap.gadgetL.enableBrakeMode(state);
+    RobotMap.gadgetR.enableBrakeMode(state);
   }
 }

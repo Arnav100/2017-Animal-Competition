@@ -4,16 +4,16 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Agitate extends Command
+public class ShootFuel extends Command
 {
-  public Agitate() {
-    requires(Robot.intake);
+  public ShootFuel() {
+    requires(Robot.shooter);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.intake.agitate();
+    Robot.shooter.spinUp(0.9);
   }
 
   protected boolean isFinished() {
@@ -21,7 +21,7 @@ public class Agitate extends Command
   }
 
   protected void end() {
-    Robot.intake.stop();
+    Robot.shooter.stop();
   }
 
   protected void interrupted() {

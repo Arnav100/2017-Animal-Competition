@@ -4,16 +4,16 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Outtake extends Command
+public class LoadShooter extends Command
 {
-  public Outtake() {
-    requires(Robot.intake);
+  public LoadShooter() {
+    requires(Robot.loader);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.intake.out(0.9);
+    Robot.loader.load(0.85);
   }
 
   protected boolean isFinished() {
@@ -21,7 +21,7 @@ public class Outtake extends Command
   }
 
   protected void end() {
-    Robot.intake.stop();
+    Robot.loader.stop();
   }
 
   protected void interrupted() {

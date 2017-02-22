@@ -17,7 +17,7 @@ public class PlaceGear extends Command
   }
 
   protected boolean isFinished() {
-    return timeSinceInitialized() > 0.1;
+    return timeSinceInitialized() > 0.15;
   }
 
   protected void end() {

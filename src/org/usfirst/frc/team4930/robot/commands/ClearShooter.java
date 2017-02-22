@@ -4,16 +4,18 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class SpinUpShooter extends Command
+public class ClearShooter extends Command
 {
-  public SpinUpShooter() {
+  public ClearShooter() {
     requires(Robot.shooter);
+    requires(Robot.loader);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.shooter.spinUp(0.9);
+    Robot.shooter.clearBalls();
+    Robot.loader.clearBalls();
   }
 
   protected boolean isFinished() {
@@ -22,6 +24,7 @@ public class SpinUpShooter extends Command
 
   protected void end() {
     Robot.shooter.stop();
+    Robot.loader.stop();
   }
 
   protected void interrupted() {

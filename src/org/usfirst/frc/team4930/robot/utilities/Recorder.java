@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4930.robot.utilities;
 
 import java.io.*;
-
 import org.usfirst.frc.team4930.robot.Robot;
 
 public class Recorder
@@ -28,8 +27,6 @@ public class Recorder
       // ballIntakev
       // climber
       writer.append("," + Robot.climber.getClimber());
-      // gearGadget
-      writer.append("," + Robot.gearGadget.getGearGadgetLeft());
       // loader
       writer.append("," + Robot.loader.getLoader());
       // shooter

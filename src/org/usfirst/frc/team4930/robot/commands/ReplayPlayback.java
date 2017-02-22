@@ -4,7 +4,7 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Playback extends Command
+public class ReplayPlayback extends Command
 {
   private boolean isIntentional = false;
 

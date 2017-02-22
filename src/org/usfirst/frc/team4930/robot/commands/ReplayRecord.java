@@ -1,10 +1,9 @@
 package org.usfirst.frc.team4930.robot.commands;
 
 import org.usfirst.frc.team4930.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Record extends Command
+public class ReplayRecord extends Command
 {
   private boolean isIntentional = false;
 
@@ -12,6 +11,7 @@ public class Record extends Command
     if (Robot.oi.j2b7.get()) {
       Robot.isRecording = true;
       try {
+        Robot.driveTrain.brakeMode(true);
         Robot.recorder.setupRecorder();
       } catch (Exception e) {
         e.printStackTrace();
@@ -37,6 +37,7 @@ public class Record extends Command
   protected void end() {
     try {
       Robot.recorder.endRecord();
+      Robot.driveTrain.brakeMode(false);
     } catch (Exception e) {
       e.printStackTrace();
     }
