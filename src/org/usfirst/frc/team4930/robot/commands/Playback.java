@@ -6,9 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Playback extends Command
 {
-  // used to check for intentional button press
+
   private boolean isIntentional = false;
 
+  @Override
   protected void initialize() {
     if (Robot.oi.getJoystick2Button11()) {
       Robot.isPlaying = true;
@@ -21,20 +22,24 @@ public class Playback extends Command
     }
   }
 
+  @Override
   protected void execute() {
     if (isIntentional) {
       Robot.playbacker.play();
     }
   }
 
+  @Override
   protected boolean isFinished() {
     return !Robot.isPlaying;
   }
 
+  @Override
   protected void end() {
     Robot.playbacker.endPlayback();
   }
 
+  @Override
   protected void interrupted() {
     end();
   }

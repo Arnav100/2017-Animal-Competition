@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4930.robot.utilities;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 import org.usfirst.frc.team4930.robot.Robot;

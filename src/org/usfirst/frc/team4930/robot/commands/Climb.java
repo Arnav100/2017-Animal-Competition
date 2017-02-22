@@ -4,42 +4,34 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class Climb extends Command
 {
-  public static boolean isClimbing = false;
 
   public Climb() {
     requires(Robot.climber);
   }
 
-  // Called just before this Command runs the first time
+  @Override
   protected void initialize() {}
 
-  // Called repeatedly when this Command is scheduled to run
+  @Override
   protected void execute() {
-    if (!isClimbing) {
-      Robot.climber.climb(1.0);
-      isClimbing = true;
-    } else {
-      Robot.climber.stop();
-      isClimbing = false;
-    }
+    Robot.climber.climb(1.0);
   }
 
-  // Make this return true when this Command no longer needs to run execute()
+  @Override
   protected boolean isFinished() {
-    return !isClimbing;
+    return false;
   }
 
-  // Called once after isFinished returns true
+  @Override
   protected void end() {
     Robot.climber.stop();
   }
 
-  // Called when another command which requires one or more of the same
-  // subsystems is scheduled to run
-  protected void interrupted() {}
+  @Override
+  protected void interrupted() {
+    end();
+  }
+
 }

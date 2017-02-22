@@ -4,10 +4,10 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Intake extends Command
+public class Outtake extends Command
 {
 
-  public Intake() {
+  public Outtake() {
     requires(Robot.ballIntake);
   }
 
@@ -16,7 +16,7 @@ public class Intake extends Command
 
   @Override
   protected void execute() {
-    Robot.ballIntake.intake(1.0);
+    Robot.ballIntake.outtake(0.9);
   }
 
   @Override
