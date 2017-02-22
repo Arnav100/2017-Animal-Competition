@@ -4,7 +4,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class ShootCommandGroup extends CommandGroup
 {
-
   public ShootCommandGroup() {
     addParallel(new SpinUpShooter());
     addParallel(new Load());

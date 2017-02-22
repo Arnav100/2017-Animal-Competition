@@ -6,8 +6,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Dial extends Subsystem
 {
-
-  @Override
   protected void initDefaultCommand() {}
 
   private static double autoSwitch;
@@ -16,7 +14,7 @@ public class Dial extends Subsystem
 
   static public double getDial() {
 
-    autoSwitch = RobotMap.dialChooser.get() + 4;
+    autoSwitch = RobotMap.dial.get() + 4;
 
     double dialNum = autoSwitch / (360 / dials);
 

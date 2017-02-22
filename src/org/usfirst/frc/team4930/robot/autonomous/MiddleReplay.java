@@ -4,10 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class MiddleReplay extends Command
 {
-
-  @Override
   protected boolean isFinished() {
     return false;
   }
-
 }

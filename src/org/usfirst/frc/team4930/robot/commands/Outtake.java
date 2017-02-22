@@ -6,30 +6,24 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Outtake extends Command
 {
-
   public Outtake() {
-    requires(Robot.ballIntake);
+    requires(Robot.intake);
   }
 
-  @Override
   protected void initialize() {}
 
-  @Override
   protected void execute() {
-    Robot.ballIntake.outtake(0.9);
+    Robot.intake.out(0.9);
   }
 
-  @Override
   protected boolean isFinished() {
     return false;
   }
 
-  @Override
   protected void end() {
-    Robot.ballIntake.stop();
+    Robot.intake.stop();
   }
 
-  @Override
   protected void interrupted() {
     end();
   }

@@ -47,7 +47,7 @@ public class Playbacker
           Robot.driveTrain.move(joystick0Y, joystick1Y);
         }
         // ballIntake
-        Robot.ballIntake.intake(scanner.nextDouble());
+        Robot.intake.in(scanner.nextDouble());
         // climber
         Robot.climber.climb(scanner.nextDouble());
         // gearGadget

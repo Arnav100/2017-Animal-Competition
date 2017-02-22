@@ -13,7 +13,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot
 {
-  public static BallIntake ballIntake;
+
+  public static String name;
+
+  public static Intake intake = new Intake();
   public static Climber climber;
   public static Dial dial;
   public static DriveTrain driveTrain;
@@ -29,7 +32,6 @@ public class Robot extends IterativeRobot
   public static String autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
   public static boolean isRecording = false;
   public static boolean isPlaying = false;
-  public static boolean orientation = true;
 
   public static Command autoCommand;
   public static CommandGroup AutoFarGear;
@@ -41,11 +43,10 @@ public class Robot extends IterativeRobot
 
   public static CANTalon testMotor;
 
-  @Override
   public void robotInit() {
+
     RobotMap.init();
 
-    ballIntake = new BallIntake();
     climber = new Climber();
     dial = new Dial();
     driveTrain = new DriveTrain();
@@ -58,22 +59,19 @@ public class Robot extends IterativeRobot
 
     oi = new OI();
 
-    Robot.ballIntake.disableBrakeMode();
+    Robot.intake.disableBrakeMode();
     Robot.climber.enableBrakeMode();
     Robot.loader.enableBrakeMode();
     Robot.gearGadget.enableBrakeMode();
     Robot.shooter.disableBrakeMode();
   }
 
-  @Override
   public void disabledInit() {}
 
-  @Override
   public void disabledPeriodic() {
     Scheduler.getInstance().run();
   }
 
-  @Override
   public void autonomousInit() {
 
     Robot.driveTrain.toggleBrakeMode(true);
@@ -108,13 +106,11 @@ public class Robot extends IterativeRobot
     autoCommand.start();
   }
 
-  @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
 
   }
 
-  @Override
   public void teleopInit() {
     if (autoCommand != null) {
       autoCommand.cancel();
@@ -122,18 +118,15 @@ public class Robot extends IterativeRobot
     Robot.driveTrain.toggleBrakeMode(false);
   }
 
-  @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     SmartDashboard.putBoolean("isClimbing:", true);
   }
 
-  @Override
   public void testInit() {
     testMotor = new CANTalon(32);
   }
 
-  @Override
   public void testPeriodic() {
     LiveWindow.run();
     testMotor.enableBrakeMode(false);
@@ -142,4 +135,5 @@ public class Robot extends IterativeRobot
     testMotor.set(0.0);
     Timer.delay(30);
   }
+
 }

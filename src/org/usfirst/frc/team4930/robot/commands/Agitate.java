@@ -6,30 +6,24 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Agitate extends Command
 {
-
   public Agitate() {
-    requires(Robot.ballIntake);
+    requires(Robot.intake);
   }
 
-  @Override
   protected void initialize() {}
 
-  @Override
   protected void execute() {
-    Robot.ballIntake.agitate();
+    Robot.intake.agitate();
   }
 
-  @Override
   protected boolean isFinished() {
     return false;
   }
 
-  @Override
   protected void end() {
-    Robot.ballIntake.stop();
+    Robot.intake.stop();
   }
 
-  @Override
   protected void interrupted() {
     end();
   }

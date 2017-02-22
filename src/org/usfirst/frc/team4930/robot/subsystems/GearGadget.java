@@ -7,33 +7,31 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class GearGadget extends Subsystem
 {
-
-  @Override
   public void initDefaultCommand() {
     setDefaultCommand(new CloseGearGadget());
   }
 
   public void open(double amount) {
-    RobotMap.gearGadgetLeft.set(amount);
-    RobotMap.gearGadgetRight.set(-amount);
+    RobotMap.gearGadgetL.set(amount);
+    RobotMap.gearGadgetR.set(-amount);
   }
 
   public void enableBrakeMode() {
-    RobotMap.gearGadgetLeft.enableBrakeMode(true);
-    RobotMap.gearGadgetRight.enableBrakeMode(true);
+    RobotMap.gearGadgetL.enableBrakeMode(true);
+    RobotMap.gearGadgetR.enableBrakeMode(true);
   }
 
   public void close() {
-    RobotMap.gearGadgetLeft.set(-0.1);
-    RobotMap.gearGadgetRight.set(0.1);
+    RobotMap.gearGadgetL.set(-0.1);
+    RobotMap.gearGadgetR.set(0.1);
   }
 
   public void stop() {
-    RobotMap.gearGadgetLeft.set(0.0);
-    RobotMap.gearGadgetRight.set(0.0);
+    RobotMap.gearGadgetL.set(0.0);
+    RobotMap.gearGadgetR.set(0.0);
   }
 
   public double getGearGadgetLeft() {
-    return RobotMap.gearGadgetLeft.get();
+    return RobotMap.gearGadgetL.get();
   }
 }

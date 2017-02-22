@@ -6,12 +6,10 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class Record extends Command
 {
-
   private boolean isIntentional = false;
 
-  @Override
   protected void initialize() {
-    if (Robot.oi.getJoystick2Button7()) {
+    if (Robot.oi.j2b7.get()) {
       Robot.isRecording = true;
       try {
         Robot.recorder.setupRecorder();
@@ -22,7 +20,6 @@ public class Record extends Command
     }
   }
 
-  @Override
   protected void execute() {
     if (isIntentional) {
       try {
@@ -33,12 +30,10 @@ public class Record extends Command
     }
   }
 
-  @Override
   protected boolean isFinished() {
     return !Robot.isRecording;
   }
 
-  @Override
   protected void end() {
     try {
       Robot.recorder.endRecord();
@@ -47,7 +42,6 @@ public class Record extends Command
     }
   }
 
-  @Override
   protected void interrupted() {
     end();
   }

@@ -23,8 +23,8 @@ public class Recorder
     if (writer != null) {
       writer.append("" + (System.currentTimeMillis() - startTime));
       // driveTrain
-      writer.append("," + Robot.oi.getJoystick0());
-      writer.append("," + Robot.oi.getJoystick1());
+      writer.append("," + Robot.oi.j0.getY());
+      writer.append("," + Robot.oi.j1.getY());
       // ballIntakev
       // climber
       writer.append("," + Robot.climber.getClimber());

@@ -6,18 +6,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Pneumatics extends Subsystem
 {
+  public void initDefaultCommand() {}
 
-  @Override
-  public void initDefaultCommand() {
-
-  }
-
-  public void enableHighGear() {
+  public void highGear() {
     RobotMap.solenoid.set(true);
   }
 
-  public void enableLowGear() {
+  public void lowGear() {
     RobotMap.solenoid.set(false);
   }
-
 }

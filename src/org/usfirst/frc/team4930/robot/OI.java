@@ -7,88 +7,50 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class OI
 {
-  public static Joystick joystick0;
-  public static Joystick joystick1;
-  public static Joystick joystick2;
+  public Joystick j0 = new Joystick(0);
+  public Joystick j1 = new Joystick(1);
+  public Joystick j2 = new Joystick(2);
 
-  public static JoystickButton joystick0Button1;
-  public static JoystickButton joystick0Button4;
-  public static JoystickButton joystick0Button5;
-  public static JoystickButton joystick0Button6;
+  // joystick0 buttons
+  public JoystickButton j0b1 = new JoystickButton(j0, 1);
+  public JoystickButton j0b4 = new JoystickButton(j0, 4);
+  public JoystickButton j0b6 = new JoystickButton(j0, 6);
 
-  public static JoystickButton joystick1Button1;
-  public static JoystickButton joystick1Button2;
+  // joystick1 buttons
+  public JoystickButton j1b1 = new JoystickButton(j1, 1);
+  public JoystickButton j1b2 = new JoystickButton(j1, 2);
 
-  public static JoystickButton joystick2Button1;
-  public static JoystickButton joystick2Button2;
-  public static JoystickButton joystick2Button3;
-  public static JoystickButton joystick2Button4;
-  public static JoystickButton joystick2Button5;
-  public static JoystickButton joystick2Button7;
-  public static JoystickButton joystick2Button8;
-  public static JoystickButton joystick2Button9;
-  public static JoystickButton joystick2Button10;
-  public static JoystickButton joystick2Button11;
-  public static JoystickButton joystick2Button12;
+  // joystick2 buttons
+  public JoystickButton j2b1 = new JoystickButton(j2, 1);
+  public JoystickButton j2b2 = new JoystickButton(j2, 2);
+  public JoystickButton j2b3 = new JoystickButton(j2, 3);
+  public JoystickButton j2b4 = new JoystickButton(j2, 4);
+  public JoystickButton j2b7 = new JoystickButton(j2, 7);
+  public JoystickButton j2b8 = new JoystickButton(j2, 8);
+  public JoystickButton j2b9 = new JoystickButton(j2, 9);
+  public JoystickButton j2b10 = new JoystickButton(j2, 10);
+  public JoystickButton j2b11 = new JoystickButton(j2, 11);
+  public JoystickButton j2b12 = new JoystickButton(j2, 12);
 
   public OI() {
-    joystick0 = new Joystick(0);
-    joystick1 = new Joystick(1);
-    joystick2 = new Joystick(2);
 
-    // setup buttons
-    joystick0Button1 = new JoystickButton(joystick0, 1);
-    joystick0Button4 = new JoystickButton(joystick0, 4);
-    joystick0Button6 = new JoystickButton(joystick0, 6);
+    // joystick0 button actions
+    j0b1.whenPressed(new ShiftToggle());
+    j0b4.whenPressed(new ShiftDown());
+    j0b6.whenPressed(new ShiftUp());
 
-    joystick1Button1 = new JoystickButton(joystick1, 1);
-    joystick1Button2 = new JoystickButton(joystick1, 2);
+    // joystick1 button actions
+    j1b1.whileHeld(new Intake());
+    j1b2.whileHeld(new Outtake());
 
-    joystick2Button1 = new JoystickButton(joystick2, 1);
-    joystick2Button2 = new JoystickButton(joystick2, 2);
-    joystick2Button3 = new JoystickButton(joystick2, 3);
-    joystick2Button4 = new JoystickButton(joystick2, 4);
-    joystick2Button7 = new JoystickButton(joystick2, 7);
-    joystick2Button8 = new JoystickButton(joystick2, 8);
-    joystick2Button9 = new JoystickButton(joystick2, 9);
-    joystick2Button10 = new JoystickButton(joystick2, 10);
-    joystick2Button11 = new JoystickButton(joystick2, 11);
-    joystick2Button12 = new JoystickButton(joystick2, 12);
-
-    // attach commands to buttons
-    joystick0Button1.whenPressed(new ShiftToggle());
-    joystick0Button4.whenPressed(new ShiftDown());
-    joystick0Button6.whenPressed(new ShiftUp());
-
-    joystick1Button1.whileHeld(new Intake());
-    joystick1Button2.whileHeld(new Outtake());
-
-    joystick2Button1.whileHeld(new ShootCommandGroup());
-    joystick2Button2.whenPressed(new PlaceGear());
-    joystick2Button3.whileHeld(new Climb());
-    joystick2Button4.whileHeld(new ClearBalls());
-    joystick2Button8.whenPressed(new Record());
-    joystick2Button10.whenPressed(new StopRecord());
-    joystick2Button12.whenPressed(new Playback());
+    // joystick2 button actions
+    j2b1.whileHeld(new ShootCommandGroup());
+    j2b2.whenPressed(new PlaceGear());
+    j2b3.whileHeld(new Climb());
+    j2b4.whileHeld(new ClearBalls());
+    j2b8.whenPressed(new Record());
+    j2b10.whenPressed(new StopRecord());
+    j2b12.whenPressed(new Playback());
   }
 
-  public double getJoystick0() {
-    return joystick0.getY();
-  }
-
-  public double getJoystick1() {
-    return joystick1.getY();
-  }
-
-  public boolean getJoystick2Button7() {
-    return joystick2Button7.get();
-  }
-
-  public boolean getJoystick2Button9() {
-    return joystick2Button9.get();
-  }
-
-  public boolean getJoystick2Button11() {
-    return joystick2Button11.get();
-  }
 }

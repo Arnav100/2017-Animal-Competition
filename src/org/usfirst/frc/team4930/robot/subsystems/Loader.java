@@ -8,7 +8,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Loader extends Subsystem
 {
-
   private final CANTalon loader = RobotMap.loader;
 
   public void load(double amount) {
@@ -27,7 +26,6 @@ public class Loader extends Subsystem
     loader.set(0);
   }
 
-  @Override
   protected void initDefaultCommand() {}
 
   public double getLoader() {

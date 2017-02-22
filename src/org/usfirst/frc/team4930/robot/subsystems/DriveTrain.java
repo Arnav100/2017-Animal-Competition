@@ -7,29 +7,28 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveTrain extends Subsystem
 {
-  @Override
   public void initDefaultCommand() {
     setDefaultCommand(new TankDrive());
   }
 
+  public void drive() {
+    move(Robot.oi.j0.getY(), Robot.oi.j1.getY());
+  }
+
   public void move(double left, double right) {
-    if (Robot.orientation) {
-      RobotMap.driveTrainMasterMotors.tankDrive(-left, right);
-    } else {
-      RobotMap.driveTrainMasterMotors.tankDrive(-right, left);
-    }
+    RobotMap.dtMasterMotors.tankDrive(-left, right);
   }
 
   public void toggleBrakeMode(boolean state) {
-    RobotMap.driveTrainLeftMaster.enableBrakeMode(state);
-    RobotMap.driveTrainLeftSlave1.enableBrakeMode(state);
-    RobotMap.driveTrainLeftSlave2.enableBrakeMode(state);
-    RobotMap.driveTrainRightMaster.enableBrakeMode(state);
-    RobotMap.driveTrainRightSlave1.enableBrakeMode(state);
-    RobotMap.driveTrainRightSlave2.enableBrakeMode(state);
+    RobotMap.dtLMaster.enableBrakeMode(state);
+    RobotMap.dtLSlave1.enableBrakeMode(state);
+    RobotMap.dtLSlave2.enableBrakeMode(state);
+    RobotMap.dtRMaster.enableBrakeMode(state);
+    RobotMap.dtRSlave1.enableBrakeMode(state);
+    RobotMap.dtRSlave2.enableBrakeMode(state);
   }
 
   public void stop() {
-    RobotMap.driveTrainMasterMotors.stopMotor();
+    RobotMap.dtMasterMotors.stopMotor();
   }
 }
