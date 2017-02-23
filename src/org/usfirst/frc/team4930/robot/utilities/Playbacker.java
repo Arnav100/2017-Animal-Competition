@@ -2,61 +2,57 @@ package org.usfirst.frc.team4930.robot.utilities;
 
 import java.io.*;
 import java.util.Scanner;
-
 import org.usfirst.frc.team4930.robot.Robot;
 
 public class Playbacker
 {
-  // public static final CANTalon driveTrainLeftMaster = RobotMap.driveTrainLeftMaster;
-  // public static final CANTalon driveTrainRightMaster = RobotMap.driveTrainRightMaster;
 
-  Scanner scanner;
-  boolean onTime;
-  double nextTimestamp;
-  long startTime;
+  private Scanner scanner;
+  private boolean onTime;
+  private long startTime;
+  private double nextTimestamp;
 
-  boolean isInverted = false;
-
+  // set boolean values, instaniate scanner, and set the start time
   public void setupPlayback() throws FileNotFoundException {
-    // set boolean values, instaniate scanner, and set startTime
-    scanner = new Scanner(new File(Robot.autoFilePath));
-    // useDelimiter lets the scanner know to to differentiate between values
+    scanner = new Scanner(new File(Robot.replayFilePath));
     scanner.useDelimiter(",|\\n");
     onTime = true;
     startTime = System.currentTimeMillis();
   }
 
+  // sets the motor values in order if the current time matches the timestamp
   public void play() {
-    // sets the motor values if the current time matches the timestamp
     if ((scanner != null) && scanner.hasNextDouble()) {
       if (onTime) {
         nextTimestamp = scanner.nextDouble();
       }
-      // deltaTime makes sure that the player sets the motor values at the correct times
       double timeDelta = nextTimestamp - (System.currentTimeMillis() - startTime);
-      /*
-       * MAKE SURE TO SET THE VALUES IN THE ORDER YOU RECORDED THEM
-       */
       if (timeDelta <= 0) {
-        // driveTrain
-        double joystick0Y = scanner.nextDouble();
-        double joystick1Y = scanner.nextDouble();
-        if (isInverted) {
-          Robot.driveTrain.move(joystick1Y, joystick0Y);
+        String side = scanner.next();
+        double joystick0Y;
+        double joystick1Y;
+        if (side == "R") {
+          // red side
+          joystick0Y = scanner.nextDouble();
+          joystick1Y = scanner.nextDouble();
         } else {
-          Robot.driveTrain.move(joystick0Y, joystick1Y);
+          // blue side mirrors red side
+          joystick1Y = scanner.nextDouble();
+          joystick0Y = scanner.nextDouble();
         }
-        // ballIntake
+        Robot.driveTrain.move(joystick0Y, joystick1Y);
+        // intake value
         Robot.intake.in(scanner.nextDouble());
-        // climber
-        Robot.climber.climb(scanner.nextDouble());
-        // loader
+        // gear gadget value
+        Robot.gearGadget.open(scanner.nextDouble());
+        // loader value
         Robot.loader.load(scanner.nextDouble());
-        // shooter
-        Robot.shooter.spinUp(scanner.nextDouble());
+        // shooter value
+        Robot.shooter.shoot(scanner.nextDouble());
+        // currently on time
         onTime = true;
       } else {
-        // hold the player back until the current time matches the timestamp
+        // wait until the current time matches the timestamp
         onTime = false;
       }
     } else {
@@ -64,8 +60,8 @@ public class Playbacker
     }
   }
 
+  // stop drive train and stop scanner
   public void endPlayback() {
-    // clean up
     Robot.driveTrain.stop();
     if (scanner != null) {
       scanner.close();

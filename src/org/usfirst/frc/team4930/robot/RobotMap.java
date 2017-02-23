@@ -1,20 +1,18 @@
 package org.usfirst.frc.team4930.robot;
 
 import java.util.HashMap;
-
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
-
 import edu.wpi.first.wpilibj.*;
 
 public class RobotMap
 {
   // drive train motor controllers
   public static RobotDrive dtMasterMotors;
-  public static CANTalon dtRSlave2 = new CANTalon(21);
+  public static CANTalon dtRSlave2 = new CANTalon(21); // reversed
   public static CANTalon dtLMaster = new CANTalon(22);
-  public static CANTalon dtRSlave1 = new CANTalon(23);
-  public static CANTalon dtLSlave1 = new CANTalon(24);
+  public static CANTalon dtRSlave1 = new CANTalon(23); // reversed
+  public static CANTalon dtLSlave1 = new CANTalon(24); // reversed
   public static CANTalon dtRMaster = new CANTalon(25);
   public static CANTalon dtLSlave2 = new CANTalon(26);
 
@@ -39,22 +37,24 @@ public class RobotMap
   public static void init() {
 
     // organized static values
-    values.put("shooting", 0.9);
+    values.put("clear_shooter", 0.9);
 
     // right side slave setup
     dtRSlave1.changeControlMode(TalonControlMode.Follower);
     dtRSlave1.set(dtRMaster.getDeviceID());
-    dtRSlave1.reverseOutput(true);
     dtRSlave2.changeControlMode(TalonControlMode.Follower);
     dtRSlave2.set(dtRMaster.getDeviceID());
-    dtRSlave2.reverseOutput(true);
 
     // left side slave setup
     dtLSlave1.changeControlMode(TalonControlMode.Follower);
     dtLSlave1.set(dtLMaster.getDeviceID());
-    dtLSlave1.reverseOutput(true);
     dtLSlave2.changeControlMode(TalonControlMode.Follower);
     dtLSlave2.set(dtLMaster.getDeviceID());
+
+    // reverse polarity as required
+    dtRSlave1.reverseOutput(true);
+    dtRSlave2.reverseOutput(true);
+    dtLSlave1.reverseOutput(true);
 
     // master motors setup
     dtMasterMotors = new RobotDrive(dtLMaster, dtRMaster);

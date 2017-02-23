@@ -26,7 +26,7 @@ public class Robot extends IterativeRobot
 
   // auto replay setup
   public static Command autoCommand;
-  public static String autoFilePath = new String("/home/lvuser/CSVs/Replay.csv");
+  public static String replayFilePath = new String("/home/lvuser/CSVs/Replay.csv");
   public static boolean isRecording = false;
   public static boolean isPlaying = false;
 

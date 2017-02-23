@@ -5,38 +5,40 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 public class Recorder
 {
-  // public static final CANTalon driveTrainLeftMaster = RobotMap.driveTrainLeftMaster;
-  // public static final CANTalon driveTrainRightMaster = RobotMap.driveTrainRightMaster;
 
-  FileWriter writer;
-  long startTime;
+  private FileWriter writer;
+  private long startTime;
 
+  // instantiate writer and set the start time
   public void setupRecorder() throws IOException {
-    // instantiate writer and set startTime
-    writer = new FileWriter(Robot.autoFilePath);
+    writer = new FileWriter(Robot.replayFilePath);
     startTime = System.currentTimeMillis();
   }
 
+  // write a timestamp, the motor values, then make a new line
   public void record() throws IOException {
-    // write a timestamp, the motor values, and make a new line
     if (writer != null) {
       writer.append("" + (System.currentTimeMillis() - startTime));
-      // driveTrain
+      // Red/Blue side
+      writer.append("," + "R");
+      // driver joystick-y values
       writer.append("," + Robot.oi.j0.getY());
       writer.append("," + Robot.oi.j1.getY());
-      // ballIntakev
-      // climber
-      writer.append("," + Robot.climber.getClimber());
-      // loader
+      // intake value
+      writer.append("," + Robot.intake.getValue());
+      // gear gadget value
+      writer.append("," + Robot.gearGadget.getValue());
+      // loader value
       writer.append("," + Robot.loader.getLoader());
-      // shooter
-      writer.append("," + Robot.shooter.getShooter());
+      // shooter value
+      writer.append("," + Robot.shooter.getValue());
+      // create a new line
       writer.append("\n");
     }
   }
 
+  // stop writing to file
   public void endRecord() throws IOException {
-    // clean up
     if (writer != null) {
       writer.flush();
       writer.close();

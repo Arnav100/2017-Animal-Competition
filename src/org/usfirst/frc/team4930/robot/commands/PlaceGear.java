@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4930.robot.commands;
 
 import org.usfirst.frc.team4930.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 public class PlaceGear extends Command
@@ -17,7 +16,7 @@ public class PlaceGear extends Command
   }
 
   protected boolean isFinished() {
-    return timeSinceInitialized() > 0.15;
+    return timeSinceInitialized() > 0.5;
   }
 
   protected void end() {
