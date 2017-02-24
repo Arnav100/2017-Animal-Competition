@@ -16,17 +16,21 @@ public class Robot extends IterativeRobot
   public static GearGadget gearGadget = new GearGadget();
   public static Intake intake = new Intake();
   public static Loader loader = new Loader();
-  public static Playbacker playbacker = new Playbacker();
-  public static Shifter pneumatics = new Shifter();
-  public static Recorder recorder = new Recorder();
+  public static ReplayPlayer playbacker = new ReplayPlayer();
+  public static Shifter shifter = new Shifter();
+  public static ReplayRecorder recorder = new ReplayRecorder();
   public static Shooter shooter = new Shooter();
 
-  // oi is instantiated last
+  // always instantiated last
   public static OI oi = new OI();
 
   // auto replay setup
   public static Command autoCommand;
+  public static String autoSelected;
   public static String replayFilePath = new String("/home/lvuser/CSVs/Replay.csv");
+
+  // robot states
+  public static boolean inLowGear = true; // robot must start in low gear!
   public static boolean isRecording = false;
   public static boolean isPlaying = false;
 
@@ -36,10 +40,10 @@ public class Robot extends IterativeRobot
     RobotMap.init();
 
     // set default brake modes
-    Robot.intake.brakeMode(false);
     Robot.climber.brakeMode(true);
-    Robot.loader.brakeMode(true);
     Robot.gearGadget.brakeMode(true);
+    Robot.intake.brakeMode(false);
+    Robot.loader.brakeMode(true);
     Robot.shooter.brakeMode(false);
   }
 
@@ -52,24 +56,31 @@ public class Robot extends IterativeRobot
     switch ((int) Dial.getDial()) {
       case 1:
         autoCommand = new NearGear();
+        autoSelected = "(1) New Gear";
         break;
       case 2:
-        autoCommand = new NearReplay();
+        autoCommand = new MiddleGear();
+        autoSelected = "(2) Middle Gear";
         break;
       case 3:
-        autoCommand = new MiddleGear();
+        autoCommand = new FarGear();
+        autoSelected = "(3) Far Gear";
         break;
       case 4:
-        autoCommand = new MiddleReplay();
+        autoCommand = new NearReplay();
+        autoSelected = "(4) Near Replay";
         break;
       case 5:
-        autoCommand = new FarGear();
+        autoCommand = new MiddleReplay();
+        autoSelected = "(5) Middle Replayr";
         break;
       case 6:
         autoCommand = new FarReplay();
+        autoSelected = "(6) Far Replay";
         break;
       default:
         autoCommand = new DoNothing();
+        autoSelected = "(0) Do Nothing";
     }
 
     // run selected auto

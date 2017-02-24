@@ -7,24 +7,24 @@ public class Intake extends Subsystem
 {
   protected void initDefaultCommand() {}
 
-  public void agitate() {
-    RobotMap.intake.set(-0.45);
-  }
-
-  public void in(double value) {
-    RobotMap.intake.set(-value);
-  }
-
-  public void out(double value) {
+  public void move(double value) {
     RobotMap.intake.set(value);
   }
 
-  public void stop() {
-    RobotMap.intake.set(0.0);
+  public void agitate() {
+    move(-RobotMap.values.get("agitate"));
   }
 
-  public double getValue() {
-    return RobotMap.intake.get();
+  public void in() {
+    move(-RobotMap.values.get("intake_in"));
+  }
+
+  public void out(double value) {
+    move(RobotMap.values.get("intake_out"));
+  }
+
+  public void stop() {
+    move(0.0);
   }
 
   public void brakeMode(boolean state) {

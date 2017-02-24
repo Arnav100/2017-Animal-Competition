@@ -10,27 +10,25 @@ public class GearGadget extends Subsystem
     setDefaultCommand(new CloseGearGadget());
   }
 
-  public void open(double power) {
-    RobotMap.gadgetL.set(power);
-    RobotMap.gadgetR.set(-power);
+  public void move(double value) {
+    RobotMap.gadgetL.set(value);
+    RobotMap.gadgetR.set(-value);
+  }
+
+  public void open() {
+    move(RobotMap.values.get("open_gadget"));
   }
 
   public void close() {
-    RobotMap.gadgetL.set(-0.05);
-    RobotMap.gadgetR.set(0.05);
+    move(RobotMap.values.get("close_gadget"));
   }
 
   public void stop() {
-    RobotMap.gadgetL.set(0.0);
-    RobotMap.gadgetR.set(0.0);
+    move(0.0);
   }
 
   public void brakeMode(boolean state) {
     RobotMap.gadgetL.enableBrakeMode(state);
     RobotMap.gadgetR.enableBrakeMode(state);
-  }
-
-  public double getValue() {
-    return RobotMap.gadgetL.get();
   }
 }

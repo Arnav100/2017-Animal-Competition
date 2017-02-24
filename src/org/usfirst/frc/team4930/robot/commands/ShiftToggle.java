@@ -5,22 +5,18 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class ShiftToggle extends Command
 {
-  private static boolean isLowGear = true;
 
   public ShiftToggle() {
-    requires(Robot.pneumatics);
+    requires(Robot.shifter);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-
-    if (isLowGear) {
-      Robot.pneumatics.highGear();
-      isLowGear = false;
+    if (Robot.inLowGear) {
+      Robot.shifter.highGear();
     } else {
-      Robot.pneumatics.lowGear();
-      isLowGear = true;
+      Robot.shifter.lowGear();
     }
   }
 

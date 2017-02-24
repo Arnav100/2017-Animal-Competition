@@ -9,9 +9,8 @@ public class ReplayPlayback extends Command
 
   protected void initialize() {
     if (Robot.oi.j2b11.get()) {
-      Robot.isPlaying = true;
       try {
-        Robot.playbacker.setupPlayback();
+        Robot.playbacker.setup();
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -30,7 +29,7 @@ public class ReplayPlayback extends Command
   }
 
   protected void end() {
-    Robot.playbacker.endPlayback();
+    Robot.playbacker.end();
   }
 
   protected void interrupted() {

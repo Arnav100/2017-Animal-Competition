@@ -24,6 +24,6 @@ public class TankDrive extends Command
   }
 
   protected void interrupted() {
-    Robot.driveTrain.stop();
+    end();
   }
 }

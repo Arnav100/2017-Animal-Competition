@@ -12,7 +12,7 @@ public class LoadShooter extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.loader.load(0.85);
+    Robot.loader.load();
   }
 
   protected boolean isFinished() {

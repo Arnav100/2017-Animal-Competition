@@ -12,7 +12,7 @@ public class ClimbRope extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.climber.climb(1.0);
+    Robot.climber.climb();
   }
 
   protected boolean isFinished() {

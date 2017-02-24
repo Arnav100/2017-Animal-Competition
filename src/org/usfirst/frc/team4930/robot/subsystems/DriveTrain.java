@@ -10,12 +10,20 @@ public class DriveTrain extends Subsystem
     setDefaultCommand(new TankDrive());
   }
 
-  public void drive() {
-    move(Robot.oi.j0.getY(), Robot.oi.j1.getY());
-  }
-
   public void move(double left, double right) {
     RobotMap.dtMasterMotors.tankDrive(-left, right);
+  }
+
+  public void drive() {
+    double governor = 1.0;
+    if (Robot.inLowGear) {
+      governor = RobotMap.values.get("low_governor");
+    } else {
+      governor = RobotMap.values.get("high_governor");
+    }
+    double left = Robot.oi.j0.getY() * governor;
+    double right = Robot.oi.j1.getY() * governor;
+    move(left, right);
   }
 
   public void stop() {

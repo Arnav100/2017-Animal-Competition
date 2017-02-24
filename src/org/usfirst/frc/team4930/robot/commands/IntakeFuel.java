@@ -12,7 +12,7 @@ public class IntakeFuel extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.intake.in(1.0);
+    Robot.intake.in();
   }
 
   protected boolean isFinished() {

@@ -6,13 +6,13 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ShiftDown extends Command
 {
   public ShiftDown() {
-    requires(Robot.pneumatics);
+    requires(Robot.shifter);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.pneumatics.lowGear();
+    Robot.shifter.lowGear();
   }
 
   protected boolean isFinished() {

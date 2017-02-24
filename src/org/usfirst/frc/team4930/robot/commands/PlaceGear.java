@@ -12,11 +12,11 @@ public class PlaceGear extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.open(1);
+    Robot.gearGadget.open();
   }
 
   protected boolean isFinished() {
-    return timeSinceInitialized() > 0.5;
+    return timeSinceInitialized() > 0.4;
   }
 
   protected void end() {

@@ -7,20 +7,20 @@ public class Loader extends Subsystem
 {
   protected void initDefaultCommand() {}
 
-  public void load(double amount) {
-    RobotMap.loader.set(-amount);
+  public void move(double value) {
+    RobotMap.loader.set(value);
+  }
+
+  public void load() {
+    move(-RobotMap.values.get("loader"));
   }
 
   public void clear() {
-    RobotMap.loader.set(0.9);
+    move(RobotMap.values.get("clear_loader"));
   }
 
   public void stop() {
-    RobotMap.loader.set(0);
-  }
-
-  public double getLoader() {
-    return -RobotMap.loader.get();
+    move(0.0);
   }
 
   public void brakeMode(boolean state) {

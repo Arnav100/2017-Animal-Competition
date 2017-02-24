@@ -7,16 +7,16 @@ public class Climber extends Subsystem
 {
   public void initDefaultCommand() {}
 
-  public void climb(double output) {
-    RobotMap.climber.set(-output);
+  public void move(double value) {
+    RobotMap.climber.set(value);
+  }
+
+  public void climb() {
+    move(-RobotMap.values.get("climber"));
   }
 
   public void stop() {
-    RobotMap.climber.set(0.0);
-  }
-
-  public double getClimber() {
-    return -RobotMap.climber.get();
+    move(0.0);
   }
 
   public void brakeMode(boolean state) {

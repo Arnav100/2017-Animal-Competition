@@ -7,21 +7,20 @@ public class Shooter extends Subsystem
 {
   protected void initDefaultCommand() {}
 
-  public void shoot(double value) {
+  public void move(double value) {
     RobotMap.shooter.set(value);
   }
 
+  public void shoot() {
+    move(RobotMap.values.get("shooter"));
+  }
+
   public void clear() {
-    double value = RobotMap.values.get("clear_shooter");
-    RobotMap.shooter.set(-value);
+    move(-RobotMap.values.get("clear_shooter"));
   }
 
   public void stop() {
-    RobotMap.shooter.set(0.0);
-  }
-
-  public double getValue() {
-    return RobotMap.shooter.get();
+    move(0.0);
   }
 
   public void brakeMode(boolean state) {

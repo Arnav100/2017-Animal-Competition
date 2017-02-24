@@ -24,7 +24,7 @@ public class RobotMap
   public static CANTalon loader = new CANTalon(33);
   public static CANTalon gadgetR = new CANTalon(34);
 
-  // robot pneumatic system
+  // pneumatic system
   public static Compressor compressor = new Compressor(50);
   public static Solenoid solenoid = new Solenoid(50, 5);
 
@@ -36,8 +36,17 @@ public class RobotMap
 
   public static void init() {
 
-    // organized static values
-    values.put("clear_shooter", 0.9);
+    // organized static values: 0.0 to 1.0, no negatives!
+    values.put("agitate", 0.45);
+    values.put("loader", 0.85);
+    values.put("shooter", 0.91);
+    values.put("clear_loader", 0.75);
+    values.put("clear_shooter", 0.75);
+    values.put("open_gadget", 1.0);
+    values.put("close_gadget", 0.11);
+    values.put("intake_in", 1.0);
+    values.put("intake_out", 0.9);
+    values.put("climber", 1.0);
 
     // right side slave setup
     dtRSlave1.changeControlMode(TalonControlMode.Follower);
@@ -59,9 +68,11 @@ public class RobotMap
     // master motors setup
     dtMasterMotors = new RobotDrive(dtLMaster, dtRMaster);
     dtMasterMotors.setSafetyEnabled(true);
-    dtMasterMotors.setExpiration(0.1);
+    dtMasterMotors.setExpiration(0.2);
     dtMasterMotors.setSensitivity(0.5);
     dtMasterMotors.setMaxOutput(1.0);
+    values.put("low_governor", 0.85);
+    values.put("high_governor", 1.0);
 
   }
 }

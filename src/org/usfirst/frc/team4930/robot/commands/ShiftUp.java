@@ -6,13 +6,13 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ShiftUp extends Command
 {
   public ShiftUp() {
-    requires(Robot.pneumatics);
+    requires(Robot.shifter);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.pneumatics.highGear();
+    Robot.shifter.highGear();
   }
 
   protected boolean isFinished() {
