@@ -6,11 +6,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveTrain extends Subsystem
 {
+  public double leftSide, rightSide;
+
   public void initDefaultCommand() {
     setDefaultCommand(new TankDrive());
   }
 
   public void move(double left, double right) {
+    leftSide = left;
+    rightSide = right;
     RobotMap.dtMasterMotors.tankDrive(-left, right);
   }
 
