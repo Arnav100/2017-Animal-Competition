@@ -39,7 +39,7 @@ public class RobotMap
 
   public static void init() {
 
-    // motor controller percentages: 0.0 to 1.0, no negatives!
+    // static values: 0.0 to 1.0, no negatives!
     values.put("agitate", 0.45);
     values.put("loader", 0.85);
     values.put("shooter", 0.91);
@@ -72,7 +72,7 @@ public class RobotMap
       dtRSlave2.reverseOutput(true);
       dtLSlave2.reverseOutput(true);
 
-    } else {
+    } else { // Robot.name = Lamina
 
       // reverse polarity as required
       dtRSlave1.reverseOutput(true);
