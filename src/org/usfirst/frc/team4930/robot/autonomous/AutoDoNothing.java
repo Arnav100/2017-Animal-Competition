@@ -1,18 +1,14 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
-import org.usfirst.frc.team4930.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
-public class Replay extends Command
+public class AutoDoNothing extends Command
 {
-  public Replay() {}
+  public AutoDoNothing() {}
 
   protected void initialize() {}
 
-  protected void execute() {
-    Robot.replayPlayer.play();
-  }
+  protected void execute() {}
 
   protected boolean isFinished() {
     return true;

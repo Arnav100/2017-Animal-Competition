@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import org.usfirst.frc.team4930.robot.sensors.Dial;
+import org.usfirst.frc.team4930.robot.sensors.*;
 import org.usfirst.frc.team4930.robot.subsystems.*;
 import org.usfirst.frc.team4930.robot.utilities.*;
 import com.ctre.CANTalon;
@@ -15,25 +15,28 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class Robot extends IterativeRobot
 {
   public static String name = "Animal";
-  public static CANTalon testMotor;
   public static OI oi;
+  public static Dashboard dashboard;
+  public static CANTalon testMotor;
 
   // subsystems and sensors
   public static Climber climber;
   public static Dial dial;
   public static DriveTrain driveTrain;
   public static GearGadget gearGadget;
+  public static Gyro gyro;
   public static Intake intake;
   public static Loader loader;
   public static Shifter shifter;
   public static Shooter shooter;
 
   // auto replay setup
+  public static Integer dialNumber = 0;
+  public static String replayFilePath;
   public static ReplayPlayer replayPlayer;
   public static ReplayRecorder replayRecorder;
   public static Command autoCommand;
-  public static String autoSelected;
-  public static String replayFilePath;
+  public static String autoDescription = "(0) Do Nothing";
 
   // initial robot states
   public static boolean inLowGear = true; // robot must start in low gear!
@@ -54,6 +57,7 @@ public class Robot extends IterativeRobot
 
     // initialize robot mappings
     RobotMap.init();
+    dashboard = new Dashboard();
 
     // instantiate drive train first then the rest of the subsystems
     driveTrain = new DriveTrain();
@@ -64,6 +68,7 @@ public class Robot extends IterativeRobot
     shifter = new Shifter();
     shooter = new Shooter();
     dial = new Dial();
+    gyro = new Gyro();
 
     // instantiate replay code
     replayPlayer = new ReplayPlayer();
@@ -80,13 +85,23 @@ public class Robot extends IterativeRobot
     Robot.shooter.brakeMode(false);
   }
 
+  public void robotPeriodic() {
+
+    // set selected auto mode from dial
+    dial.setSelectedReplay();
+
+    // update dashboard values
+    dashboard.update();
+
+  }
+
   public void autonomousInit() {
 
     // always start auto with brake mode on
     Robot.driveTrain.brakeMode(true);
 
     // set selected auto mode from dial
-    dial.setupAutoReplay();
+    dial.setSelectedReplay();
 
     // run selected auto
     autoCommand.start();
@@ -118,7 +133,7 @@ public class Robot extends IterativeRobot
   }
 
   public void testInit() {
-    testMotor = new CANTalon(34);
+    testMotor = new CANTalon(33);
   }
 
   public void testPeriodic() {
