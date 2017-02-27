@@ -9,34 +9,55 @@ public class RobotMap
 {
   // drive train motor controllers
   public static RobotDrive dtMasterMotors;
-  public static CANTalon dtRSlave2 = new CANTalon(21); // reversed
-  public static CANTalon dtLMaster = new CANTalon(22);
-  public static CANTalon dtRSlave1 = new CANTalon(23); // reversed
-  public static CANTalon dtLSlave1 = new CANTalon(24); // reversed
-  public static CANTalon dtRMaster = new CANTalon(25);
-  public static CANTalon dtLSlave2 = new CANTalon(26);
+  public static CANTalon dtLMaster;
+  public static CANTalon dtLSlave1;
+  public static CANTalon dtLSlave2;
+  public static CANTalon dtRMaster;
+  public static CANTalon dtRSlave1;
+  public static CANTalon dtRSlave2;
 
   // subsystem motor controllers
-  public static CANTalon intake = new CANTalon(27);
-  public static CANTalon climber = new CANTalon(29);
-  public static CANTalon shooter = new CANTalon(31);
-  public static CANTalon gadgetL = new CANTalon(32);
-  public static CANTalon loader = new CANTalon(33);
-  public static CANTalon gadgetR = new CANTalon(34);
+  public static CANTalon climber;
+  public static CANTalon gadgetL;
+  public static CANTalon gadgetR;
+  public static CANTalon intake;
+  public static CANTalon loader;
+  public static CANTalon shooter;
 
   // pneumatic system
-  public static Compressor compressor = new Compressor(50);
-  public static Solenoid solenoid = new Solenoid(50, 5);
+  public static Compressor compressor;
+  public static Solenoid solenoid;
 
   // robot sensors
-  public static AnalogPotentiometer dial = new AnalogPotentiometer(2, 300, 0);
+  public static AnalogPotentiometer dial;
 
-  // static values
+  // static values placehoder
   public static HashMap<String, Double> values = new HashMap<String, Double>();
 
   public static void init() {
 
-    // organized static values: 0.0 to 1.0, no negatives!
+    // instantiate the talons
+    dtRSlave2 = new CANTalon(21); // reversed
+    dtLMaster = new CANTalon(22);
+    dtRSlave1 = new CANTalon(23); // reversed
+    dtLSlave1 = new CANTalon(24); // reversed
+    dtRMaster = new CANTalon(25);
+    dtLSlave2 = new CANTalon(26);
+    intake = new CANTalon(27);
+    climber = new CANTalon(29);
+    shooter = new CANTalon(31);
+    gadgetL = new CANTalon(32);
+    loader = new CANTalon(33);
+    gadgetR = new CANTalon(34);
+
+    // instantiate pneumatic system
+    compressor = new Compressor(50); // device id
+    solenoid = new Solenoid(50, 5); // device id, channel
+
+    // instantiate sensors
+    dial = new AnalogPotentiometer(2, 300, 0); // channel, range, offset
+
+    // static values: 0.0 to 1.0, no negatives!
     values.put("agitate", 0.45);
     values.put("loader", 0.85);
     values.put("shooter", 0.91);

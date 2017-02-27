@@ -10,7 +10,7 @@ public class ReplayPlayback extends Command
   protected void initialize() {
     if (Robot.oi.j2b11.get()) {
       try {
-        Robot.playbacker.setup();
+        Robot.replayPlayer.setup();
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -20,7 +20,7 @@ public class ReplayPlayback extends Command
 
   protected void execute() {
     if (isIntentional) {
-      Robot.playbacker.play();
+      Robot.replayPlayer.play();
     }
   }
 
@@ -29,7 +29,7 @@ public class ReplayPlayback extends Command
   }
 
   protected void end() {
-    Robot.playbacker.end();
+    Robot.replayPlayer.end();
   }
 
   protected void interrupted() {

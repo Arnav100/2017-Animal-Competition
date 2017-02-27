@@ -20,7 +20,6 @@ public class PlaceGear extends Command
   }
 
   protected void end() {
-    Robot.gearGadget.stop();
     new CloseGearGadget().start();
   }
 

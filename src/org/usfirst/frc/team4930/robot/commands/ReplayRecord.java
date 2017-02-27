@@ -12,7 +12,7 @@ public class ReplayRecord extends Command
       Robot.isRecording = true;
       try {
         Robot.driveTrain.brakeMode(true);
-        Robot.recorder.setup();
+        Robot.replayRecorder.setup();
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -23,7 +23,7 @@ public class ReplayRecord extends Command
   protected void execute() {
     if (isIntentional) {
       try {
-        Robot.recorder.record();
+        Robot.replayRecorder.record();
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -36,7 +36,7 @@ public class ReplayRecord extends Command
 
   protected void end() {
     try {
-      Robot.recorder.end();
+      Robot.replayRecorder.end();
       Robot.driveTrain.brakeMode(false);
     } catch (Exception e) {
       e.printStackTrace();

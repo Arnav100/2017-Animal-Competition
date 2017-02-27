@@ -19,10 +19,6 @@ public class CloseGearGadget extends Command
     return false;
   }
 
-  protected void end() {
-    Robot.gearGadget.stop();
-  }
-
   protected void interrupted() {
     end();
   }

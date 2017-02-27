@@ -23,10 +23,6 @@ public class GearGadget extends Subsystem
     move(RobotMap.values.get("close_gadget"));
   }
 
-  public void stop() {
-    move(0.0);
-  }
-
   public void brakeMode(boolean state) {
     RobotMap.gadgetL.enableBrakeMode(state);
     RobotMap.gadgetR.enableBrakeMode(state);

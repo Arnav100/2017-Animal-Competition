@@ -4,27 +4,28 @@ import org.usfirst.frc.team4930.robot.autonomous.*;
 import org.usfirst.frc.team4930.robot.sensors.Dial;
 import org.usfirst.frc.team4930.robot.subsystems.*;
 import org.usfirst.frc.team4930.robot.utilities.*;
+import com.ctre.CANTalon;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.*;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class Robot extends IterativeRobot
 {
-  // instantiate all subsystems and sensors
-  public static Climber climber = new Climber();
-  public static Dial dial = new Dial();
-  public static DriveTrain driveTrain = new DriveTrain();
-  public static GearGadget gearGadget = new GearGadget();
-  public static Intake intake = new Intake();
-  public static Loader loader = new Loader();
-  public static ReplayPlayer playbacker = new ReplayPlayer();
-  public static Shifter shifter = new Shifter();
-  public static ReplayRecorder recorder = new ReplayRecorder();
-  public static Shooter shooter = new Shooter();
+  public static OI oi;
 
-  // always instantiated last
-  public static OI oi = new OI();
+  // subsystems and sensors
+  public static Climber climber;
+  public static Dial dial;
+  public static DriveTrain driveTrain;
+  public static GearGadget gearGadget;
+  public static Intake intake;
+  public static Loader loader;
+  public static Shifter shifter;
+  public static Shooter shooter;
 
   // auto replay setup
+  public static ReplayPlayer replayPlayer;
+  public static ReplayRecorder replayRecorder;
   public static Command autoCommand;
   public static String autoSelected;
   public static String replayFilePath = new String("/home/lvuser/CSVs/Replay.csv");
@@ -34,10 +35,30 @@ public class Robot extends IterativeRobot
   public static boolean isRecording = false;
   public static boolean isPlaying = false;
 
+  // test mode setup
+  public static CANTalon testMotor;
+
   public void robotInit() {
 
     // initialize robot mappings
     RobotMap.init();
+
+    // instatiate drive train first then the rest of the subsystems
+    driveTrain = new DriveTrain();
+    climber = new Climber();
+    gearGadget = new GearGadget();
+    intake = new Intake();
+    loader = new Loader();
+    shifter = new Shifter();
+    shooter = new Shooter();
+    dial = new Dial();
+
+    // instatiate replay code
+    replayPlayer = new ReplayPlayer();
+    replayRecorder = new ReplayRecorder();
+
+    // instatiate oi last
+    oi = new OI();
 
     // set default brake modes
     Robot.climber.brakeMode(true);
@@ -110,6 +131,15 @@ public class Robot extends IterativeRobot
 
   public void disabledPeriodic() {
     Scheduler.getInstance().run();
+  }
+
+  public void testInit() {
+    testMotor = new CANTalon(34);
+  }
+
+  public void testPeriodic() {
+    LiveWindow.run();
+    testMotor.set(0.4);
   }
 
 }
