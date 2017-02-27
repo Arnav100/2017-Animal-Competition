@@ -36,6 +36,18 @@ public class RobotMap
 
   public static void init() {
 
+    // static values: 0.0 to 1.0, no negatives!
+    values.put("agitate", 0.45);
+    values.put("loader", 0.85);
+    values.put("shooter", 0.91);
+    values.put("clear_loader", 0.75);
+    values.put("clear_shooter", 0.75);
+    values.put("open_gadget", 1.0);
+    values.put("close_gadget", 0.11);
+    values.put("intake_in", 1.0);
+    values.put("intake_out", 0.9);
+    values.put("climber", 1.0);
+
     // instantiate the talons
     dtRSlave2 = new CANTalon(21); // reversed
     dtLMaster = new CANTalon(22);
@@ -56,18 +68,6 @@ public class RobotMap
 
     // instantiate sensors
     dial = new AnalogPotentiometer(2, 300, 0); // channel, range, offset
-
-    // static values: 0.0 to 1.0, no negatives!
-    values.put("agitate", 0.45);
-    values.put("loader", 0.85);
-    values.put("shooter", 0.91);
-    values.put("clear_loader", 0.75);
-    values.put("clear_shooter", 0.75);
-    values.put("open_gadget", 1.0);
-    values.put("close_gadget", 0.11);
-    values.put("intake_in", 1.0);
-    values.put("intake_out", 0.9);
-    values.put("climber", 1.0);
 
     // right side slave setup
     dtRSlave1.changeControlMode(TalonControlMode.Follower);
