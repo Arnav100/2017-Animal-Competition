@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class ShiftToggle extends Command
 {
-
   public ShiftToggle() {
     requires(Robot.shifter);
   }
@@ -26,5 +25,7 @@ public class ShiftToggle extends Command
 
   protected void end() {}
 
-  protected void interrupted() {}
+  protected void interrupted() {
+    end();
+  }
 }

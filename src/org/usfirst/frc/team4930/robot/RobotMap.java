@@ -31,12 +31,12 @@ public class RobotMap
   // robot sensors
   public static AnalogPotentiometer dial;
 
-  // static values placehoder
+  // static values
   public static HashMap<String, Double> values = new HashMap<String, Double>();
 
   public static void init() {
 
-    // static values: 0.0 to 1.0, no negatives!
+    // motor controller percentages: 0.0 to 1.0, no negatives!
     values.put("agitate", 0.45);
     values.put("loader", 0.85);
     values.put("shooter", 0.91);
@@ -48,18 +48,29 @@ public class RobotMap
     values.put("intake_out", 0.9);
     values.put("climber", 1.0);
 
-    // instantiate the talons
+    if (Robot.name == "Animal") {
+      initAnimal();
+    } else {
+      initLamina();
+    }
+
+  }
+
+  // Animal: Competition Robot
+  public static void initAnimal() {
+
+    // instantiate the motor controllers
     dtRSlave2 = new CANTalon(21); // reversed
     dtLMaster = new CANTalon(22);
     dtRSlave1 = new CANTalon(23); // reversed
     dtLSlave1 = new CANTalon(24); // reversed
     dtRMaster = new CANTalon(25);
     dtLSlave2 = new CANTalon(26);
-    intake = new CANTalon(27);
-    climber = new CANTalon(29);
+    intake = new CANTalon(27); // reversed
+    climber = new CANTalon(29); // reversed
     shooter = new CANTalon(31);
     gadgetL = new CANTalon(32);
-    loader = new CANTalon(33);
+    loader = new CANTalon(33); // reversed
     gadgetR = new CANTalon(34);
 
     // instantiate pneumatic system
@@ -85,6 +96,64 @@ public class RobotMap
     dtRSlave1.reverseOutput(true);
     dtRSlave2.reverseOutput(true);
     dtLSlave1.reverseOutput(true);
+    climber.reverseOutput(true);
+    intake.reverseOutput(true);
+    loader.reverseOutput(true);
+
+    // master motors setup
+    dtMasterMotors = new RobotDrive(dtLMaster, dtRMaster);
+    dtMasterMotors.setSafetyEnabled(true);
+    dtMasterMotors.setExpiration(0.2);
+    dtMasterMotors.setSensitivity(0.5);
+    dtMasterMotors.setMaxOutput(1.0);
+    values.put("low_governor", 0.85);
+    values.put("high_governor", 1.0);
+
+  }
+
+  // Lamina: Practice Robot
+  public static void initLamina() {
+
+    // instantiate the motor controllers
+    dtRSlave2 = new CANTalon(21); // reversed
+    dtLMaster = new CANTalon(22);
+    dtRSlave1 = new CANTalon(23); // reversed
+    dtLSlave1 = new CANTalon(24); // reversed
+    dtRMaster = new CANTalon(25);
+    dtLSlave2 = new CANTalon(26);
+    intake = new CANTalon(27); // reversed
+    climber = new CANTalon(29); // reversed
+    shooter = new CANTalon(31);
+    gadgetL = new CANTalon(32);
+    loader = new CANTalon(33); // reversed
+    gadgetR = new CANTalon(34);
+
+    // instantiate pneumatic system
+    compressor = new Compressor(50); // device id
+    solenoid = new Solenoid(50, 5); // device id, channel
+
+    // instantiate sensors
+    dial = new AnalogPotentiometer(2, 300, 0); // channel, range, offset
+
+    // right side slave setup
+    dtRSlave1.changeControlMode(TalonControlMode.Follower);
+    dtRSlave1.set(dtRMaster.getDeviceID());
+    dtRSlave2.changeControlMode(TalonControlMode.Follower);
+    dtRSlave2.set(dtRMaster.getDeviceID());
+
+    // left side slave setup
+    dtLSlave1.changeControlMode(TalonControlMode.Follower);
+    dtLSlave1.set(dtLMaster.getDeviceID());
+    dtLSlave2.changeControlMode(TalonControlMode.Follower);
+    dtLSlave2.set(dtLMaster.getDeviceID());
+
+    // reverse polarity as required
+    dtRSlave1.reverseOutput(true);
+    dtRSlave2.reverseOutput(true);
+    dtLSlave1.reverseOutput(true);
+    climber.reverseOutput(true);
+    intake.reverseOutput(true);
+    loader.reverseOutput(true);
 
     // master motors setup
     dtMasterMotors = new RobotDrive(dtLMaster, dtRMaster);

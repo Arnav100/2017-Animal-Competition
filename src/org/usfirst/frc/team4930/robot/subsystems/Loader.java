@@ -12,11 +12,11 @@ public class Loader extends Subsystem
   }
 
   public void load() {
-    move(-RobotMap.values.get("loader"));
+    move(RobotMap.values.get("loader"));
   }
 
   public void clear() {
-    move(RobotMap.values.get("clear_loader"));
+    move(-RobotMap.values.get("clear_loader"));
   }
 
   public void stop() {

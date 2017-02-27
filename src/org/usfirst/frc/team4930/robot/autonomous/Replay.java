@@ -1,22 +1,21 @@
-package org.usfirst.frc.team4930.robot.commands;
+package org.usfirst.frc.team4930.robot.autonomous;
 
 import org.usfirst.frc.team4930.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
-public class CloseGearGadget extends Command
+public class Replay extends Command
 {
-  public CloseGearGadget() {
-    requires(Robot.gearGadget);
-  }
+  public Replay() {}
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.close();
+    Robot.replayPlayer.play();
   }
 
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   protected void end() {}

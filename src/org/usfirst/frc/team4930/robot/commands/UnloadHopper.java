@@ -12,7 +12,7 @@ public class UnloadHopper extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.intake.out(0.9);
+    Robot.intake.out();
   }
 
   protected boolean isFinished() {

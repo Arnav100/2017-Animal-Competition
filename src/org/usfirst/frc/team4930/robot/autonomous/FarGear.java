@@ -5,6 +5,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class FarGear extends CommandGroup
 {
   public FarGear() {
-    addSequential(new FarReplay());
+    addSequential(new Replay());
   }
 }

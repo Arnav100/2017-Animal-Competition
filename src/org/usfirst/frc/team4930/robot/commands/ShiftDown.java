@@ -16,10 +16,12 @@ public class ShiftDown extends Command
   }
 
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   protected void end() {}
 
-  protected void interrupted() {}
+  protected void interrupted() {
+    end();
+  }
 }

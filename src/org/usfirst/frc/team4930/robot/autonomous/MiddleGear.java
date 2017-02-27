@@ -5,6 +5,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class MiddleGear extends CommandGroup
 {
   public MiddleGear() {
-    addSequential(new MiddleReplay());
+    addSequential(new Replay());
   }
 }

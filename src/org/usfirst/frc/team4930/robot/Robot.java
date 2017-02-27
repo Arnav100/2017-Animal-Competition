@@ -1,6 +1,9 @@
 package org.usfirst.frc.team4930.robot;
 
-import org.usfirst.frc.team4930.robot.autonomous.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 import org.usfirst.frc.team4930.robot.sensors.Dial;
 import org.usfirst.frc.team4930.robot.subsystems.*;
 import org.usfirst.frc.team4930.robot.utilities.*;
@@ -11,6 +14,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class Robot extends IterativeRobot
 {
+  public static String name = "Animal";
+  public static CANTalon testMotor;
   public static OI oi;
 
   // subsystems and sensors
@@ -28,22 +33,29 @@ public class Robot extends IterativeRobot
   public static ReplayRecorder replayRecorder;
   public static Command autoCommand;
   public static String autoSelected;
-  public static String replayFilePath = new String("/home/lvuser/CSVs/Replay.csv");
+  public static String replayFilePath;
 
-  // robot states
+  // initial robot states
   public static boolean inLowGear = true; // robot must start in low gear!
   public static boolean isRecording = false;
   public static boolean isPlaying = false;
 
-  // test mode setup
-  public static CANTalon testMotor;
-
   public void robotInit() {
+
+    // get robot name
+    String nameFilePath = "/home/lvuser/RobotName.txt";
+    BufferedReader reader;
+    try {
+      reader = new BufferedReader(new FileReader(nameFilePath));
+      name = reader.readLine();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
 
     // initialize robot mappings
     RobotMap.init();
 
-    // instatiate drive train first then the rest of the subsystems
+    // instantiate drive train first then the rest of the subsystems
     driveTrain = new DriveTrain();
     climber = new Climber();
     gearGadget = new GearGadget();
@@ -53,11 +65,11 @@ public class Robot extends IterativeRobot
     shooter = new Shooter();
     dial = new Dial();
 
-    // instatiate replay code
+    // instantiate replay code
     replayPlayer = new ReplayPlayer();
     replayRecorder = new ReplayRecorder();
 
-    // instatiate oi last
+    // instantiate oi last
     oi = new OI();
 
     // set default brake modes
@@ -70,39 +82,11 @@ public class Robot extends IterativeRobot
 
   public void autonomousInit() {
 
-    // start auto with brake mode on
+    // always start auto with brake mode on
     Robot.driveTrain.brakeMode(true);
 
-    // check on board dial for auto
-    switch ((int) Dial.getDial()) {
-      case 1:
-        autoCommand = new NearGear();
-        autoSelected = "(1) New Gear";
-        break;
-      case 2:
-        autoCommand = new MiddleGear();
-        autoSelected = "(2) Middle Gear";
-        break;
-      case 3:
-        autoCommand = new FarGear();
-        autoSelected = "(3) Far Gear";
-        break;
-      case 4:
-        autoCommand = new NearReplay();
-        autoSelected = "(4) Near Replay";
-        break;
-      case 5:
-        autoCommand = new MiddleReplay();
-        autoSelected = "(5) Middle Replayr";
-        break;
-      case 6:
-        autoCommand = new FarReplay();
-        autoSelected = "(6) Far Replay";
-        break;
-      default:
-        autoCommand = new DoNothing();
-        autoSelected = "(0) Do Nothing";
-    }
+    // set selected auto mode from dial
+    dial.setupAutoReplay();
 
     // run selected auto
     autoCommand.start();
@@ -119,7 +103,7 @@ public class Robot extends IterativeRobot
       autoCommand.cancel();
     }
 
-    // start teleop with brake mode off
+    // always start teleop with brake mode off
     Robot.driveTrain.brakeMode(false);
   }
 
@@ -141,5 +125,4 @@ public class Robot extends IterativeRobot
     LiveWindow.run();
     testMotor.set(0.4);
   }
-
 }

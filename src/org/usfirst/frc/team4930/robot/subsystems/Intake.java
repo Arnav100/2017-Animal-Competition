@@ -12,15 +12,15 @@ public class Intake extends Subsystem
   }
 
   public void agitate() {
-    move(-RobotMap.values.get("agitate"));
+    move(RobotMap.values.get("agitate"));
   }
 
   public void in() {
-    move(-RobotMap.values.get("intake_in"));
+    move(RobotMap.values.get("intake_in"));
   }
 
-  public void out(double value) {
-    move(RobotMap.values.get("intake_out"));
+  public void out() {
+    move(-RobotMap.values.get("intake_out"));
   }
 
   public void stop() {
