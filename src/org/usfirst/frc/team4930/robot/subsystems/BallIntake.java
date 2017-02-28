@@ -27,6 +27,10 @@ public class BallIntake extends Subsystem
     ballIntakeRight.set(0);
   }
 
+  public double getBallIntakeRight() {
+    return ballIntakeRight.get();
+  }
+
   protected void initDefaultCommand() {}
 
 }

@@ -26,7 +26,8 @@ public class Recorder
       // driveTrain
       writer.append("," + Robot.oi.getJoystick0());
       writer.append("," + Robot.oi.getJoystick1());
-      // ballIntakev
+      // ballIntake
+      writer.append("," + Robot.ballIntake.getBallIntakeRight());
       // climber
       writer.append("," + Robot.climber.getClimber());
       // gearGadget
