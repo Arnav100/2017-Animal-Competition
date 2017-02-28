@@ -17,6 +17,7 @@ public class Dial
     } else {
       dialNum = floor;
     }
+    System.out.println("Dial Position: " + dialNum);
     return (int) dialNum;
   }
 
@@ -82,6 +83,7 @@ public class Dial
           Robot.replayFilePath = "";
           Robot.autoCommand = new AutoDoNothing();
       }
+      System.out.println("AutoDial: " + Robot.autoDescription);
     }
   }
 }

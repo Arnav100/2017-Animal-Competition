@@ -65,7 +65,21 @@ public class RobotMap
     loader = new CANTalon(33);
     gadgetR = new CANTalon(34);
 
-    if (Robot.name == "Animal") {
+    // right side slave setup
+    dtRSlave1.changeControlMode(TalonControlMode.Follower);
+    dtRSlave1.set(dtRMaster.getDeviceID());
+    dtRSlave2.changeControlMode(TalonControlMode.Follower);
+    dtRSlave2.set(dtRMaster.getDeviceID());
+
+    // left side slave setup
+    dtLSlave1.changeControlMode(TalonControlMode.Follower);
+    dtLSlave1.set(dtLMaster.getDeviceID());
+    dtLSlave2.changeControlMode(TalonControlMode.Follower);
+    dtLSlave2.set(dtLMaster.getDeviceID());
+
+    if (new String("Animal").equals(Robot.name)) {
+
+      System.out.println("Init: Animal");
 
       // reverse polarity as required
       dtRSlave1.reverseOutput(true);
@@ -74,10 +88,13 @@ public class RobotMap
 
     } else { // Robot.name = Lamina
 
+      System.out.println("Init: Lamina");
+
       // reverse polarity as required
+      dtLSlave1.reverseOutput(true);
+      dtLSlave2.reverseOutput(true);
       dtRSlave1.reverseOutput(true);
       dtRSlave2.reverseOutput(true);
-      dtLMaster.reverseOutput(true);
 
     }
 
@@ -95,18 +112,6 @@ public class RobotMap
     dial = new AnalogPotentiometer(2, 300, 0); // channel, range, offset
     gyro = new ADXRS450_Gyro();
     toggleSwitch = new DigitalInput(0);
-
-    // right side slave setup
-    dtRSlave1.changeControlMode(TalonControlMode.Follower);
-    dtRSlave1.set(dtRMaster.getDeviceID());
-    dtRSlave2.changeControlMode(TalonControlMode.Follower);
-    dtRSlave2.set(dtRMaster.getDeviceID());
-
-    // left side slave setup
-    dtLSlave1.changeControlMode(TalonControlMode.Follower);
-    dtLSlave1.set(dtLMaster.getDeviceID());
-    dtLSlave2.changeControlMode(TalonControlMode.Follower);
-    dtLSlave2.set(dtLMaster.getDeviceID());
 
     // master motors setup
     dtMasterMotors = new RobotDrive(dtLMaster, dtRMaster);

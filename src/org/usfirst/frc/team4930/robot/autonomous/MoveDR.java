@@ -4,28 +4,32 @@ import org.usfirst.frc.team4930.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Move using Dead Reckoning (time based)
+ * Move using speed and time (dead reckoning)
  */
 public class MoveDR extends Command
 {
   public double speed;
-  public double inches;
+  public double seconds;
 
-  public MoveDR(double s, double i) {
-    speed = s;
-    inches = i;
+  public MoveDR(double speed, double seconds) {
+    this.speed = speed;
+    this.seconds = seconds;
     requires(Robot.driveTrain);
   }
 
   protected void initialize() {}
 
-  protected void execute() {}
-
-  protected boolean isFinished() {
-    return false;
+  protected void execute() {
+    Robot.driveTrain.move(speed, speed);
   }
 
-  protected void end() {}
+  protected boolean isFinished() {
+    return seconds < timeSinceInitialized();
+  }
+
+  protected void end() {
+    Robot.driveTrain.stop();
+  }
 
   protected void interrupted() {
     end();

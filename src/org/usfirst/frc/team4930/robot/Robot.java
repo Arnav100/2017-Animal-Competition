@@ -3,7 +3,7 @@ package org.usfirst.frc.team4930.robot;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+import org.usfirst.frc.team4930.robot.autonomous.AutoDoNothing;
 import org.usfirst.frc.team4930.robot.sensors.*;
 import org.usfirst.frc.team4930.robot.subsystems.*;
 import org.usfirst.frc.team4930.robot.utilities.*;
@@ -14,7 +14,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class Robot extends IterativeRobot
 {
-  public static String name = "Animal";
+
+  public static String name;
   public static OI oi;
   public static Dashboard dashboard;
   public static CANTalon testMotor;
@@ -31,17 +32,17 @@ public class Robot extends IterativeRobot
   public static Shooter shooter;
 
   // auto replay setup
-  public static Integer dialNumber = 0;
+  public static Integer dialNumber;
+  public static Command autoCommand;
+  public static String autoDescription;
   public static String replayFilePath;
   public static ReplayPlayer replayPlayer;
   public static ReplayRecorder replayRecorder;
-  public static Command autoCommand;
-  public static String autoDescription = "(0) Do Nothing";
 
   // initial robot states
   public static boolean inLowGear = true; // robot must start in low gear!
   public static boolean isRecording = false;
-  public static boolean isPlaying = false;
+  public static boolean isReplaying = false;
 
   public void robotInit() {
 
@@ -50,17 +51,20 @@ public class Robot extends IterativeRobot
     BufferedReader reader;
     try {
       reader = new BufferedReader(new FileReader(nameFilePath));
-      name = reader.readLine();
+      Robot.name = reader.readLine();
     } catch (IOException e) {
       e.printStackTrace();
+      name = "Animal";
     }
 
     // initialize robot mappings
     RobotMap.init();
     dashboard = new Dashboard();
 
-    // instantiate drive train first then the rest of the subsystems
+    // instantiate drive train first
     driveTrain = new DriveTrain();
+
+    // instantiate the rest of the subsystems
     climber = new Climber();
     gearGadget = new GearGadget();
     intake = new Intake();
@@ -83,15 +87,11 @@ public class Robot extends IterativeRobot
     Robot.intake.brakeMode(false);
     Robot.loader.brakeMode(true);
     Robot.shooter.brakeMode(false);
-  }
 
-  public void robotPeriodic() {
-
-    // set selected auto mode from dial
-    dial.setSelectedReplay();
-
-    // update dashboard values
-    dashboard.update();
+    // set default auto to literally do nothing
+    dialNumber = 0;
+    autoDescription = "(0) Do Nothing";
+    autoCommand = new AutoDoNothing();
 
   }
 
@@ -99,9 +99,6 @@ public class Robot extends IterativeRobot
 
     // always start auto with brake mode on
     Robot.driveTrain.brakeMode(true);
-
-    // set selected auto mode from dial
-    dial.setSelectedReplay();
 
     // run selected auto
     autoCommand.start();
@@ -124,6 +121,12 @@ public class Robot extends IterativeRobot
 
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+
+    // set selected auto mode from dial
+    dial.setSelectedReplay();
+
+    // update dashboard values
+    dashboard.update();
   }
 
   public void disabledInit() {}
@@ -133,7 +136,7 @@ public class Robot extends IterativeRobot
   }
 
   public void testInit() {
-    testMotor = new CANTalon(33);
+    testMotor = new CANTalon(21);
   }
 
   public void testPeriodic() {

@@ -3,7 +3,7 @@ package org.usfirst.frc.team4930.robot.autonomous;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Spin using Dead Reckoning (time)
+ * Spin using speed and time (dead reckoning)
  */
 public class SpinDR extends Command
 {

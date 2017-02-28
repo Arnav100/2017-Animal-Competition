@@ -25,7 +25,7 @@ public class ReplayPlayback extends Command
   }
 
   protected boolean isFinished() {
-    return !Robot.isPlaying;
+    return !Robot.isReplaying;
   }
 
   protected void end() {

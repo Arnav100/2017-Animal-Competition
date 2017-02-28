@@ -4,14 +4,14 @@ import org.usfirst.frc.team4930.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Move using encoder values
+ * Move using encoders (bang bang control)
  */
-public class MoveEnc extends Command
+public class MoveBB extends Command
 {
   public double speed;
   public double inches;
 
-  public MoveEnc(double s, double i) {
+  public MoveBB(double s, double i) {
     speed = s;
     inches = i;
     requires(Robot.driveTrain);

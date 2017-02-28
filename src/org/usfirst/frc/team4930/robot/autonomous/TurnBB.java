@@ -3,12 +3,12 @@ package org.usfirst.frc.team4930.robot.autonomous;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Spin using a gyroscope
+ * Turn using a gyroscope (bang bang control)
  */
-public class SpinGyro extends Command
+public class TurnBB extends Command
 {
 
-  public SpinGyro() {}
+  public TurnBB() {}
 
   protected void initialize() {}
 

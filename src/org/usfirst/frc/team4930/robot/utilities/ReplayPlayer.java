@@ -18,7 +18,7 @@ public class ReplayPlayer
     scanner.useDelimiter(",|\\n");
     onTime = true;
     startTimestamp = System.currentTimeMillis();
-    Robot.isPlaying = true;
+    Robot.isReplaying = true;
   }
 
   // set motor values if current time matches the start time
@@ -57,7 +57,7 @@ public class ReplayPlayer
   // stop drive train and stop scanner
   public void end() {
     Robot.driveTrain.stop();
-    Robot.isPlaying = false;
+    Robot.isReplaying = false;
     if (scanner != null) {
       scanner.close();
       scanner = null;

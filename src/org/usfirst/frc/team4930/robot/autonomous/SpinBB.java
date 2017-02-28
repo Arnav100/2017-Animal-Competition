@@ -1,21 +1,14 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
-import org.usfirst.frc.team4930.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Move using a PID controller
+ * Spin using a gyroscope (bang bang control)
  */
-public class MovePID extends Command
+public class SpinBB extends Command
 {
-  public double speed;
-  public double inches;
 
-  public MovePID(double s, double i) {
-    speed = s;
-    inches = i;
-    requires(Robot.driveTrain);
-  }
+  public SpinBB() {}
 
   protected void initialize() {}
 

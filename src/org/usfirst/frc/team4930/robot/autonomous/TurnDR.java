@@ -1,11 +1,10 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
 import org.usfirst.frc.team4930.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Turn using Dead Reckoning (time)
+ * Turn using speed and time (dead reckoning)
  */
 public class TurnDR extends Command
 {
