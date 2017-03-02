@@ -18,11 +18,17 @@ public class Encoders
     startLeft = 0;
   }
 
-  public void move(double speed, double feet) {
+  public void setStart() {
+    startRight = RobotMap.driveTrainRightMaster.getEncPosition();
+    startLeft = RobotMap.driveTrainLeftMaster.getEncPosition();
+
+  }
+
+  public void move(double speed, double inches) {
     isRunning = true;
 
-    double distanceRight = (feet * 23984) + startRight;
-    double distanceLeft = (feet * 23984) + startLeft;
+    double distanceRight = (inches * 1900) + startRight;
+    double distanceLeft = (inches * 1900) + startLeft;
 
     if (RobotMap.driveTrainRightMaster.getEncPosition() <= distanceRight
         && RobotMap.driveTrainLeftMaster.getEncPosition() <= distanceLeft) {

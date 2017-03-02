@@ -96,6 +96,7 @@ public class Robot extends IterativeRobot
     isRecording = false;
     isPlaying = false;
 
+    gyro.calibrating();
     // Robot.ballIntake.enableBrakeMode();
     // Robot.climber.enableBrakeMode();
     // Robot.gearGadget.enableBrakeMode();

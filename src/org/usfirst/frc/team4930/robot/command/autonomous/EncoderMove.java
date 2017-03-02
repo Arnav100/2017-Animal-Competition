@@ -17,6 +17,7 @@ public class EncoderMove extends Command
 
   protected void initialize() {
     Robot.encoder.reset();
+    Robot.encoder.setStart();
   }
 
   protected void execute() {

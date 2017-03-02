@@ -14,7 +14,7 @@ public class GyroTurn extends Command
   }
 
   protected void initialize() {
-    Robot.gyro.calibrating();
+    Robot.gyro.setStart();
   }
 
   protected void execute() {
@@ -27,7 +27,6 @@ public class GyroTurn extends Command
 
   protected void end() {
     Robot.gyro.stop();
-
   }
 
   protected void interrupted() {
