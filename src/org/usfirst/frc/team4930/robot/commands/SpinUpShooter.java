@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4930.robot.commands;
 
 import org.usfirst.frc.team4930.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 public class SpinUpShooter extends Command
@@ -16,7 +15,7 @@ public class SpinUpShooter extends Command
 
   @Override
   protected void execute() {
-    Robot.shooter.spinUp(0.9);
+    Robot.shooter.spinUp(0.84);
   }
 
   @Override

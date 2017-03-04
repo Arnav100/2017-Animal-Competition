@@ -3,9 +3,7 @@ package org.usfirst.frc.team4930.robot;
 import org.usfirst.frc.team4930.robot.autonomous.*;
 import org.usfirst.frc.team4930.robot.subsystems.*;
 import org.usfirst.frc.team4930.robot.utilities.*;
-
 import com.ctre.CANTalon;
-
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -119,7 +117,7 @@ public class Robot extends IterativeRobot
     if (autoCommand != null) {
       autoCommand.cancel();
     }
-    Robot.driveTrain.toggleBrakeMode(false);
+    Robot.driveTrain.toggleBrakeMode(true);
   }
 
   @Override

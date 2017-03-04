@@ -2,7 +2,6 @@ package org.usfirst.frc.team4930.robot;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
-
 import edu.wpi.first.wpilibj.*;
 
 public class RobotMap
@@ -45,9 +44,9 @@ public class RobotMap
     driveTrainRightSlave2.set(driveTrainRightMaster.getDeviceID());
     driveTrainRightSlave2.reverseOutput(true);
 
-    driveTrainLeftMaster = new CANTalon(22);
+    driveTrainLeftMaster = new CANTalon(26);
     driveTrainLeftSlave1 = new CANTalon(24);
-    driveTrainLeftSlave2 = new CANTalon(26);
+    driveTrainLeftSlave2 = new CANTalon(22);
 
     driveTrainLeftSlave1.changeControlMode(TalonControlMode.Follower);
     driveTrainLeftSlave1.set(driveTrainLeftMaster.getDeviceID());
@@ -55,6 +54,7 @@ public class RobotMap
 
     driveTrainLeftSlave2.changeControlMode(TalonControlMode.Follower);
     driveTrainLeftSlave2.set(driveTrainLeftMaster.getDeviceID());
+    driveTrainLeftSlave2.reverseOutput(true);
 
     driveTrainMasterMotors = new RobotDrive(driveTrainLeftMaster, driveTrainRightMaster);
     driveTrainMasterMotors.setSafetyEnabled(true);

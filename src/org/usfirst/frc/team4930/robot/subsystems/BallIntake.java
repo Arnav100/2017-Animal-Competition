@@ -1,9 +1,7 @@
 package org.usfirst.frc.team4930.robot.subsystems;
 
 import org.usfirst.frc.team4930.robot.RobotMap;
-
 import com.ctre.CANTalon;
-
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class BallIntake extends Subsystem
@@ -11,7 +9,7 @@ public class BallIntake extends Subsystem
   private final CANTalon ballIntakeRight = RobotMap.ballIntakeRight;
 
   public void agitate() {
-    ballIntakeRight.set(-0.45);
+    ballIntakeRight.set(-0.75);
   }
 
   public void intake(double x) {
