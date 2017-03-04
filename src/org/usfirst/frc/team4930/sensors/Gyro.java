@@ -21,13 +21,40 @@ public class Gyro
     start = gyro.getAngle();
   }
 
-  public void turn(double degree) {
+  public void turn(double degree, double speed, boolean isRight) {
+    isRunning = true;
+    if (isRight) {
+
+      if (gyro.getAngle() <= degree + start) {
+        Robot.driveTrain.move(0.0, -speed);
+      } else {
+        isRunning = false;
+      }
+    }
+
+    else {
+      if (gyro.getAngle() <= degree + start) {
+        Robot.driveTrain.move(speed, 0.0);
+      } else {
+        isRunning = false;
+      }
+    }
+  }
+
+  public void spin(double degree, double speed, boolean isClockwise) {
     isRunning = true;
 
-    if (gyro.getAngle() <= degree + start) {
-      Robot.driveTrain.move(0.0, -0.3);
+    if (isClockwise) {
+      if (gyro.getAngle() <= degree + start) {
+        Robot.driveTrain.move(speed, -speed);
+      } else {
+        isRunning = false;
+      }
     } else {
-      isRunning = false;
+      if (gyro.getAngle() >= -degree + start) {
+        Robot.driveTrain.move(-speed, speed);
+      }
+
     }
 
   }

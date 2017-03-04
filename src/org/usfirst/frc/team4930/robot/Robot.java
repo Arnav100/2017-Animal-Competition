@@ -97,6 +97,7 @@ public class Robot extends IterativeRobot
     isPlaying = false;
 
     gyro.calibrating();
+    encoder.reset();
     // Robot.ballIntake.enableBrakeMode();
     // Robot.climber.enableBrakeMode();
     // Robot.gearGadget.enableBrakeMode();
@@ -132,7 +133,7 @@ public class Robot extends IterativeRobot
 
     Robot.driveTrain.toggleBrakeMode(true);
 
-    autoGyroTurn = new GyroTurn(45);
+    autoGyroTurn = new GyroTurn(45, 0.3, true);
     autoEncoderMove = new EncoderMove(0.6, 2);
     AutoFarGear = new FarGear();
     AutoFarReplay = new FarReplay();

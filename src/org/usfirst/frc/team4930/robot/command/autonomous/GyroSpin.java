@@ -4,17 +4,17 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class GyroTurn extends Command
+public class GyroSpin extends Command
 {
-  private double degree;
-  private double speed;
-  private boolean isRight;
+  protected double degree;
+  protected double speed;
+  protected boolean isClockwise;
 
-  public GyroTurn(double newDegree, double newSpeed, boolean newIsRight) {
+  public GyroSpin(double newDegree, double newSpeed, boolean newIsClockwise) {
+
     degree = newDegree;
     speed = newSpeed;
-    isRight = newIsRight;
-
+    isClockwise = newIsClockwise;
   }
 
   protected void initialize() {
@@ -22,10 +22,11 @@ public class GyroTurn extends Command
   }
 
   protected void execute() {
-    Robot.gyro.turn(degree, speed, isRight);
+    Robot.gyro.spin(degree, speed, isClockwise);
   }
 
   protected boolean isFinished() {
+
     return !Robot.gyro.getRunning();
   }
 
