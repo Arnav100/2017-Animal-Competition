@@ -23,18 +23,27 @@ public class Gyro
 
   public void turn(double degree, double speed, boolean isRight) {
     isRunning = true;
+    boolean changeAngle = (gyro.getAngle() <= degree + start);
+    double opposite = 0.0;
+
+    if (degree < 0) {
+      changeAngle = (gyro.getAngle() >= degree + start);
+      opposite = speed;
+      speed = 0.0;
+    }
+
     if (isRight) {
 
-      if (gyro.getAngle() <= degree + start) {
-        Robot.driveTrain.move(0.0, -speed);
+      if (changeAngle) {
+        Robot.driveTrain.move(-opposite, -speed);
       } else {
         isRunning = false;
       }
     }
 
     else {
-      if (gyro.getAngle() <= degree + start) {
-        Robot.driveTrain.move(speed, 0.0);
+      if (changeAngle) {
+        Robot.driveTrain.move(speed, opposite);
       } else {
         isRunning = false;
       }
