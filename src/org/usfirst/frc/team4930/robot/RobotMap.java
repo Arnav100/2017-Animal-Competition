@@ -77,26 +77,11 @@ public class RobotMap
     dtLSlave2.changeControlMode(TalonControlMode.Follower);
     dtLSlave2.set(dtLMaster.getDeviceID());
 
-    if (new String("Animal").equals(Robot.name)) {
-
-      System.out.println("Init: Animal");
-
-      // reverse polarity as required
-      dtRSlave1.reverseOutput(true);
-      dtRSlave2.reverseOutput(true);
-      dtLSlave2.reverseOutput(true);
-
-    } else { // Robot.name = Lamina
-
-      System.out.println("Init: Lamina");
-
-      // reverse polarity as required
-      dtLSlave1.reverseOutput(true);
-      dtLSlave2.reverseOutput(true);
-      dtRSlave1.reverseOutput(true);
-      dtRSlave2.reverseOutput(true);
-
-    }
+    // reverse polarity as required
+    dtLSlave1.reverseOutput(true);
+    dtLSlave2.reverseOutput(true);
+    dtRSlave1.reverseOutput(true);
+    dtRSlave2.reverseOutput(true);
 
     // setup drive train encoders
     dtRMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);

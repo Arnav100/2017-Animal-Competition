@@ -1,8 +1,5 @@
 package org.usfirst.frc.team4930.robot;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import org.usfirst.frc.team4930.robot.autonomous.AutoDoNothing;
 import org.usfirst.frc.team4930.robot.sensors.*;
 import org.usfirst.frc.team4930.robot.subsystems.*;
@@ -15,7 +12,6 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class Robot extends IterativeRobot
 {
 
-  public static String name;
   public static OI oi;
   public static Dashboard dashboard;
   public static CANTalon testMotor;
@@ -45,17 +41,6 @@ public class Robot extends IterativeRobot
   public static boolean isReplaying = false;
 
   public void robotInit() {
-
-    // get robot name
-    String nameFilePath = "/home/lvuser/RobotName.txt";
-    BufferedReader reader;
-    try {
-      reader = new BufferedReader(new FileReader(nameFilePath));
-      Robot.name = reader.readLine();
-    } catch (IOException e) {
-      e.printStackTrace();
-      name = "Animal";
-    }
 
     // initialize robot mappings
     RobotMap.init();
