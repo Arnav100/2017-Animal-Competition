@@ -8,7 +8,7 @@ public class Climber extends Subsystem
   public void initDefaultCommand() {}
 
   public void move(double value) {
-    RobotMap.climber.set(value);
+    RobotMap.climber.set(-value);
   }
 
   public void climb() {

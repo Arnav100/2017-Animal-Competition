@@ -9,12 +9,12 @@ public class Shifter extends Subsystem
   public void initDefaultCommand() {}
 
   public void lowGear() {
-    RobotMap.solenoid.set(false);
+    RobotMap.solenoid.set(true);
     Robot.inLowGear = true;
   }
 
   public void highGear() {
-    RobotMap.solenoid.set(true);
+    RobotMap.solenoid.set(false);
     Robot.inLowGear = false;
   }
 }

@@ -15,7 +15,7 @@ public class DriveTrain extends Subsystem
   public void move(double left, double right) {
     leftSide = left;
     rightSide = right;
-    RobotMap.dtMasterMotors.tankDrive(-left, right);
+    RobotMap.dtMasterMotors.tankDrive(left, right);
   }
 
   public void drive() {

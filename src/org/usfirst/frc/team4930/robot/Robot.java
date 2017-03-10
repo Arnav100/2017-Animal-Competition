@@ -13,7 +13,7 @@ public class Robot extends IterativeRobot
 {
 
   public static OI oi;//
-  public static Dashboard dashboard;// +
+  public static Dashboard dashboard;// ++
   public static CANTalon testMotor;//
 
   // subsystems and sensors
@@ -21,11 +21,11 @@ public class Robot extends IterativeRobot
   public static Dial dial;//
   public static DriveTrain driveTrain;//
   public static GearGadget gearGadget;//
-  public static Gyro gyro;// +
   public static Intake intake;//
   public static Loader loader;//
   public static Shifter shifter;//
   public static Shooter shooter;//
+  public static ToggleSwitch toggleSwitch;
 
   // auto replay setup
   public static Integer dialNumber;
@@ -44,7 +44,7 @@ public class Robot extends IterativeRobot
 
     // initialize robot mappings
     RobotMap.init();//
-    dashboard = new Dashboard();
+    dashboard = new Dashboard();//
 
     // instantiate drive train first
     driveTrain = new DriveTrain();
@@ -57,7 +57,7 @@ public class Robot extends IterativeRobot
     shifter = new Shifter();
     shooter = new Shooter();
     dial = new Dial();
-    gyro = new Gyro();
+    toggleSwitch = new ToggleSwitch();
 
     // instantiate replay code
     replayPlayer = new ReplayPlayer();
@@ -100,8 +100,8 @@ public class Robot extends IterativeRobot
       autoCommand.cancel();
     }
 
-    // always start teleop with brake mode off
-    Robot.driveTrain.brakeMode(false);
+    // always start teleop with brake mode on
+    Robot.driveTrain.brakeMode(true);
   }
 
   public void teleopPeriodic() {

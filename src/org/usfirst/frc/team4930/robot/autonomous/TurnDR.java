@@ -17,6 +17,7 @@ public class TurnDR extends Command
     // attempt to smooth transition
     double left = Robot.driveTrain.leftSide;
     double right = Robot.driveTrain.rightSide;
+    Robot.driveTrain.move(left, right);
   }
 
   protected boolean isFinished() {

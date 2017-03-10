@@ -99,12 +99,12 @@ public class RobotMap
     solenoid = new Solenoid(50, 5); // device id, channel
 
     // instantiate sensors
-    dial = new AnalogPotentiometer(2, 300, 0); // channel, range, offset
+    dial = new AnalogPotentiometer(0, 300, 0); // ++ channel, range, offset
     gyro = new ADXRS450_Gyro();
-    toggleSwitch = new DigitalInput(0);
+    toggleSwitch = new DigitalInput(9); // ++
 
     // high/low shifting governors
-    values.put("low_governor", 0.85);
+    values.put("low_governor", 0.9);
     values.put("high_governor", 1.0);
   }
 }

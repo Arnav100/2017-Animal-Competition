@@ -12,13 +12,11 @@ public class OI
   public Joystick j2 = new Joystick(2);
 
   // joystick0 buttons
-  public JoystickButton j0b1 = new JoystickButton(j0, 1);
-  public JoystickButton j0b4 = new JoystickButton(j0, 4);
-  public JoystickButton j0b6 = new JoystickButton(j0, 6);
+  public JoystickButton j1b1 = new JoystickButton(j1, 1);
 
   // joystick1 buttons
-  public JoystickButton j1b1 = new JoystickButton(j1, 1);
-  public JoystickButton j1b2 = new JoystickButton(j1, 2);
+  public JoystickButton j1b3 = new JoystickButton(j1, 3);
+  public JoystickButton j1b4 = new JoystickButton(j1, 4);
 
   // joystick2 buttons
   public JoystickButton j2b1 = new JoystickButton(j2, 1);
@@ -33,13 +31,12 @@ public class OI
   public OI() {
 
     // joystick0 button actions
-    j0b1.whenPressed(new ShiftToggle());
-    j0b4.whenPressed(new ShiftDown());
-    j0b6.whenPressed(new ShiftUp());
+    j1b1.whenPressed(new ShiftUp());
+    j1b1.whenReleased(new ShiftDown());
 
     // joystick1 button actions
-    j1b1.whileHeld(new IntakeFuel());
-    j1b2.whileHeld(new UnloadHopper());
+    j1b3.whileHeld(new IntakeFuel());
+    j1b4.whileHeld(new UnloadHopper());
 
     // joystick2 button actions
     j2b1.whileHeld(new ShootingSequence());

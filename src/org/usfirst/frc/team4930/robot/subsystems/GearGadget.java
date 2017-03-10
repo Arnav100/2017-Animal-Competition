@@ -11,12 +11,12 @@ public class GearGadget extends Subsystem
   }
 
   public void move(double value) {
-    RobotMap.gadgetL.set(value);
-    RobotMap.gadgetR.set(-value);
+    RobotMap.gadgetL.set(-value);
+    RobotMap.gadgetR.set(value);
   }
 
   public void open() {
-    move(RobotMap.values.get("open_gadget"));
+    move(-RobotMap.values.get("open_gadget"));
   }
 
   public void close() {
