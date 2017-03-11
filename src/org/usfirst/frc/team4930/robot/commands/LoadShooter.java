@@ -12,7 +12,7 @@ public class LoadShooter extends Command
   protected void initialize() {}
 
   protected void execute() {
-    if (timeSinceInitialized() > 1.1) {
+    if (timeSinceInitialized() > 0.9) {
       Robot.loader.load();
     }
   }

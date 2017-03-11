@@ -12,7 +12,9 @@ public class AgitateFuel extends Command
   protected void initialize() {}
 
   protected void execute() {
-    Robot.intake.agitate();
+    if (timeSinceInitialized() > 0.9) {
+      Robot.intake.agitate();
+    }
   }
 
   protected boolean isFinished() {
