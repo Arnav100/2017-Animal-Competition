@@ -9,15 +9,13 @@ public class ReplayRecorder
 
   private FileWriter writer;
   private long startTime;
-  private double governor;
   private String alliance;
 
   // instantiate writer and set the start time
   public void setup() throws IOException {
     writer = new FileWriter(Robot.replayFilePath);
     startTime = System.currentTimeMillis();
-    governor = RobotMap.values.get("governor");
-    alliance = "Red";
+    alliance = Robot.toggleSwitch.getSide();
   }
 
   // write a timestamp, the motor values, then make a new line
@@ -26,14 +24,21 @@ public class ReplayRecorder
       writer.append("" + (System.currentTimeMillis() - startTime));
       // alliance
       writer.append("," + alliance);
-      // drive train values
-      writer.append("," + Robot.oi.j0.getY() * governor);
-      writer.append("," + Robot.oi.j1.getY() * governor);
-      // intake value
-      writer.append("," + RobotMap.gadgetL.get());
-      // loader value
-      writer.append("," + RobotMap.intake.get());
+      // record state of shifter
+      if (Robot.inLowGear) {
+        writer.append("," + "Low");
+      } else {
+        writer.append("," + "High");
+      }
+      // drive train left
+      writer.append("," + RobotMap.dtLMaster.get());
+      // drive train right
+      writer.append("," + RobotMap.dtRMaster.get());
       // gear gadget value
+      writer.append("," + RobotMap.gadgetL.get());
+      // intake value
+      writer.append("," + RobotMap.intake.get());
+      // loader value
       writer.append("," + RobotMap.loader.get());
       // shooter value
       writer.append("," + RobotMap.shooter.get());

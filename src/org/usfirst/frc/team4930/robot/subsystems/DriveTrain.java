@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DriveTrain extends Subsystem
 {
-  public double leftSide, rightSide;
+  public double leftSide, rightSide, governor;
 
   public void initDefaultCommand() {
     setDefaultCommand(new TankDrive());
@@ -19,7 +19,6 @@ public class DriveTrain extends Subsystem
   }
 
   public void drive() {
-    double governor = 1.0;
     if (Robot.inLowGear) {
       governor = RobotMap.values.get("low_governor");
     } else {
