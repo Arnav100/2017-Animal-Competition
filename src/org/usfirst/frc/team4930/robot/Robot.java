@@ -3,12 +3,9 @@ package org.usfirst.frc.team4930.robot;
 import org.usfirst.frc.team4930.robot.command.autonomous.DoNothing;
 import org.usfirst.frc.team4930.robot.command.autonomous.EncoderMove;
 import org.usfirst.frc.team4930.robot.command.autonomous.FarGear;
-import org.usfirst.frc.team4930.robot.command.autonomous.FarReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.GyroTurn;
 import org.usfirst.frc.team4930.robot.command.autonomous.MiddleGear;
-import org.usfirst.frc.team4930.robot.command.autonomous.MiddleReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.NearGear;
-import org.usfirst.frc.team4930.robot.command.autonomous.NearReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.Playback;
 import org.usfirst.frc.team4930.robot.subsystems.BallIntake;
 import org.usfirst.frc.team4930.robot.subsystems.Climber;
@@ -135,11 +132,11 @@ public class Robot extends IterativeRobot
     autoGyroTurn = new GyroTurn(45, 0.3, true);
     autoEncoderMove = new EncoderMove(0.6, 2);
     AutoFarGear = new FarGear();
-    AutoFarReplay = new FarReplay();
+
     AutoMiddleGear = new MiddleGear();
-    AutoMiddleReplay = new MiddleReplay();
+
     AutoNearGear = new NearGear();
-    AutoNearReplay = new NearReplay();
+
     AutoDoNothing = new DoNothing();
     autoPlayback = new Playback();
 

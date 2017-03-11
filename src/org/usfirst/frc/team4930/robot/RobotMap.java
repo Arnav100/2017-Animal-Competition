@@ -7,6 +7,7 @@ import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Solenoid;
 
@@ -28,6 +29,7 @@ public class RobotMap
   public static CANTalon gearGadgetLeft;
   public static CANTalon gearGadgetRight;
 
+  public static DigitalInput toggleSwitch;
   public static AnalogPotentiometer dialChooser;
   public static ADXRS450_Gyro gyro;
 
@@ -93,5 +95,6 @@ public class RobotMap
     driveTrainRightMaster.configEncoderCodesPerRev(1024);
     dialChooser = new AnalogPotentiometer(2, 300, 0);
     gyro = new ADXRS450_Gyro();
+    toggleSwitch = new DigitalInput(9);
   }
 }

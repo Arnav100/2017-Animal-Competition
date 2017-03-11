@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4930.robot.command.autonomous;
 
 import org.usfirst.frc.team4930.robot.Robot;
+import org.usfirst.frc.team4930.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -11,30 +12,30 @@ public class NearGear extends CommandGroup
 {
 
   public NearGear() {
-    addSequential(new EncoderMove(-0.3, -36));
-    addSequential(new GyroTurn(45, 0.3, true));
-    addSequential(new EncoderMove(-0.3, -12));
 
-    Robot.autoFile = "FarGearReplay";
-    Robot.autoFilePath = new String("/home/lvuser/CSVs/" + Robot.autoFile + ".csv");
-    addSequential(new NearReplay());
-    // addSequential(new NearReplay());
+    // For RED SIDE
+    if (RobotMap.toggleSwitch.get()) {
+      addSequential(new EncoderMove(-0.3, -93.25));
+      // Degrees, direction, and movement from this point on are estimates NEED TO BE TESTED
+      addSequential(new GyroTurn(-45, 0.3, true));
+      addSequential(new EncoderMove(-0.3, -12));
 
-    // Add Commands here:
-    // e.g. addSequential(new Command1());
-    // addSequential(new Command2());
-    // these will run in order.
+      Robot.autoFile = "NearGearReplay";
+      Robot.autoFilePath = new String("/home/lvuser/CSVs/" + Robot.autoFile + ".csv");
+      addSequential(new Playback());
+    }
+    // For BLUE SIDE
+    else {
 
-    // To run multiple commands at the same time,
-    // use addParallel()
-    // e.g. addParallel(new Command1());
-    // addSequential(new Command2());
-    // Command1 and Command2 will run in parallel.
+      addSequential(new EncoderMove(-0.3, -93.25));
+      // Degrees, direction, and movement from this point on are estimates NEED TO BE TESTED
+      addSequential(new GyroTurn(45, 0.3, false));
+      addSequential(new EncoderMove(-0.3, -12));
 
-    // A command group will require all of the subsystems that each member
-    // would require.
-    // e.g. if Command1 requires chassis, and Command2 requires arm,
-    // a CommandGroup containing them would require both the chassis and the
-    // arm.
+      Robot.autoFile = "NearGearReplay";
+      Robot.autoFilePath = new String("/home/lvuser/CSVs/" + Robot.autoFile + ".csv");
+      addSequential(new Playback());
+
+    }
   }
 }
