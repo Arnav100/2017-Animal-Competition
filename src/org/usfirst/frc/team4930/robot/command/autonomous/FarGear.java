@@ -20,11 +20,11 @@ public class FarGear extends CommandGroup
       Robot.autoFilePath = new String("/home/lvuser/CSVs/" + Robot.autoFile + ".csv");
       addSequential(new Playback());
     }
-
+    // for BLUE SIDE
     else {
       addSequential(new EncoderMove(-0.3, -93.25));
       // Degrees, direction, and movement from this point on are estimates NEED TO BE TESTED
-      addSequential(new GyroTurn(-45, 0.3, false));
+      addSequential(new GyroTurn(-45, 0.3, true));
       addSequential(new EncoderMove(-0.3, -12));
 
       Robot.autoFile = "FarGearReplay";
