@@ -2,28 +2,16 @@ package org.usfirst.frc.team4930.robot.utilities;
 
 import org.usfirst.frc.team4930.robot.Robot;
 import org.usfirst.frc.team4930.robot.RobotMap;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Dashboard
 {
-  
-	
-public void update() { //
 
-    // put dial number and selected replay
-    SmartDashboard.putString("Dial Number: ", Robot.dialNumber.toString());
+  public void update() { //
+
+    // put selected replay and alliance side
     SmartDashboard.putString("Replay Selected: ", Robot.autoDescription);
-    SmartDashboard.putNumber("Dial Raw: ", RobotMap.dial.get());
-    SmartDashboard.putBoolean("Toggle Switch", RobotMap.toggleSwitch.get());
-    SmartDashboard.putString("Toggle Switch", Robot.toggleSwitch.getSide());
-
-    // replay is or is not recording
-    SmartDashboard.putBoolean("isRecording: ", Robot.isRecording);
-    SmartDashboard.putBoolean("isPlaying: ", Robot.isReplaying);
-
-    // sensor data
-    SmartDashboard.putNumber("Gyro Angle: ", RobotMap.gyro.getAngle());
+    SmartDashboard.putString("Alliance Side: ", Robot.toggleSwitch.getSide());
 
     // put hard code values
     SmartDashboard.putNumber("Agitate Value", RobotMap.values.get("agitate"));

@@ -66,8 +66,9 @@ public class Robot extends IterativeRobot
     // instantiate oi last
     oi = new OI();
 
-    // set default brake modes
+    // set default brake modes for subsystems
     Robot.climber.brakeMode(true);
+    Robot.driveTrain.brakeMode(true);
     Robot.gearGadget.brakeMode(true);
     Robot.intake.brakeMode(false);
     Robot.loader.brakeMode(true);
@@ -81,11 +82,6 @@ public class Robot extends IterativeRobot
   }
 
   public void autonomousInit() {
-
-    // always start auto with brake mode on
-    Robot.driveTrain.brakeMode(true);
-
-    // run selected auto
     autoCommand.start();
   }
 
@@ -94,14 +90,9 @@ public class Robot extends IterativeRobot
   }
 
   public void teleopInit() {
-
-    // cancel auto if not already done
     if (autoCommand != null) {
       autoCommand.cancel();
     }
-
-    // always start teleop with brake mode on
-    Robot.driveTrain.brakeMode(true);
   }
 
   public void teleopPeriodic() {
