@@ -48,8 +48,8 @@ public class RobotMap
     values.put("agitate", 0.45);
     values.put("loader", 0.85);
     values.put("shooter", 0.91);
-    values.put("intake_in", 0.9);
-    values.put("intake_out", 0.9);
+    values.put("intake_in", 0.90);
+    values.put("intake_out", 0.90);
     values.put("clear_fuel", 0.75);
 
     // instantiate the motor controllers

@@ -11,10 +11,10 @@ public class ReplayPlayback extends Command
     if (Robot.oi.j2b7.get()) {
       try {
         Robot.replayPlayer.setup();
+        isIntentional = true;
       } catch (Exception e) {
         e.printStackTrace();
       }
-      isIntentional = true;
     }
   }
 

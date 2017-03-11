@@ -17,7 +17,6 @@ public class Dial
     } else {
       dialNum = floor;
     }
-//    System.out.println("Dial Position: " + dialNum);
     return (int) dialNum;
   }
 

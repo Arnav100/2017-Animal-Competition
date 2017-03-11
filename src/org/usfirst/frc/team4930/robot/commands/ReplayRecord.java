@@ -11,12 +11,11 @@ public class ReplayRecord extends Command
     if (Robot.oi.j2b7.get()) {
       Robot.isRecording = true;
       try {
-        Robot.driveTrain.brakeMode(true);
         Robot.replayRecorder.setup();
+        isIntentional = true;
       } catch (Exception e) {
         e.printStackTrace();
       }
-      isIntentional = true;
     }
   }
 
@@ -37,7 +36,6 @@ public class ReplayRecord extends Command
   protected void end() {
     try {
       Robot.replayRecorder.end();
-      Robot.driveTrain.brakeMode(false);
     } catch (Exception e) {
       e.printStackTrace();
     }
