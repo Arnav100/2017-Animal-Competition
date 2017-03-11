@@ -84,7 +84,7 @@ public class RobotMap
 
     // master motors setup
     dtMasterMotors = new RobotDrive(dtLMaster, dtRMaster);
-    // dtMasterMotors.setSafetyEnabled(true);
+    dtMasterMotors.setSafetyEnabled(false);
     // dtMasterMotors.setExpiration(0.2);
     // dtMasterMotors.setSensitivity(0.5);
     // dtMasterMotors.setMaxOutput(1.0);

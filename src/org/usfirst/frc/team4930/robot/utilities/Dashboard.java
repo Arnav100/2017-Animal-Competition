@@ -14,16 +14,14 @@ public class Dashboard
     SmartDashboard.putString("Alliance Side: ", Robot.toggleSwitch.getSide());
 
     // put hard code values
-    SmartDashboard.putNumber("Agitate Value", RobotMap.values.get("agitate") * 100);
-    SmartDashboard.putNumber("Loader Value", RobotMap.values.get("loader") * 100);
-    SmartDashboard.putNumber("Shooter Value", RobotMap.values.get("shooter") * 100);
-    SmartDashboard.putNumber("ClearLoader Value", RobotMap.values.get("clear_fuel") * 100);
-    SmartDashboard.putNumber("OpenGadget Value", RobotMap.values.get("open_gadget") * 100);
-    SmartDashboard.putNumber("CloseGadget Value", RobotMap.values.get("close_gadget") * 100);
-    SmartDashboard.putNumber("IntakeIn Value", RobotMap.values.get("intake_in") * 100);
-    SmartDashboard.putNumber("IntakeOut Value", RobotMap.values.get("intake_out") * 100);
+    SmartDashboard.putNumber("Agitate", RobotMap.values.get("agitate") * 100);
+    SmartDashboard.putNumber("Loader", RobotMap.values.get("loader") * 100);
+    SmartDashboard.putNumber("Shooter", RobotMap.values.get("shooter") * 100);
+    SmartDashboard.putNumber("Intake", RobotMap.values.get("intake_in") * 100);
+    SmartDashboard.putNumber("Unload", RobotMap.values.get("intake_out") * 100);
+    SmartDashboard.putNumber("Clear", RobotMap.values.get("clear_fuel") * 100);
 
     // test values
-    SmartDashboard.putNumber("Gyro Angle", Robot.gyro.getAngle());
+    SmartDashboard.putNumber("Gyro Angle", RobotMap.gyro.getAngle());
   }
 }

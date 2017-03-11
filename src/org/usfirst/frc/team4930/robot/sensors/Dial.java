@@ -10,7 +10,7 @@ public class Dial
   // get dial number after normalizing to nearest 11th point
   static public int getDialNumber() {
     double autoSwitch = RobotMap.dial.get();
-    double dialNum = (autoSwitch + 4) / (360 / 11);
+    double dialNum = (autoSwitch + 7) / (360 / 11);
     double floor = Math.floor(dialNum);
     if ((dialNum - floor) >= 0.5) {
       dialNum = Math.ceil(dialNum);
@@ -25,6 +25,10 @@ public class Dial
     Integer getDialNum = getDialNumber();
     if (getDialNum != Robot.dialNumber) {
       Robot.dialNumber = getDialNum;
+      // check if in auto and not allow if dial is (4,5,6)
+      if (Robot.isAuto && Robot.dialNumber > 3 && Robot.dialNumber < 7) {
+        Robot.dialNumber = 0;
+      }
       switch (Robot.dialNumber) {
         case 1:
           Robot.autoDescription = "(1) New Gear";
