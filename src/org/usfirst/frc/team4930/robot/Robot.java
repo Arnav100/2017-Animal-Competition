@@ -21,6 +21,7 @@ public class Robot extends IterativeRobot
   public static Dial dial;
   public static DriveTrain driveTrain;
   public static GearGadget gearGadget;
+  public static Gyro gyro;
   public static Intake intake;
   public static Loader loader;
   public static Shifter shifter;
@@ -52,6 +53,7 @@ public class Robot extends IterativeRobot
     // instantiate the rest of the subsystems
     climber = new Climber();
     gearGadget = new GearGadget();
+    gyro = new Gyro();
     intake = new Intake();
     loader = new Loader();
     shifter = new Shifter();
@@ -79,6 +81,8 @@ public class Robot extends IterativeRobot
     autoDescription = "(0) Do Nothing";
     autoCommand = new AutoDoNothing();
 
+    gyro.calibrate();
+
   }
 
   public void autonomousInit() {
@@ -105,6 +109,7 @@ public class Robot extends IterativeRobot
 
   public void disabledPeriodic() {
     Scheduler.getInstance().run();
+    gyro.calibrate();
   }
 
   public void testInit() {

@@ -23,5 +23,8 @@ public class Dashboard
     SmartDashboard.putNumber("CloseGadget Value", RobotMap.values.get("close_gadget") * 100);
     SmartDashboard.putNumber("IntakeIn Value", RobotMap.values.get("intake_in") * 100);
     SmartDashboard.putNumber("IntakeOut Value", RobotMap.values.get("intake_out") * 100);
+
+    // test values
+    SmartDashboard.putNumber("Gyro Angle", Robot.gyro.getAngle());
   }
 }

@@ -103,6 +103,7 @@ public class RobotMap
     dial = new AnalogPotentiometer(0, 300, 0); // channel, range, offset
     gyro = new ADXRS450_Gyro();
     toggleSwitch = new DigitalInput(9);
+    gyro = new ADXRS450_Gyro();
 
     // high/low shifting governors
     values.put("low_governor", 0.9);
