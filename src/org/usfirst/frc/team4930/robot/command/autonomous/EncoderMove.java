@@ -8,11 +8,11 @@ public class EncoderMove extends Command
 {
 
   private double speed;
-  private double feet;
+  private double inches;
 
-  public EncoderMove(double newSpeed, double newFeet) {
+  public EncoderMove(double newSpeed, double newInches) {
     speed = newSpeed;
-    feet = newFeet;
+    inches = newInches;
   }
 
   protected void initialize() {
@@ -21,7 +21,7 @@ public class EncoderMove extends Command
   }
 
   protected void execute() {
-    Robot.encoder.move(speed, feet);
+    Robot.encoder.move(speed, inches);
   }
 
   protected boolean isFinished() {

@@ -30,8 +30,16 @@ public class Encoders
     double distanceRight = (inches * 1900) + startRight;
     double distanceLeft = (inches * 1900) + startLeft;
 
-    if (RobotMap.driveTrainRightMaster.getEncPosition() <= distanceRight
-        && RobotMap.driveTrainLeftMaster.getEncPosition() <= distanceLeft) {
+    boolean direction = (RobotMap.driveTrainRightMaster.getEncPosition() <= distanceRight
+        && RobotMap.driveTrainLeftMaster.getEncPosition() <= distanceLeft);
+
+    if (inches < 0) {
+      direction = (RobotMap.driveTrainRightMaster.getEncPosition() >= distanceRight
+          && RobotMap.driveTrainLeftMaster.getEncPosition() >= distanceLeft);
+      speed = -speed;
+    }
+
+    if (direction) {
       Robot.driveTrain.move(speed, speed);
     } else {
       Robot.driveTrain.stop();
