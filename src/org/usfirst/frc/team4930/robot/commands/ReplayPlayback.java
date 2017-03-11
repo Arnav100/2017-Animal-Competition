@@ -8,7 +8,7 @@ public class ReplayPlayback extends Command
   private boolean isIntentional = false;
 
   protected void initialize() {
-    if (Robot.oi.j2b7.get()) {
+    if (Robot.oi.j2b11.get()) {
       try {
         Robot.replayPlayer.setup();
         isIntentional = true;

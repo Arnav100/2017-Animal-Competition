@@ -46,11 +46,11 @@ public class OI
   public JoystickButton j2b4 = new JoystickButton(j2, 4);
   // public JoystickButton j2b5 = new JoystickButton(j2, 5);
   // public JoystickButton j2b6 = new JoystickButton(j2, 6);
-  public JoystickButton j2b7 = new JoystickButton(j2, 7); // Replay Saftey Button
+  public JoystickButton j2b7 = new JoystickButton(j2, 7);
   public JoystickButton j2b8 = new JoystickButton(j2, 8);
-  // public JoystickButton j2b9 = new JoystickButton(j2, 9);
+  public JoystickButton j2b9 = new JoystickButton(j2, 9);
   public JoystickButton j2b10 = new JoystickButton(j2, 10);
-  // public JoystickButton j2b11 = new JoystickButton(j2, 11);
+  public JoystickButton j2b11 = new JoystickButton(j2, 11);
   public JoystickButton j2b12 = new JoystickButton(j2, 12);
 
   public OI() {
