@@ -56,12 +56,12 @@ public class OI
   public OI() {
 
     // joystick0 button actions
-    j1b1.whenPressed(new ShiftUp());
-    j1b1.whenReleased(new ShiftDown());
+    j0b1.whileHeld(new IntakeFuel());
+    j0b4.whileHeld(new UnloadHopper());
 
     // joystick1 button actions
-    j1b3.whileHeld(new IntakeFuel());
-    j1b4.whileHeld(new UnloadHopper());
+    j1b1.whenPressed(new ShiftUp());
+    j1b1.whenReleased(new ShiftDown());
 
     // joystick2 button actions
     j2b1.whileHeld(new ShootingSequence());
