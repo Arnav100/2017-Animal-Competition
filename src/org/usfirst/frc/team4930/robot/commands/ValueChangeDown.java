@@ -15,8 +15,7 @@ public class ValueChangeDown extends Command
   protected void initialize() {}
 
   protected void execute() {
-    double value = RobotMap.values.get(reference);
-    double newValue = value - 0.1;
+    double newValue = RobotMap.values.get(reference) - 0.01;
     if (newValue > 0.0) {
       RobotMap.values.put(reference, newValue);
     }
