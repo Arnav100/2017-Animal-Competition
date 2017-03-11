@@ -97,11 +97,7 @@ public class Robot extends IterativeRobot
 
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-
-    // set selected auto mode from dial
     dial.setSelectedReplay();
-
-    // update dashboard values
     dashboard.update();
   }
 
