@@ -4,20 +4,19 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
-public class PlaceGear extends Command
+public class ClearBalls extends Command
 {
 
-  public PlaceGear() {
-    requires(Robot.gearGadget);
+  public ClearBalls() {
+    requires(Robot.shooter);
+    requires(Robot.loader);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.openGearPlacer(0.8);
+    // Robot.shooter.clearBalls();
+    // Robot.loader.clearBalls();
   }
 
   protected boolean isFinished() {
@@ -25,7 +24,8 @@ public class PlaceGear extends Command
   }
 
   protected void end() {
-    Robot.gearGadget.stop();
+    // Robot.shooter.stop();
+    // Robot.loader.stop();
   }
 
   protected void interrupted() {

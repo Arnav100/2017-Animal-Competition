@@ -11,9 +11,15 @@ public class NearGear extends CommandGroup
 {
 
   public NearGear() {
+    addSequential(new EncoderMove(-0.3, -36));
+    addSequential(new GyroTurn(45, 0.3, true));
+    addSequential(new EncoderMove(-0.3, -12));
+
     Robot.autoFile = "FarGearReplay";
     Robot.autoFilePath = new String("/home/lvuser/CSVs/" + Robot.autoFile + ".csv");
     addSequential(new NearReplay());
+    // addSequential(new NearReplay());
+
     // Add Commands here:
     // e.g. addSequential(new Command1());
     // addSequential(new Command2());

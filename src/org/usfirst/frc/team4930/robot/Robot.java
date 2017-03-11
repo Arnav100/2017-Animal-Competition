@@ -1,20 +1,27 @@
 package org.usfirst.frc.team4930.robot;
 
 import org.usfirst.frc.team4930.robot.command.autonomous.DoNothing;
+import org.usfirst.frc.team4930.robot.command.autonomous.EncoderMove;
 import org.usfirst.frc.team4930.robot.command.autonomous.FarGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.FarReplay;
+import org.usfirst.frc.team4930.robot.command.autonomous.GyroTurn;
 import org.usfirst.frc.team4930.robot.command.autonomous.MiddleGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.MiddleReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.NearGear;
 import org.usfirst.frc.team4930.robot.command.autonomous.NearReplay;
 import org.usfirst.frc.team4930.robot.command.autonomous.Playback;
+import org.usfirst.frc.team4930.robot.subsystems.BallIntake;
 import org.usfirst.frc.team4930.robot.subsystems.Climber;
 import org.usfirst.frc.team4930.robot.subsystems.Dial;
 import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
+import org.usfirst.frc.team4930.robot.subsystems.Loader;
 import org.usfirst.frc.team4930.robot.subsystems.Pneumatics;
+import org.usfirst.frc.team4930.robot.subsystems.Shooter;
 import org.usfirst.frc.team4930.robot.utilities.Playbacker;
 import org.usfirst.frc.team4930.robot.utilities.Recorder;
+import org.usfirst.frc.team4930.sensors.Encoders;
+import org.usfirst.frc.team4930.sensors.Gyro;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -37,6 +44,7 @@ public class Robot extends IterativeRobot
   public static Climber climber;
   public static GearGadget gearGadget;
   public static Dial dial;
+  public static Gyro gyro;
 
   public static Recorder recorder;
   public static Playbacker playbacker;
@@ -47,6 +55,8 @@ public class Robot extends IterativeRobot
 
   public static Command AutoDoNothing;
   public static Command autoCommand;
+  public static Command autoEncoderMove;
+  public static Command autoGyroTurn;
   public static CommandGroup AutoFarGear;
   public static Command AutoFarReplay;
   public static CommandGroup AutoMiddleGear;
@@ -54,6 +64,11 @@ public class Robot extends IterativeRobot
   public static CommandGroup AutoNearGear;
   public static Command AutoNearReplay;
   public static Command autoPlayback;
+
+  public static BallIntake ballIntake;
+  public static Loader loader;
+  public static Shooter shooter;
+  public static Encoders encoder;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -63,17 +78,30 @@ public class Robot extends IterativeRobot
   public void robotInit() {
     RobotMap.init();
 
+    encoder = new Encoders();
     dial = new Dial();
     driveTrain = new DriveTrain();
+    ballIntake = new BallIntake();
+    loader = new Loader();
+    shooter = new Shooter();
     recorder = new Recorder();
     playbacker = new Playbacker();
     pneumatics = new Pneumatics();
     climber = new Climber();
     gearGadget = new GearGadget();
+    gyro = new Gyro();
     oi = new OI();
 
     isRecording = false;
     isPlaying = false;
+
+    gyro.calibrating();
+    encoder.reset();
+    // Robot.ballIntake.enableBrakeMode();
+    // Robot.climber.enableBrakeMode();
+    // Robot.gearGadget.enableBrakeMode();
+    // Robot.loader.enableBrakeMode();
+    // Robot.shooter.disableBrakeMode();
   }
 
   /**
@@ -86,6 +114,7 @@ public class Robot extends IterativeRobot
   @Override
   public void disabledPeriodic() {
     Scheduler.getInstance().run();
+    gyro.calibrating();
   }
 
   /**
@@ -100,6 +129,11 @@ public class Robot extends IterativeRobot
    */
   @Override
   public void autonomousInit() {
+
+    Robot.driveTrain.toggleBrakeMode(true);
+
+    autoGyroTurn = new GyroTurn(45, 0.3, true);
+    autoEncoderMove = new EncoderMove(0.6, 2);
     AutoFarGear = new FarGear();
     AutoFarReplay = new FarReplay();
     AutoMiddleGear = new MiddleGear();
@@ -159,7 +193,9 @@ public class Robot extends IterativeRobot
         autoCommand = autoPlayback;
         break;
     }
+
     autoCommand.start();
+
   }
 
   /**
@@ -168,6 +204,10 @@ public class Robot extends IterativeRobot
   @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
+    SmartDashboard.putNumber("Right Encoder", RobotMap.driveTrainRightMaster.getEncPosition());
+    SmartDashboard.putNumber("Left Encoder", RobotMap.driveTrainLeftMaster.getEncPosition());
+    SmartDashboard.putNumber("Gyro Angle", gyro.getAngle());
+    SmartDashboard.putNumber("Dial Position", Dial.getDial());
   }
 
   @Override
@@ -175,6 +215,7 @@ public class Robot extends IterativeRobot
     if (autoCommand != null) {
       autoCommand.cancel();
     }
+    Robot.driveTrain.toggleBrakeMode(false);
   }
 
   /**
@@ -183,6 +224,15 @@ public class Robot extends IterativeRobot
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+
+    SmartDashboard.putNumber("Right Encoder", RobotMap.driveTrainRightMaster.getEncPosition());
+    SmartDashboard.putNumber("Left Encoder", RobotMap.driveTrainLeftMaster.getEncPosition());
+    SmartDashboard.putNumber("Gyro Angle", gyro.getAngle());
+    SmartDashboard.putNumber("Dial Position", Dial.getDial());
+
+  }
+
+  public void testInit() {
 
     switch ((int) (Dial.getDial())) {
       case 2:
@@ -208,6 +258,7 @@ public class Robot extends IterativeRobot
         break;
 
     }
+
     autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
 
     SmartDashboard.putBoolean("isRecording: ", isRecording);
@@ -225,6 +276,5 @@ public class Robot extends IterativeRobot
   @Override
   public void testPeriodic() {
     LiveWindow.run();
-
   }
 }

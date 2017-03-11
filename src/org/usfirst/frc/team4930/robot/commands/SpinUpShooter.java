@@ -2,22 +2,24 @@ package org.usfirst.frc.team4930.robot.commands;
 
 import org.usfirst.frc.team4930.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class PlaceGear extends Command
+public class SpinUpShooter extends Command
 {
 
-  public PlaceGear() {
-    requires(Robot.gearGadget);
+  public SpinUpShooter() {
+    requires(Robot.shooter);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.openGearPlacer(0.8);
+    // Robot.shooter.spinUp();
+    Timer.delay(1);
   }
 
   protected boolean isFinished() {
@@ -25,7 +27,7 @@ public class PlaceGear extends Command
   }
 
   protected void end() {
-    Robot.gearGadget.stop();
+    // Robot.shooter.stop();
   }
 
   protected void interrupted() {

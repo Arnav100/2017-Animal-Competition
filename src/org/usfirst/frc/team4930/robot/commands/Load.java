@@ -7,17 +7,17 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PlaceGear extends Command
+public class Load extends Command
 {
 
-  public PlaceGear() {
-    requires(Robot.gearGadget);
+  public Load() {
+    requires(Robot.loader);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.openGearPlacer(0.8);
+    // Robot.loader.load();
   }
 
   protected boolean isFinished() {
@@ -25,7 +25,7 @@ public class PlaceGear extends Command
   }
 
   protected void end() {
-    Robot.gearGadget.stop();
+    // Robot.loader.stop();
   }
 
   protected void interrupted() {

@@ -1,8 +1,10 @@
 package org.usfirst.frc.team4930.robot;
 
 import com.ctre.CANTalon;
+import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -27,6 +29,7 @@ public class RobotMap
   public static CANTalon gearGadgetRight;
 
   public static AnalogPotentiometer dialChooser;
+  public static ADXRS450_Gyro gyro;
 
   public static Solenoid solenoid;
   public static Compressor compressor;
@@ -84,6 +87,11 @@ public class RobotMap
     driveTrainLeftMaster.enableBrakeMode(false);
 
     // sensors
+    driveTrainRightMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    driveTrainLeftMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    driveTrainLeftMaster.configEncoderCodesPerRev(1024);
+    driveTrainRightMaster.configEncoderCodesPerRev(1024);
     dialChooser = new AnalogPotentiometer(2, 300, 0);
+    gyro = new ADXRS450_Gyro();
   }
 }

@@ -7,17 +7,17 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class PlaceGear extends Command
+public class Agitate extends Command
 {
 
-  public PlaceGear() {
-    requires(Robot.gearGadget);
+  public Agitate() {
+    requires(Robot.ballIntake);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.openGearPlacer(0.8);
+    // Robot.ballIntake.agitate();
   }
 
   protected boolean isFinished() {
@@ -25,7 +25,7 @@ public class PlaceGear extends Command
   }
 
   protected void end() {
-    Robot.gearGadget.stop();
+    // Robot.ballIntake.stop();
   }
 
   protected void interrupted() {
