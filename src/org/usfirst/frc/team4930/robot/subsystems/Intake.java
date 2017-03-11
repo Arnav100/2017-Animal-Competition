@@ -12,7 +12,7 @@ public class Intake extends Subsystem
   }
 
   public void agitate() {
-    move(RobotMap.values.get("agitate"));
+    move(-RobotMap.values.get("agitate"));
   }
 
   public void in() {
