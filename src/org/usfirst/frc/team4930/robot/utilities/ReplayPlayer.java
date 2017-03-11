@@ -25,7 +25,7 @@ public class ReplayPlayer
 
   // set motor values if current time matches the start time
   public void play() {
-    if ((scanner != null) && scanner.hasNextLong()) {
+    if ((scanner != null) && scanner.hasNext()) {
       if (onTime) {
         nextTimestamp = scanner.nextLong();
       }
@@ -67,12 +67,13 @@ public class ReplayPlayer
       } else {
         onTime = false;
       }
+    } else {
+      Robot.isReplaying = false;
     }
   }
 
   // stop drive train and stop scanner
   public void end() {
-    Robot.isReplaying = false;
     Robot.driveTrain.stop();
     Robot.loader.stop();
     Robot.intake.stop();

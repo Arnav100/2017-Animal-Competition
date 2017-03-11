@@ -23,5 +23,8 @@ public class Dashboard
 
     // test values
     SmartDashboard.putNumber("Gyro Angle", RobotMap.gyro.getAngle());
+
+    SmartDashboard.putBoolean("Is Recording", Robot.isRecording);
+    SmartDashboard.putBoolean("Is RePlaying", Robot.isReplaying);
   }
 }

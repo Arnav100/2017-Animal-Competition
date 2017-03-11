@@ -6,9 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ReplayStopRecord extends Command
 {
   protected void initialize() {
-    if (Robot.oi.j2b9.get()) {
-      Robot.isRecording = false;
-    }
+    Robot.isRecording = false;
   }
 
   protected void execute() {}

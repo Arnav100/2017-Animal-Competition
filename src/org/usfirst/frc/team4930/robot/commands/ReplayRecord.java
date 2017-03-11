@@ -1,31 +1,26 @@
 package org.usfirst.frc.team4930.robot.commands;
 
+import java.io.IOException;
 import org.usfirst.frc.team4930.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ReplayRecord extends Command
 {
-  private boolean isIntentional = false;
 
   protected void initialize() {
-    if (Robot.oi.j2b7.get()) {
-      Robot.isRecording = true;
-      try {
-        Robot.replayRecorder.setup();
-        isIntentional = true;
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
+    Robot.isRecording = true;
+    try {
+      Robot.replayRecorder.setup();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 
   protected void execute() {
-    if (isIntentional) {
-      try {
-        Robot.replayRecorder.record();
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
+    try {
+      Robot.replayRecorder.record();
+    } catch (IOException e) {
+      e.printStackTrace();
     }
   }
 
@@ -36,7 +31,7 @@ public class ReplayRecord extends Command
   protected void end() {
     try {
       Robot.replayRecorder.end();
-    } catch (Exception e) {
+    } catch (IOException e) {
       e.printStackTrace();
     }
   }
