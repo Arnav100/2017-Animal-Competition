@@ -16,7 +16,7 @@ public class Shooter extends Subsystem
   }
 
   public void clear() {
-    move(-RobotMap.values.get("clear_shooter"));
+    move(-RobotMap.values.get("clear_fuel"));
   }
 
   public void stop() {

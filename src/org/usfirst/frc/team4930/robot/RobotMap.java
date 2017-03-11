@@ -43,12 +43,11 @@ public class RobotMap
     values.put("agitate", 0.45); // (+/-)
     values.put("loader", 0.85); // (+/-)
     values.put("shooter", 0.91); // (+/-)
-    values.put("clear_loader", 0.75);
-    values.put("clear_shooter", 0.75);
+    values.put("intake_in", 0.9); // (+/-)
+    values.put("intake_out", 0.9); // (+/-)
+    values.put("clear_fuel", 0.75); // (+/-)
     values.put("open_gadget", 1.0);
     values.put("close_gadget", 0.15);
-    values.put("intake_in", 0.9);
-    values.put("intake_out", 0.9);
     values.put("climber", 1.0);
 
     // instantiate the motor controllers

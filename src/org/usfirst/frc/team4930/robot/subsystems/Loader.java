@@ -16,7 +16,7 @@ public class Loader extends Subsystem
   }
 
   public void clear() {
-    move(-RobotMap.values.get("clear_loader"));
+    move(-RobotMap.values.get("clear_fuel"));
   }
 
   public void stop() {
