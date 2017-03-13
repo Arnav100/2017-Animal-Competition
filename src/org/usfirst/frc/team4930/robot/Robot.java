@@ -28,6 +28,7 @@ public class Robot extends IterativeRobot
   // sensors
   public static Dial dial;
   public static Encoders encoders;
+  public static Gyro gyro;
   public static ToggleSwitch allianceToggle;
 
   // auto replay setup
@@ -48,7 +49,6 @@ public class Robot extends IterativeRobot
 
     // initialize robot mappings
     RobotMap.init();
-    dashboard = new Dashboard();
 
     // instantiate drive train first
     driveTrain = new DriveTrain();
@@ -56,19 +56,22 @@ public class Robot extends IterativeRobot
     // instantiate the rest of the subsystems
     climber = new Climber();
     gearGadget = new GearGadget();
+    encoders = new Encoders();
     intake = new Intake();
     loader = new Loader();
     shifter = new Shifter();
     shooter = new Shooter();
     dial = new Dial();
     allianceToggle = new ToggleSwitch();
+    gyro = new Gyro();
 
     // instantiate replay code
     replayPlayer = new ReplayPlayer();
     replayRecorder = new ReplayRecorder();
 
-    // instantiate oi last
+    // instantiate dashboard and oi last
     oi = new OI();
+    dashboard = new Dashboard();
 
     // set default brake modes for subsystems
     Robot.climber.brakeMode(true);
@@ -78,10 +81,11 @@ public class Robot extends IterativeRobot
     Robot.loader.brakeMode(true);
     Robot.shooter.brakeMode(false);
 
-    // set default auto to literally do nothing
+    // default auto settings
     dialNumber = 0;
     autoDescription = "(0) Do Nothing";
     autoCommand = new AutoDoNothing();
+    Robot.gyro.calibrating();
 
   }
 
@@ -99,6 +103,7 @@ public class Robot extends IterativeRobot
     if (autoCommand != null) {
       autoCommand.cancel();
     }
+    Robot.encoders.reset();
   }
 
   public void teleopPeriodic() {

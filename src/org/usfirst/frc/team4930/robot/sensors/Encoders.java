@@ -8,8 +8,8 @@ public class Encoders
 
   public Encoders() {
     reset();
-    left = lPos();
-    right = rPos();
+    left = leftPosRaw();
+    right = rightPosRaw();
   }
 
   // reset encoder positions
@@ -19,13 +19,23 @@ public class Encoders
   }
 
   // left position
-  public double lPos() {
+  public int leftPosInches() {
+    return (int) (leftPosRaw() / 666);
+  }
+
+  // right position in inches
+  public int rightPosInches() {
+    return (int) (rightPosRaw() / 666) * -1;
+  }
+
+  // left position raw values
+  public double leftPosRaw() {
     return RobotMap.dtLMaster.getEncPosition();
   }
 
-  // right position
-  public double rPos() {
-    return RobotMap.dtLMaster.getEncPosition();
+  // right position raw values
+  public double rightPosRaw() {
+    return RobotMap.dtRMaster.getEncPosition();
   }
 
 }

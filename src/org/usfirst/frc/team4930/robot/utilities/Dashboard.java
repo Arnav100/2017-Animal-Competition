@@ -22,7 +22,9 @@ public class Dashboard
     SmartDashboard.putNumber("Clear", RobotMap.values.get("clear_fuel") * 100);
 
     // test values
-    SmartDashboard.putNumber("Gyro Angle", RobotMap.gyro.getAngle());
+    SmartDashboard.putNumber("Gyro Angle", Robot.gyro.getAngle());
+    SmartDashboard.putNumber("Left Encoder", Robot.encoders.leftPosInches());
+    SmartDashboard.putNumber("Right Encoder", Robot.encoders.rightPosInches());
 
     SmartDashboard.putBoolean("Is Recording", Robot.isRecording);
     SmartDashboard.putBoolean("Is RePlaying", Robot.isReplaying);

@@ -5,6 +5,7 @@ import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 
 public class RobotMap
 {
@@ -88,8 +89,6 @@ public class RobotMap
     // setup drive train encoders
     dtRMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     dtLMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    dtRMaster.configEncoderCodesPerRev(1024);
-    dtLMaster.configEncoderCodesPerRev(1024);
 
     // instantiate pneumatic system
     compressor = new Compressor(50); // device id
@@ -107,6 +106,5 @@ public class RobotMap
     dial = new AnalogPotentiometer(0, 300, 0); // channel, range, offset
     gyro = new ADXRS450_Gyro();
     toggleSwitch = new DigitalInput(9);
-    gyro = new ADXRS450_Gyro();
   }
 }
