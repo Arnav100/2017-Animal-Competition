@@ -149,20 +149,20 @@ public class Robot extends IterativeRobot
         autoCommand = AutoNearGear;
         break;
       case 2:
+        autoCommand = AutoMiddleGear;
+        break;
+      case 3:
+        autoCommand = AutoFarGear;
+        break;
+      case 4:
         autoFile = "NearGearReplay";
         autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
         autoCommand = autoPlayback;
         break;
-      case 3:
-        autoCommand = AutoMiddleGear;
-        break;
-      case 4:
+      case 5:
         autoFile = "MiddleGearReplay";
         autoFilePath = new String("/home/lvuser/CSVs/" + autoFile + ".csv");
         autoCommand = autoPlayback;
-        break;
-      case 5:
-        autoCommand = AutoFarGear;
         break;
       case 6:
         autoFile = "FarGearReplay";
