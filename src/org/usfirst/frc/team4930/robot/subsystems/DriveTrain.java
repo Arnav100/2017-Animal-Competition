@@ -19,13 +19,8 @@ public class DriveTrain extends Subsystem
   }
 
   public void drive() {
-    if (Robot.inLowGear) {
-      governor = RobotMap.values.get("low_governor");
-    } else {
-      governor = RobotMap.values.get("high_governor");
-    }
-    double left = Robot.oi.j0.getY() * governor;
-    double right = Robot.oi.j1.getY() * governor;
+    double left = Robot.oi.j0.getY();
+    double right = Robot.oi.j1.getY();
     move(left, right);
   }
 

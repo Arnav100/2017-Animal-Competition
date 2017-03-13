@@ -32,29 +32,17 @@ public class ReplayPlayer
       deltaTimestamp = nextTimestamp - (System.currentTimeMillis() - startTimestamp);
       if (deltaTimestamp <= 0) {
         alliance = scanner.next();
-        shifter_state = scanner.next();
-        // shift if needed
-        if (Robot.inLowGear && Objects.equals(shifter_state, "High")) {
-          Robot.shifter.highGear();
-        }
-        if (!Robot.inLowGear && Objects.equals(shifter_state, "Low")) {
-          Robot.shifter.lowGear();
-        }
         dtLeft = scanner.nextDouble();
         dtRight = scanner.nextDouble();
         // check if alliance matches toggle switch
         if (Objects.equals(alliance, Robot.toggleSwitch.getSide())) {
-          // same alliance as recording
-          RobotMap.dtLMaster.set(dtLeft);
-          RobotMap.dtRMaster.set(dtRight);
+          RobotMap.dtMasterMotors.tankDrive(dtLeft, dtRight);
         } else {
-          // switch due to opposite alliance
-          RobotMap.dtLMaster.set(dtRight);
-          RobotMap.dtRMaster.set(dtLeft);
+          RobotMap.dtMasterMotors.tankDrive(dtRight, dtLeft);
         }
-        // gear gadget left
+        // intake
         RobotMap.gadgetL.set(scanner.nextDouble());
-        // gear gadget right
+        // intake
         RobotMap.gadgetR.set(scanner.nextDouble());
         // intake
         RobotMap.intake.set(scanner.nextDouble());

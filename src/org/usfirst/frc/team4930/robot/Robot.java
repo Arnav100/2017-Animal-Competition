@@ -16,15 +16,18 @@ public class Robot extends IterativeRobot
   public static Dashboard dashboard;
   public static CANTalon testMotor;
 
-  // subsystems and sensors
+  // subsystems
   public static Climber climber;
-  public static Dial dial;
   public static DriveTrain driveTrain;
   public static GearGadget gearGadget;
   public static Intake intake;
   public static Loader loader;
   public static Shifter shifter;
   public static Shooter shooter;
+
+  // sensors
+  public static Dial dial;
+  public static Encoders encoders;
   public static ToggleSwitch toggleSwitch;
 
   // auto replay setup

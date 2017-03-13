@@ -41,7 +41,7 @@ public class RobotMap
 
     // static values: 0.0 to 1.0, no negatives!
     values.put("open_gadget", 1.0);
-    values.put("close_gadget", 0.15);
+    values.put("close_gadget", 0.16);
     values.put("climber", 1.0);
 
     // initial static values with (+/-) control
@@ -84,10 +84,6 @@ public class RobotMap
 
     // master motors setup
     dtMasterMotors = new RobotDrive(dtLMaster, dtRMaster);
-    dtMasterMotors.setSafetyEnabled(false);
-    // dtMasterMotors.setExpiration(0.2);
-    // dtMasterMotors.setSensitivity(0.5);
-    // dtMasterMotors.setMaxOutput(1.0);
 
     // setup drive train encoders
     dtRMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
@@ -99,14 +95,18 @@ public class RobotMap
     compressor = new Compressor(50); // device id
     solenoid = new Solenoid(50, 5); // device id, channel
 
+    // disable saftey settings on replay code motors
+    dtMasterMotors.setSafetyEnabled(false);
+    intake.setSafetyEnabled(false);
+    loader.setSafetyEnabled(false);
+    shooter.setSafetyEnabled(false);
+    gadgetL.setSafetyEnabled(false);
+    gadgetR.setSafetyEnabled(false);
+
     // instantiate sensors
     dial = new AnalogPotentiometer(0, 300, 0); // channel, range, offset
     gyro = new ADXRS450_Gyro();
     toggleSwitch = new DigitalInput(9);
     gyro = new ADXRS450_Gyro();
-
-    // high/low shifting governors
-    values.put("low_governor", 0.9);
-    values.put("high_governor", 1.0);
   }
 }

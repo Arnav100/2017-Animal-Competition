@@ -37,16 +37,10 @@ public class ReplayRecorder
       writer.append("" + (System.currentTimeMillis() - startTimestamp));
       // alliance
       writer.append("," + alliance);
-      // state of shifter
-      if (Robot.inLowGear) {
-        writer.append("," + "Low");
-      } else {
-        writer.append("," + "High");
-      }
       // drive train left
-      writer.append("," + RobotMap.dtLMaster.get());
+      writer.append("," + Robot.oi.j0.getY());
       // drive train right
-      writer.append("," + RobotMap.dtRMaster.get());
+      writer.append("," + Robot.oi.j1.getY());
       // gear gadget left value
       writer.append("," + RobotMap.gadgetL.get());
       // gear gadget right value
