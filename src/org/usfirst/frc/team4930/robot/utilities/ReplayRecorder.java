@@ -26,7 +26,7 @@ public class ReplayRecorder
   // instantiate writer and set the start time
   public void setup() throws IOException {
     writer = new FileWriter(Robot.replayFilePath);
-    alliance = Robot.toggleSwitch.getSide();
+    alliance = Robot.allianceToggle.getSide();
     startTimestamp = System.currentTimeMillis();
     Robot.isRecording = true;
   }

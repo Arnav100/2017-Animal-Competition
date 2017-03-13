@@ -28,7 +28,7 @@ public class Robot extends IterativeRobot
   // sensors
   public static Dial dial;
   public static Encoders encoders;
-  public static ToggleSwitch toggleSwitch;
+  public static ToggleSwitch allianceToggle;
 
   // auto replay setup
   public static Integer dialNumber;
@@ -61,7 +61,7 @@ public class Robot extends IterativeRobot
     shifter = new Shifter();
     shooter = new Shooter();
     dial = new Dial();
-    toggleSwitch = new ToggleSwitch();
+    allianceToggle = new ToggleSwitch();
 
     // instantiate replay code
     replayPlayer = new ReplayPlayer();

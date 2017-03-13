@@ -11,7 +11,7 @@ public class Dashboard
 
     // put selected replay and alliance side
     SmartDashboard.putString("Replay Selected: ", Robot.autoDescription);
-    SmartDashboard.putString("Alliance Side: ", Robot.toggleSwitch.getSide());
+    SmartDashboard.putString("Alliance Side: ", Robot.allianceToggle.getSide());
 
     // put hard code values
     SmartDashboard.putNumber("Agitate", RobotMap.values.get("agitate") * 100);
