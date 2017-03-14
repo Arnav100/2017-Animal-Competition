@@ -232,10 +232,10 @@ public class Robot extends IterativeRobot
   public void testInit() {
 
     switch ((int) (Dial.getDial())) {
-      case 2:
+      case 4:
         autoFile = "NearGearReplay";
         break;
-      case 4:
+      case 5:
         autoFile = "MiddleGearReplay";
         break;
       case 6:
