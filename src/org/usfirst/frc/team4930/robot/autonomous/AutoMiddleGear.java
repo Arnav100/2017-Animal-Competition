@@ -6,9 +6,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoMiddleGear extends CommandGroup
 {
   public AutoMiddleGear() {
-    addSequential(new MoveDR(0.5, 3.0));
+    System.out.println("AUTO: Initializing AutoMiddleGear()");
+    addSequential(new MoveBB(-0.4, 12));
     addSequential(new PlaceGear());
-    addSequential(new Timer(0.5));
-    addSequential(new AutoReplay());
+    addSequential(new Timer(1.5));
+    addSequential(new ReplayPlayback());
   }
 }

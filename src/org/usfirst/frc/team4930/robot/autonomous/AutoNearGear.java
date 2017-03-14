@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoNearGear extends CommandGroup
 {
   public AutoNearGear() {
+    System.out.println("AUTO: Initializing AutoNearGear()");
     addSequential(new ReplayPlayback());
   }
 }

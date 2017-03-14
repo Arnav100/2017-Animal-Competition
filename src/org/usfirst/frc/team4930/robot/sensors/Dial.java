@@ -28,6 +28,7 @@ public class Dial
       // check if in auto and not allow if dial is (4,5,6)
       if (Robot.isAuto && Robot.dialNumber > 3 && Robot.dialNumber < 7) {
         Robot.dialNumber = 0;
+        System.out.println(Robot.dialNumber);
       }
       switch (Robot.dialNumber) {
         case 1:

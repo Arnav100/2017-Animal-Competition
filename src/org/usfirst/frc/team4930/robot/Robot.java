@@ -1,10 +1,10 @@
 package org.usfirst.frc.team4930.robot;
 
-import org.usfirst.frc.team4930.robot.autonomous.AutoDoNothing;
 import org.usfirst.frc.team4930.robot.sensors.*;
 import org.usfirst.frc.team4930.robot.subsystems.*;
 import org.usfirst.frc.team4930.robot.utilities.*;
 import com.ctre.CANTalon;
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.command.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -53,7 +53,7 @@ public class Robot extends IterativeRobot
     // instantiate drive train first
     driveTrain = new DriveTrain();
 
-    // instantiate the rest of the subsystems
+    // instantiate the rest of the subsystems and sensors
     climber = new Climber();
     gearGadget = new GearGadget();
     encoders = new Encoders();
@@ -73,23 +73,25 @@ public class Robot extends IterativeRobot
     oi = new OI();
     dashboard = new Dashboard();
 
-    // set default brake modes for subsystems
+    // set default settings for subsystems and sensors
     Robot.climber.brakeMode(true);
     Robot.driveTrain.brakeMode(true);
     Robot.gearGadget.brakeMode(true);
     Robot.intake.brakeMode(false);
     Robot.loader.brakeMode(true);
     Robot.shooter.brakeMode(false);
-
-    // default auto settings
-    dialNumber = 0;
-    autoDescription = "(0) Do Nothing";
-    autoCommand = new AutoDoNothing();
     Robot.gyro.calibrating();
+
+    // setup USB camera
+    UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+    camera.setResolution(640, 480);
+    camera.setFPS(30);
+    // System.out.println("Camera Path:" + camera.getPath());
 
   }
 
   public void autonomousInit() {
+    dial.setSelectedReplay();
     isAuto = true;
     autoCommand.start();
   }

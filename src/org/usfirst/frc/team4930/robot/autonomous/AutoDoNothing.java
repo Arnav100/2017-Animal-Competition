@@ -6,7 +6,9 @@ public class AutoDoNothing extends Command
 {
   public AutoDoNothing() {}
 
-  protected void initialize() {}
+  protected void initialize() {
+    System.out.println("AUTO: Initializing DoNothing()");
+  }
 
   protected void execute() {}
 

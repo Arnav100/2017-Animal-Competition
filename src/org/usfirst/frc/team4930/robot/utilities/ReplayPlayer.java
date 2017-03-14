@@ -10,7 +10,7 @@ public class ReplayPlayer
   private Scanner scanner;
   private boolean onTime;
   private long startTimestamp, nextTimestamp, deltaTimestamp;
-  private String alliance, shifter_state;
+  private String alliance;
   private double dtLeft, dtRight;
 
   // instantiate scanner and set the start time

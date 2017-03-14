@@ -12,20 +12,30 @@ public class MoveBB extends Command
   public double inches;
 
   public MoveBB(double s, double i) {
-    speed = s;
-    inches = i;
+    this.speed = s;
+    this.inches = i;
     requires(Robot.driveTrain);
   }
 
-  protected void initialize() {}
-
-  protected void execute() {}
-
-  protected boolean isFinished() {
-    return false;
+  protected void initialize() {
+    Robot.encoders.reset();
   }
 
-  protected void end() {}
+  protected void execute() {
+    Robot.driveTrain.move(this.speed, this.speed);
+  }
+
+  protected boolean isFinished() {
+    if (Robot.encoders.leftPosInches() < this.inches) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  protected void end() {
+    Robot.driveTrain.stop();
+  }
 
   protected void interrupted() {
     end();
