@@ -2,7 +2,11 @@ package org.usfirst.frc.team4930.robot.sensors;
 
 import org.usfirst.frc.team4930.robot.Robot;
 import org.usfirst.frc.team4930.robot.RobotMap;
-import org.usfirst.frc.team4930.robot.autonomous.*;
+import org.usfirst.frc.team4930.robot.autonomous.AutoDoNothing;
+import org.usfirst.frc.team4930.robot.autonomous.AutoFarGear;
+import org.usfirst.frc.team4930.robot.autonomous.AutoMiddleGear;
+import org.usfirst.frc.team4930.robot.autonomous.AutoNearGear;
+import org.usfirst.frc.team4930.robot.autonomous.AutoReplay;
 
 public class Dial
 {
@@ -32,7 +36,7 @@ public class Dial
       }
       switch (Robot.dialNumber) {
         case 1:
-          Robot.autoDescription = "(1) New Gear";
+          Robot.autoDescription = "(1) Near Gear";
           Robot.replayFilePath = "/home/lvuser/CSVs/NearGear.csv";
           Robot.autoCommand = new AutoNearGear();
           break;
@@ -52,7 +56,7 @@ public class Dial
           Robot.autoCommand = new AutoReplay();
           break;
         case 5:
-          Robot.autoDescription = "(5) Middle Replayr";
+          Robot.autoDescription = "(5) Middle Replay";
           Robot.replayFilePath = "/home/lvuser/CSVs/MiddleGear.csv";
           Robot.autoCommand = new AutoReplay();
           break;

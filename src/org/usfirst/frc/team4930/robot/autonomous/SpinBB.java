@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
+import org.usfirst.frc.team4930.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -7,18 +9,36 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SpinBB extends Command
 {
+  public int degree;
+  public double speed = 0.5;
 
-  public SpinBB() {}
-
-  protected void initialize() {}
-
-  protected void execute() {}
-
-  protected boolean isFinished() {
-    return false;
+  public SpinBB(int d) {
+    this.degree = d;
+    requires(Robot.driveTrain);
   }
 
-  protected void end() {}
+  protected void initialize() {
+    Robot.gyro.calibrating();
+  }
+
+  protected void execute() {
+    if (degree < 180)
+      Robot.driveTrain.move(this.speed, -this.speed);
+    else
+      Robot.driveTrain.move(-this.speed, this.speed);
+  }
+
+  protected boolean isFinished() {
+    if (Robot.gyro.getAngle() < degree || Robot.gyro.getAngle() < degree) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  protected void end() {
+    Robot.driveTrain.stop();
+  }
 
   protected void interrupted() {
     end();
