@@ -14,17 +14,11 @@ public class Dashboard
     SmartDashboard.putString("Alliance Side: ", Robot.allianceToggle.getSide());
 
     // put hard code values
-    SmartDashboard.putNumber("Agitate", RobotMap.values.get("agitate") * 100);
-    SmartDashboard.putNumber("Loader", RobotMap.values.get("loader") * 100);
-    SmartDashboard.putNumber("Shooter", RobotMap.values.get("shooter") * 100);
-    SmartDashboard.putNumber("Intake", RobotMap.values.get("intake_in") * 100);
-    SmartDashboard.putNumber("Unload", RobotMap.values.get("intake_out") * 100);
-    SmartDashboard.putNumber("Clear", RobotMap.values.get("clear_fuel") * 100);
+    SmartDashboard.putNumber("Motor Value", RobotMap.values.get("motor") * 100);
 
     // test values
-    SmartDashboard.putNumber("Gyro Angle", Robot.gyro.getAngle());
-    SmartDashboard.putNumber("Left Encoder", Robot.encoders.leftPosInches());
-    SmartDashboard.putNumber("Right Encoder", Robot.encoders.rightPosInches());
+    // SmartDashboard.putNumber("Gyro Angle", Robot.gyro.getAngle());
+    // SmartDashboard.putNumber("Encoder Value", Robot.encoders.posInches());
 
     SmartDashboard.putBoolean("Is Recording", Robot.isRecording);
     SmartDashboard.putBoolean("Is RePlaying", Robot.isReplaying);

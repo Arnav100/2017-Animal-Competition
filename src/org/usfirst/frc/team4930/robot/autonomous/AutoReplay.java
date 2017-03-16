@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.*;
 public class AutoReplay extends Command
 {
   public AutoReplay() {
-    requires(Robot.driveTrain);
+    requires(Robot.motor);
   }
 
   protected void initialize() {
@@ -22,7 +22,7 @@ public class AutoReplay extends Command
   }
 
   protected void end() {
-    Robot.driveTrain.stop();
+    Robot.motor.stop();
   }
 
   protected void interrupted() {

@@ -14,27 +14,28 @@ public class MoveBB extends Command
   public MoveBB(double s, double i) {
     this.speed = s;
     this.inches = i;
-    requires(Robot.driveTrain);
+    requires(Robot.motor);
   }
 
   protected void initialize() {
-    Robot.encoders.reset();
+    // Robot.encoders.reset();
   }
 
   protected void execute() {
-    Robot.driveTrain.move(this.speed, this.speed);
+    Robot.motor.move(this.speed);
   }
 
   protected boolean isFinished() {
-    if (Robot.encoders.leftPosInches() < this.inches) {
-      return false;
-    } else {
-      return true;
-    }
+    // if (Robot.encoders.posInches() < this.inches) {
+    // return false;
+    // } else {
+    // return true;
+    // }
+    return false;
   }
 
   protected void end() {
-    Robot.driveTrain.stop();
+    Robot.motor.stop();
   }
 
   protected void interrupted() {

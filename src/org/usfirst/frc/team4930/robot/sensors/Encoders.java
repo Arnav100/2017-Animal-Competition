@@ -4,38 +4,26 @@ import org.usfirst.frc.team4930.robot.RobotMap;
 
 public class Encoders
 {
-  public double left, right;
+  public double pos;
 
   public Encoders() {
     reset();
-    left = leftPosRaw();
-    right = rightPosRaw();
+    pos = posRaw();
   }
 
   // reset encoder positions
   public void reset() {
-    RobotMap.dtLMaster.setEncPosition(0);
-    RobotMap.dtRMaster.setEncPosition(0);
+    RobotMap.motor.setEncPosition(0);
   }
 
-  // left position
-  public int leftPosInches() {
-    return (int) (leftPosRaw() / 666);
+  // position in inches
+  public int posInches() {
+    return (int) (posRaw() / 666) * -1;
   }
 
-  // right position in inches
-  public int rightPosInches() {
-    return (int) (rightPosRaw() / 666) * -1;
-  }
-
-  // left position raw values
-  public double leftPosRaw() {
-    return RobotMap.dtLMaster.getEncPosition();
-  }
-
-  // right position raw values
-  public double rightPosRaw() {
-    return RobotMap.dtRMaster.getEncPosition();
+  // position raw values
+  public double posRaw() {
+    return RobotMap.motor.getEncPosition();
   }
 
 }

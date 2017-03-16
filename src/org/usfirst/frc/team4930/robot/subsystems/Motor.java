@@ -3,16 +3,16 @@ package org.usfirst.frc.team4930.robot.subsystems;
 import org.usfirst.frc.team4930.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Climber extends Subsystem
+public class Motor extends Subsystem
 {
   public void initDefaultCommand() {}
 
   public void move(double value) {
-    RobotMap.climber.set(-value);
+    RobotMap.motor.set(-value);
   }
 
-  public void climb() {
-    move(RobotMap.values.get("climber"));
+  public void rotate() {
+    move(RobotMap.values.get("motors"));
   }
 
   public void stop() {
@@ -20,6 +20,6 @@ public class Climber extends Subsystem
   }
 
   public void brakeMode(boolean state) {
-    RobotMap.climber.enableBrakeMode(state);
+    RobotMap.motor.enableBrakeMode(state);
   }
 }

@@ -6,13 +6,13 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ShootFuel extends Command
 {
   public ShootFuel() {
-    requires(Robot.shooter);
+    requires(Robot.motor);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.shooter.shoot();
+    Robot.motor.move(1.0);
   }
 
   protected boolean isFinished() {
@@ -20,7 +20,7 @@ public class ShootFuel extends Command
   }
 
   protected void end() {
-    Robot.shooter.stop();
+    Robot.motor.stop();
   }
 
   protected void interrupted() {

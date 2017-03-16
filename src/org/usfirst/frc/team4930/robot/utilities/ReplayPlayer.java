@@ -11,7 +11,7 @@ public class ReplayPlayer
   private boolean onTime;
   private long startTimestamp, nextTimestamp, deltaTimestamp;
   private String alliance;
-  private double dtLeft, dtRight;
+  private double value;
 
   // instantiate scanner and set the start time
   public void setup() throws FileNotFoundException {
@@ -32,24 +32,13 @@ public class ReplayPlayer
       deltaTimestamp = nextTimestamp - (System.currentTimeMillis() - startTimestamp);
       if (deltaTimestamp <= 0) {
         alliance = scanner.next();
-        dtLeft = scanner.nextDouble();
-        dtRight = scanner.nextDouble();
+        value = scanner.nextDouble();
         // check if alliance matches toggle switch
         if (Objects.equals(alliance, Robot.allianceToggle.getSide())) {
-          RobotMap.dtMasterMotors.tankDrive(dtLeft, dtRight);
+          RobotMap.motor.set(value);
         } else {
-          RobotMap.dtMasterMotors.tankDrive(dtRight, dtLeft);
+          RobotMap.motor.set(-value);
         }
-        // intake
-        RobotMap.gadgetL.set(scanner.nextDouble());
-        // intake
-        RobotMap.gadgetR.set(scanner.nextDouble());
-        // intake
-        RobotMap.intake.set(scanner.nextDouble());
-        // loader
-        RobotMap.loader.set(scanner.nextDouble());
-        // shooter
-        RobotMap.shooter.set(scanner.nextDouble());
         // currently on time
         onTime = true;
       } else {
@@ -62,11 +51,7 @@ public class ReplayPlayer
 
   // stop drive train and stop scanner
   public void end() {
-    Robot.driveTrain.stop();
-    Robot.loader.stop();
-    Robot.intake.stop();
-    Robot.shooter.stop();
-    Robot.gearGadget.close();
+    Robot.motor.stop();
     if (scanner != null) {
       scanner.close();
       scanner = null;

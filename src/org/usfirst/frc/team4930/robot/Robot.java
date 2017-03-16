@@ -17,19 +17,14 @@ public class Robot extends IterativeRobot
   public static CANTalon testMotor;
 
   // subsystems
-  public static Climber climber;
-  public static DriveTrain driveTrain;
-  public static GearGadget gearGadget;
-  public static Intake intake;
-  public static Loader loader;
-  public static Shifter shifter;
-  public static Shooter shooter;
+  public static Motor motor;
 
   // sensors
   public static Dial dial;
-  public static Encoders encoders;
+  // public static Encoders encoders;
   public static Gyro gyro;
   public static ToggleSwitch allianceToggle;
+  public static Shifter shifter;
 
   // auto replay setup
   public static Integer dialNumber;
@@ -50,17 +45,10 @@ public class Robot extends IterativeRobot
     // initialize robot mappings
     RobotMap.init();
 
-    // instantiate drive train first
-    driveTrain = new DriveTrain();
-
     // instantiate the rest of the subsystems and sensors
-    climber = new Climber();
-    gearGadget = new GearGadget();
-    encoders = new Encoders();
-    intake = new Intake();
-    loader = new Loader();
     shifter = new Shifter();
-    shooter = new Shooter();
+    // encoders = new Encoders();
+    motor = new Motor();
     dial = new Dial();
     allianceToggle = new ToggleSwitch();
     gyro = new Gyro();
@@ -74,19 +62,13 @@ public class Robot extends IterativeRobot
     dashboard = new Dashboard();
 
     // set default settings for subsystems and sensors
-    Robot.climber.brakeMode(true);
-    Robot.driveTrain.brakeMode(true);
-    Robot.gearGadget.brakeMode(true);
-    Robot.intake.brakeMode(false);
-    Robot.loader.brakeMode(true);
-    Robot.shooter.brakeMode(false);
+    // Robot.motor.brakeMode(true);
     Robot.gyro.calibrating();
 
     // setup USB camera
     UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
     camera.setResolution(640, 480);
     camera.setFPS(30);
-    // System.out.println("Camera Path:" + camera.getPath());
 
   }
 
@@ -105,7 +87,7 @@ public class Robot extends IterativeRobot
     if (autoCommand != null) {
       autoCommand.cancel();
     }
-    Robot.encoders.reset();
+    // Robot.encoders.reset();
   }
 
   public void teleopPeriodic() {

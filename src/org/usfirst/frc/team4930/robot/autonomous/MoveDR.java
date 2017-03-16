@@ -14,13 +14,13 @@ public class MoveDR extends Command
   public MoveDR(double speed, double seconds) {
     this.speed = speed;
     this.seconds = seconds;
-    requires(Robot.driveTrain);
+    requires(Robot.motor);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.driveTrain.move(speed, speed);
+    Robot.motor.move(speed);
   }
 
   protected boolean isFinished() {
@@ -28,7 +28,7 @@ public class MoveDR extends Command
   }
 
   protected void end() {
-    Robot.driveTrain.stop();
+    Robot.motor.stop();
   }
 
   protected void interrupted() {

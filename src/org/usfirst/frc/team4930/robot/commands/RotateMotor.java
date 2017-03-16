@@ -3,23 +3,25 @@ package org.usfirst.frc.team4930.robot.commands;
 import org.usfirst.frc.team4930.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class CloseGearGadget extends Command
+public class RotateMotor extends Command
 {
-  public CloseGearGadget() {
-    requires(Robot.gearGadget);
+  public RotateMotor() {
+    requires(Robot.motor);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.gearGadget.close();
+    Robot.motor.move(1.0);
   }
 
   protected boolean isFinished() {
     return false;
   }
 
-  protected void end() {}
+  protected void end() {
+    Robot.motor.stop();
+  }
 
   protected void interrupted() {
     end();

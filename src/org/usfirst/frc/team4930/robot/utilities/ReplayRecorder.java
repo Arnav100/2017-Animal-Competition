@@ -2,7 +2,6 @@ package org.usfirst.frc.team4930.robot.utilities;
 
 import java.io.*;
 import org.usfirst.frc.team4930.robot.Robot;
-import org.usfirst.frc.team4930.robot.RobotMap;
 
 // CSV Replay File Sequence
 // (0) long timestamp
@@ -39,18 +38,6 @@ public class ReplayRecorder
       writer.append("," + alliance);
       // drive train left
       writer.append("," + Robot.oi.j0.getY());
-      // drive train right
-      writer.append("," + Robot.oi.j1.getY());
-      // gear gadget left value
-      writer.append("," + RobotMap.gadgetL.get());
-      // gear gadget right value
-      writer.append("," + RobotMap.gadgetR.get());
-      // intake value
-      writer.append("," + RobotMap.intake.get());
-      // loader value
-      writer.append("," + RobotMap.loader.get());
-      // shooter value
-      writer.append("," + RobotMap.shooter.get());
       // create a new line
       writer.append("\n");
     }
