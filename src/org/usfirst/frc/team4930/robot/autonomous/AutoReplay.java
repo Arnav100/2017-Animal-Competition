@@ -1,31 +1,13 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
-import org.usfirst.frc.team4930.robot.Robot;
 import org.usfirst.frc.team4930.robot.commands.ReplayPlayback;
-import edu.wpi.first.wpilibj.command.*;
 
-public class AutoReplay extends Command
+import edu.wpi.first.wpilibj.command.CommandGroup;
+
+public class AutoReplay extends CommandGroup
 {
   public AutoReplay() {
-    requires(Robot.driveTrain);
-  }
-
-  protected void initialize() {
-    System.out.println("AUTO: Initializing AutoReplay()");
-    new ReplayPlayback();
-  }
-
-  protected void execute() {}
-
-  protected boolean isFinished() {
-    return false;
-  }
-
-  protected void end() {
-    Robot.driveTrain.stop();
-  }
-
-  protected void interrupted() {
-    end();
+    System.out.println("AUTO: Initializing AutoReplayGear()");
+    addSequential(new ReplayPlayback());
   }
 }
