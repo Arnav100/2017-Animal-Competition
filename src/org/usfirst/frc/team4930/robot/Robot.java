@@ -86,7 +86,6 @@ public class Robot extends IterativeRobot
     UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
     camera.setResolution(640, 480);
     camera.setFPS(30);
-    // System.out.println("Camera Path:" + camera.getPath());
 
   }
 

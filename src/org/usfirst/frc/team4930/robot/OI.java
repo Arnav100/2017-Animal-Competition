@@ -13,11 +13,7 @@ public class OI
 
   // all joystick0 buttons
   public JoystickButton j0b1 = new JoystickButton(j0, 1);
-  // public JoystickButton j0b2 = new JoystickButton(j0, 2);
-  // public JoystickButton j0b3 = new JoystickButton(j0, 3);
   public JoystickButton j0b4 = new JoystickButton(j0, 4);
-  // public JoystickButton j0b5 = new JoystickButton(j0, 5);
-  // public JoystickButton j0b6 = new JoystickButton(j0, 6);
   public JoystickButton j0b7 = new JoystickButton(j0, 7);
   public JoystickButton j0b8 = new JoystickButton(j0, 8);
   public JoystickButton j0b9 = new JoystickButton(j0, 9);
@@ -27,11 +23,6 @@ public class OI
 
   // all joystick1 buttons
   public JoystickButton j1b1 = new JoystickButton(j1, 1);
-  // public JoystickButton j1b2 = new JoystickButton(j1, 2);
-  // public JoystickButton j1b3 = new JoystickButton(j1, 3);
-  // public JoystickButton j1b4 = new JoystickButton(j1, 4);
-  // public JoystickButton j1b5 = new JoystickButton(j1, 5);
-  // public JoystickButton j1b6 = new JoystickButton(j1, 6);
   public JoystickButton j1b7 = new JoystickButton(j1, 7);
   public JoystickButton j1b8 = new JoystickButton(j1, 8);
   public JoystickButton j1b9 = new JoystickButton(j1, 9);
@@ -44,9 +35,6 @@ public class OI
   public JoystickButton j2b2 = new JoystickButton(j2, 2);
   public JoystickButton j2b3 = new JoystickButton(j2, 3);
   public JoystickButton j2b4 = new JoystickButton(j2, 4);
-  // public JoystickButton j2b5 = new JoystickButton(j2, 5);
-  // public JoystickButton j2b6 = new JoystickButton(j2, 6);
-  public JoystickButton j2b7 = new JoystickButton(j2, 7);
   public JoystickButton j2b8 = new JoystickButton(j2, 8);
   public JoystickButton j2b9 = new JoystickButton(j2, 9);
   public JoystickButton j2b10 = new JoystickButton(j2, 10);
