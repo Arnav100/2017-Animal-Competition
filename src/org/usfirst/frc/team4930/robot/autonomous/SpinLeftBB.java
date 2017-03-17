@@ -1,18 +1,19 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
 import org.usfirst.frc.team4930.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * Spin using a gyroscope (bang bang control)
+ * 
+ * @todo
  */
-public class SpinBB extends Command
+public class SpinLeftBB extends Command
 {
   public int degree;
   public double speed = 0.5;
 
-  public SpinBB(int d) {
+  public SpinLeftBB(int d) {
     this.degree = d;
     requires(Robot.driveTrain);
   }

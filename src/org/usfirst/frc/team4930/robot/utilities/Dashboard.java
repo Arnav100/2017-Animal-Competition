@@ -7,26 +7,30 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Dashboard
 {
 
-  public void update() { //
-
-    // put selected replay and alliance side
-    SmartDashboard.putString("Replay Selected: ", Robot.autoDescription);
-    SmartDashboard.putString("Alliance Side: ", Robot.allianceToggle.getSide());
+  public void update() {
 
     // put hard code values
-    SmartDashboard.putNumber("Agitate", RobotMap.values.get("agitate") * 100);
-    SmartDashboard.putNumber("Loader", RobotMap.values.get("loader") * 100);
-    SmartDashboard.putNumber("Shooter", RobotMap.values.get("shooter") * 100);
-    SmartDashboard.putNumber("Intake", RobotMap.values.get("intake_in") * 100);
-    SmartDashboard.putNumber("Unload", RobotMap.values.get("intake_out") * 100);
-    SmartDashboard.putNumber("Clear", RobotMap.values.get("clear_fuel") * 100);
+    SmartDashboard.putString("1",
+        "Agitate: " + String.valueOf(RobotMap.values.get("agitate") * 100));
+    SmartDashboard.putString("2", "Loader: " + String.valueOf(RobotMap.values.get("loader") * 100));
+    SmartDashboard.putString("3",
+        "Shooter: " + String.valueOf(RobotMap.values.get("shooter") * 100));
+    SmartDashboard.putString("4",
+        "Intake: " + String.valueOf(RobotMap.values.get("intake_in") * 100));
+    SmartDashboard.putString("5",
+        "Unload: " + String.valueOf(RobotMap.values.get("intake_out") * 100));
+    SmartDashboard.putString("6",
+        "Clear: " + String.valueOf(RobotMap.values.get("clear_fuel") * 100));
 
-    // test values
-    SmartDashboard.putNumber("Gyro Angle", Robot.gyro.getAngle());
-    SmartDashboard.putNumber("Left Encoder", Robot.encoders.leftPosInches());
-    SmartDashboard.putNumber("Right Encoder", Robot.encoders.rightPosInches());
+    // put sensor values
+    SmartDashboard.putString("7", "Gyro Angle: " + String.valueOf(Robot.gyro.getAngle()));
+    SmartDashboard.putString("8",
+        "Left Encoder: " + String.valueOf(Robot.encoders.leftPosInches()));
+    SmartDashboard.putString("9",
+        "Right Encoder: " + String.valueOf(Robot.encoders.rightPosInches()));
 
-    SmartDashboard.putBoolean("Is Recording", Robot.isRecording);
-    SmartDashboard.putBoolean("Is RePlaying", Robot.isReplaying);
+    // put dial and alliance side
+    SmartDashboard.putString("10", "Replay Selected: " + Robot.autoDescription);
+    SmartDashboard.putString("11", "Alliance Side: " + Robot.allianceToggle.getSide());
   }
 }

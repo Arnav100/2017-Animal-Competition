@@ -46,9 +46,9 @@ public class RobotMap
     values.put("climber", 1.0);
 
     // initial static values with (+/-) control
-    values.put("agitate", 0.45);
-    values.put("loader", 0.85);
-    values.put("shooter", 0.91);
+    values.put("agitate", 0.87);
+    values.put("loader", 0.86);
+    values.put("shooter", 0.84);
     values.put("intake_in", 0.90);
     values.put("intake_out", 0.90);
     values.put("clear_fuel", 0.75);

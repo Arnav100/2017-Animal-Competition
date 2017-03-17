@@ -1,6 +1,6 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
-import org.usfirst.frc.team4930.robot.Robot;
+import org.usfirst.frc.team4930.robot.*;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -22,14 +22,26 @@ public class MoveBB extends Command
   }
 
   protected void execute() {
-    Robot.driveTrain.move(this.speed, this.speed);
+    Robot.driveTrain.move(-speed, -speed);
   }
 
   protected boolean isFinished() {
-    if (Robot.encoders.leftPosInches() < this.inches) {
-      return false;
-    } else {
+    // get position in inches
+    double i = Robot.encoders.leftPosInches();
+    // approximate backlash formula
+    double b = 1 + (10 * speed);
+    // calculate i based on backlash formula
+    if (i > 1) {
+      i = i - b;
+    }
+    if (i < 1) {
+      i = i + b;
+    }
+    // check if greater or less than the absolute value
+    if (i > inches || i < -inches) {
       return true;
+    } else {
+      return false;
     }
   }
 

@@ -91,12 +91,14 @@ public class Robot extends IterativeRobot
 
   public void autonomousInit() {
     dial.setSelectedReplay();
+    Robot.encoders.reset();
     isAuto = true;
     autoCommand.start();
   }
 
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
+    dashboard.update();
   }
 
   public void teleopInit() {

@@ -20,12 +20,13 @@ public class Encoders
 
   // left position
   public int leftPosInches() {
-    return (int) (leftPosRaw() / 666);
+    // 572
+    return (int) (this.leftPosRaw() / 666);
   }
 
   // right position in inches
   public int rightPosInches() {
-    return (int) (rightPosRaw() / 666) * -1;
+    return (int) (this.rightPosRaw() / 666) * -1;
   }
 
   // left position raw values
