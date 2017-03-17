@@ -7,6 +7,7 @@ import org.usfirst.frc.team4930.robot.autonomous.AutoFarGear;
 import org.usfirst.frc.team4930.robot.autonomous.AutoMiddleGear;
 import org.usfirst.frc.team4930.robot.autonomous.AutoNearGear;
 import org.usfirst.frc.team4930.robot.autonomous.AutoReplay;
+import org.usfirst.frc.team4930.robot.autonomous.DriveAcrossLine;
 
 public class Dial
 {
@@ -81,9 +82,9 @@ public class Dial
           Robot.autoCommand = new AutoReplay();
           break;
         case 10:
-          Robot.autoDescription = "(10) Practice Field Replay";
+          Robot.autoDescription = "(10) Drive Straight to Line";
           Robot.replayFilePath = "/home/lvuser/CSVs/Practice.csv";
-          Robot.autoCommand = new AutoReplay();
+          Robot.autoCommand = new DriveAcrossLine();
           break;
         default:
           Robot.dialNumber = 0;
