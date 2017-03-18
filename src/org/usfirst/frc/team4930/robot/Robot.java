@@ -1,12 +1,27 @@
 package org.usfirst.frc.team4930.robot;
 
-import org.usfirst.frc.team4930.robot.sensors.*;
-import org.usfirst.frc.team4930.robot.subsystems.*;
-import org.usfirst.frc.team4930.robot.utilities.*;
+import org.usfirst.frc.team4930.robot.sensors.Dial;
+import org.usfirst.frc.team4930.robot.sensors.Encoders;
+import org.usfirst.frc.team4930.robot.sensors.Gyro;
+import org.usfirst.frc.team4930.robot.sensors.ToggleSwitch;
+import org.usfirst.frc.team4930.robot.subsystems.Climber;
+import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
+import org.usfirst.frc.team4930.robot.subsystems.Intake;
+import org.usfirst.frc.team4930.robot.subsystems.Loader;
+import org.usfirst.frc.team4930.robot.subsystems.Shifter;
+import org.usfirst.frc.team4930.robot.subsystems.Shooter;
+import org.usfirst.frc.team4930.robot.utilities.Dashboard;
+import org.usfirst.frc.team4930.robot.utilities.ReplayPlayer;
+import org.usfirst.frc.team4930.robot.utilities.ReplayRecorder;
+
 import com.ctre.CANTalon;
+
 import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.wpilibj.*;
-import edu.wpi.first.wpilibj.command.*;
+import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class Robot extends IterativeRobot
@@ -84,8 +99,8 @@ public class Robot extends IterativeRobot
 
     // setup USB camera
     UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-    camera.setResolution(640, 480);
-    camera.setFPS(30);
+    camera.setResolution(320, 240);
+    camera.setFPS(20);
 
   }
 

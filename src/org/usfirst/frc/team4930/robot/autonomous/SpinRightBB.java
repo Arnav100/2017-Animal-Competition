@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
 import org.usfirst.frc.team4930.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -11,10 +12,11 @@ import edu.wpi.first.wpilibj.command.Command;
 public class SpinRightBB extends Command
 {
   public int degree;
-  public double speed = 0.5;
+  public double speed;
 
-  public SpinRightBB(int d) {
+  public SpinRightBB(int d, double s) {
     this.degree = d;
+    this.speed = s;
     requires(Robot.driveTrain);
   }
 
@@ -30,7 +32,7 @@ public class SpinRightBB extends Command
   }
 
   protected boolean isFinished() {
-    if (Robot.gyro.getAngle() < degree || Robot.gyro.getAngle() < degree) {
+    if (Robot.gyro.getAngle() < degree) {
       return false;
     } else {
       return true;
