@@ -45,70 +45,82 @@ public class RobotMap
   public static void init() {
 
     // static values: 0.0 to 1.0, no negatives!
-    values.put("open_gadget", 1.0);
-    values.put("close_gadget", 0.22);
-    values.put("climber", 1.0);
+    RobotMap.values.put("open_gadget", 1.0);
+    RobotMap.values.put("close_gadget", 0.22);
+    RobotMap.values.put("climber", 1.0);
 
     // initial static values with (+/-) control
-    values.put("agitate", 0.87);
-    values.put("loader", 0.86);
-    values.put("shooter", 0.84);
-    values.put("intake_in", 0.90);
-    values.put("intake_out", 0.90);
-    values.put("clear_fuel", 0.75);
+    RobotMap.values.put("agitate", 0.87);
+    RobotMap.values.put("loader", 0.86);
+    RobotMap.values.put("shooter", 0.84);
+    RobotMap.values.put("intake_in", 0.90);
+    RobotMap.values.put("intake_out", 0.90);
+    RobotMap.values.put("clear_fuel", 0.75);
 
     // instantiate the motor controllers
-    dtRSlave1 = new CANTalon(21);
-    dtLSlave1 = new CANTalon(22);
-    dtRSlave2 = new CANTalon(23);
-    dtLSlave2 = new CANTalon(24);
-    dtRMaster = new CANTalon(25);
-    dtLMaster = new CANTalon(26);
-    intake = new CANTalon(27);
-    climber = new CANTalon(29);
-    shooter = new CANTalon(31);
-    gadgetL = new CANTalon(32);
-    loader = new CANTalon(33);
-    gadgetR = new CANTalon(34);
+    RobotMap.dtRSlave1 = new CANTalon(21);
+    RobotMap.dtLSlave1 = new CANTalon(22);
+    RobotMap.dtRSlave2 = new CANTalon(23);
+    RobotMap.dtLSlave2 = new CANTalon(24);
+    RobotMap.dtRMaster = new CANTalon(25);
+    RobotMap.dtLMaster = new CANTalon(26);
+    RobotMap.intake = new CANTalon(27);
+    RobotMap.climber = new CANTalon(29);
+    RobotMap.shooter = new CANTalon(31);
+    RobotMap.gadgetL = new CANTalon(32);
+    RobotMap.loader = new CANTalon(33);
+    RobotMap.gadgetR = new CANTalon(34);
 
     // right side slave setup
-    dtRSlave1.changeControlMode(TalonControlMode.Follower);
-    dtRSlave1.set(dtRMaster.getDeviceID());
-    dtRSlave1.reverseOutput(true);
-    dtRSlave2.changeControlMode(TalonControlMode.Follower);
-    dtRSlave2.set(dtRMaster.getDeviceID());
-    dtRSlave2.reverseOutput(true);
+    RobotMap.dtRSlave1.changeControlMode(TalonControlMode.Follower);
+    RobotMap.dtRSlave1.set(RobotMap.dtRMaster.getDeviceID());
+    RobotMap.dtRSlave1.reverseOutput(true);
+    RobotMap.dtRSlave2.changeControlMode(TalonControlMode.Follower);
+    RobotMap.dtRSlave2.set(RobotMap.dtRMaster.getDeviceID());
+    RobotMap.dtRSlave2.reverseOutput(true);
 
     // left side slave setup
-    dtLSlave1.changeControlMode(TalonControlMode.Follower);
-    dtLSlave1.set(dtLMaster.getDeviceID());
-    dtLSlave1.reverseOutput(true);
-    dtLSlave2.changeControlMode(TalonControlMode.Follower);
-    dtLSlave2.set(dtLMaster.getDeviceID());
-    dtLSlave2.reverseOutput(true);
+    RobotMap.dtLSlave1.changeControlMode(TalonControlMode.Follower);
+    RobotMap.dtLSlave1.set(RobotMap.dtLMaster.getDeviceID());
+    RobotMap.dtLSlave1.reverseOutput(true);
+    RobotMap.dtLSlave2.changeControlMode(TalonControlMode.Follower);
+    RobotMap.dtLSlave2.set(RobotMap.dtLMaster.getDeviceID());
+    RobotMap.dtLSlave2.reverseOutput(true);
 
     // master motors setup
-    dtMasterMotors = new RobotDrive(dtLMaster, dtRMaster);
+    RobotMap.dtMasterMotors = new RobotDrive(RobotMap.dtLMaster, RobotMap.dtRMaster);
 
     // setup drive train encoders
-    dtRMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
-    dtLMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    RobotMap.dtRMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    RobotMap.dtLMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 
     // instantiate pneumatic system
-    compressor = new Compressor(50); // device id
-    solenoid = new Solenoid(50, 5); // device id, channel
+    RobotMap.compressor = new Compressor(50); // device id
+    RobotMap.solenoid = new Solenoid(50, 5); // device id, channel
 
     // disable saftey settings on replay code motors
-    dtMasterMotors.setSafetyEnabled(false);
-    intake.setSafetyEnabled(false);
-    loader.setSafetyEnabled(false);
-    shooter.setSafetyEnabled(false);
-    gadgetL.setSafetyEnabled(false);
-    gadgetR.setSafetyEnabled(false);
+    RobotMap.dtMasterMotors.setSafetyEnabled(false);
+    RobotMap.intake.setSafetyEnabled(false);
+    RobotMap.loader.setSafetyEnabled(false);
+    RobotMap.shooter.setSafetyEnabled(false);
+    RobotMap.gadgetL.setSafetyEnabled(false);
+    RobotMap.gadgetR.setSafetyEnabled(false);
 
     // instantiate sensors
-    dial = new AnalogPotentiometer(0, 300, 0); // channel, range, offset
-    gyro = new ADXRS450_Gyro(); // ribbon gyro
-    toggleSwitch = new DigitalInput(9); // DIO
+    RobotMap.dial = new AnalogPotentiometer(0, 300, 0); // channel, range, offset
+    RobotMap.gyro = new ADXRS450_Gyro(); // ribbon gyro
+    RobotMap.toggleSwitch = new DigitalInput(9); // DIO
+  }
+
+  public static void disableAllTalons() {
+    // disable all Talons SRXs
+    RobotMap.dtRMaster.set(0.0);
+    RobotMap.dtLMaster.set(0.0);
+    RobotMap.intake.set(0.0);
+    RobotMap.climber.set(0.0);
+    RobotMap.shooter.set(0.0);
+    RobotMap.gadgetL.set(0.0);
+    RobotMap.gadgetR.set(0.0);
+    RobotMap.loader.set(0.0);
   }
 }

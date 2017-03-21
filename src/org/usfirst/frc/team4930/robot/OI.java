@@ -23,6 +23,7 @@ public class OI
 
   // all joystick1 buttons
   public JoystickButton j1b1 = new JoystickButton(j1, 1);
+  public JoystickButton j1b2 = new JoystickButton(j1, 2);
   public JoystickButton j1b7 = new JoystickButton(j1, 7);
   public JoystickButton j1b8 = new JoystickButton(j1, 8);
   public JoystickButton j1b9 = new JoystickButton(j1, 9);
@@ -46,22 +47,23 @@ public class OI
     // joystick0 button actions
     j0b1.whileHeld(new IntakeFuel());
     j0b4.whileHeld(new UnloadHopper());
-    j0b7.whenPressed(new ValueChangeDown("agitate"));
-    j0b8.whenPressed(new ValueChangeUp("agitate"));
-    j0b9.whenPressed(new ValueChangeDown("loader"));
-    j0b10.whenPressed(new ValueChangeUp("loader"));
-    j0b11.whenPressed(new ValueChangeDown("shooter"));
-    j0b12.whenPressed(new ValueChangeUp("shooter"));
+    j0b7.whenPressed(new ValueDown("agitate"));
+    j0b8.whenPressed(new ValueUp("agitate"));
+    j0b9.whenPressed(new ValueDown("loader"));
+    j0b10.whenPressed(new ValueUp("loader"));
+    j0b11.whenPressed(new ValueDown("shooter"));
+    j0b12.whenPressed(new ValueUp("shooter"));
 
     // joystick1 button actions
     j1b1.whenPressed(new ShiftUp());
     j1b1.whenReleased(new ShiftDown());
-    j1b7.whenPressed(new ValueChangeDown("intake_in"));
-    j1b8.whenPressed(new ValueChangeUp("intake_in"));
-    j1b9.whenPressed(new ValueChangeDown("intake_out"));
-    j1b10.whenPressed(new ValueChangeUp("intake_out"));
-    j1b11.whenPressed(new ValueChangeDown("clear_fuel"));
-    j1b12.whenPressed(new ValueChangeUp("clear_fuel"));
+    j1b2.whenPressed(new ToggleCamera());
+    j1b7.whenPressed(new ValueDown("intake_in"));
+    j1b8.whenPressed(new ValueUp("intake_in"));
+    j1b9.whenPressed(new ValueDown("intake_out"));
+    j1b10.whenPressed(new ValueUp("intake_out"));
+    j1b11.whenPressed(new ValueDown("clear_fuel"));
+    j1b12.whenPressed(new ValueUp("clear_fuel"));
 
     // joystick2 button actions
     j2b1.whileHeld(new ShootingSequence());

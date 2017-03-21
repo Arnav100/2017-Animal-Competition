@@ -11,7 +11,7 @@ public class Cameras
   UsbCamera gearCamera;
   UsbCamera intakeCamera;
   MjpegServer mjpegServer;
-  int currentCam;
+  public int currentCam;
 
   public Cameras() {
     // create camera server

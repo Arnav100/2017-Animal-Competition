@@ -4,8 +4,6 @@ import org.usfirst.frc.team4930.robot.sensors.*;
 import org.usfirst.frc.team4930.robot.subsystems.*;
 import org.usfirst.frc.team4930.robot.utilities.*;
 import com.ctre.CANTalon;
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -27,6 +25,7 @@ public class Robot extends IterativeRobot
   public static Shooter shooter;
 
   // sensors
+  public static Cameras cameras;
   public static Dial dial;
   public static Encoders encoders;
   public static Gyro gyro;
@@ -53,27 +52,28 @@ public class Robot extends IterativeRobot
     RobotMap.init();
 
     // instantiate drive train first
-    driveTrain = new DriveTrain();
+    Robot.driveTrain = new DriveTrain();
 
     // instantiate the rest of the subsystems and sensors
-    climber = new Climber();
-    gearGadget = new GearGadget();
-    encoders = new Encoders();
-    intake = new Intake();
-    loader = new Loader();
-    shifter = new Shifter();
-    shooter = new Shooter();
-    dial = new Dial();
-    allianceToggle = new ToggleSwitch();
-    gyro = new Gyro();
+    Robot.cameras = new Cameras();
+    Robot.climber = new Climber();
+    Robot.gearGadget = new GearGadget();
+    Robot.encoders = new Encoders();
+    Robot.intake = new Intake();
+    Robot.loader = new Loader();
+    Robot.shifter = new Shifter();
+    Robot.shooter = new Shooter();
+    Robot.dial = new Dial();
+    Robot.allianceToggle = new ToggleSwitch();
+    Robot.gyro = new Gyro();
 
     // instantiate replay code
-    replayPlayer = new ReplayPlayer();
-    replayRecorder = new ReplayRecorder();
+    Robot.replayPlayer = new ReplayPlayer();
+    Robot.replayRecorder = new ReplayRecorder();
 
     // instantiate dashboard and oi last
-    oi = new OI();
-    dashboard = new Dashboard();
+    Robot.oi = new OI();
+    Robot.dashboard = new Dashboard();
 
     // set default settings for subsystems
     Robot.climber.brakeMode(true);
@@ -88,20 +88,20 @@ public class Robot extends IterativeRobot
     Robot.gyro.calibrating();
 
     // setup USB camera
-    UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-    camera.setResolution(640, 480);
-    camera.setFPS(20);
+    // UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+    // camera.setResolution(640, 480);
+    // camera.setFPS(20);
   }
 
   public void robotPeriodic() {
-    dial.setSelectedReplay();
-    dashboard.update();
+    Robot.dial.setSelectedReplay();
+    Robot.dashboard.update();
   }
 
   public void autonomousInit() {
     Robot.encoders.reset();
-    isAuto = true;
-    autoCommand.start();
+    Robot.isAuto = true;
+    Robot.autoCommand.start();
   }
 
   public void autonomousPeriodic() {
@@ -110,28 +110,30 @@ public class Robot extends IterativeRobot
 
   public void teleopInit() {
     Robot.encoders.reset();
-    isAuto = false;
-    if (autoCommand != null) {
-      autoCommand.cancel();
+    Robot.isAuto = false;
+    if (Robot.autoCommand != null) {
+      Robot.autoCommand.cancel();
     }
-    accel.maxXYZ();
+    Robot.accel.maxXYZ();
   }
 
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
   }
 
-  public void disabledInit() {}
+  public void disabledInit() {
+    RobotMap.disableAllTalons();
+  }
 
   public void disabledPeriodic() {
     Scheduler.getInstance().run();
   }
 
   public void testInit() {
-    testMotor = new CANTalon(30);
+    Robot.testMotor = new CANTalon(30);
   }
 
   public void testPeriodic() {
-    testMotor.set(0.4);
+    Robot.testMotor.set(0.4);
   }
 }

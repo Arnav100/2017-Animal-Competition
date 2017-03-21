@@ -3,12 +3,12 @@ package org.usfirst.frc.team4930.robot.commands;
 import org.usfirst.frc.team4930.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
-public class ValueChangeDown extends Command
+public class ValueDown extends Command
 {
 
   public String reference;
 
-  public ValueChangeDown(String reference) {
+  public ValueDown(String reference) {
     this.reference = reference;
   }
 
