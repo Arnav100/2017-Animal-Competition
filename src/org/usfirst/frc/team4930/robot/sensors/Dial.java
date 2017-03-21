@@ -12,7 +12,7 @@ import org.usfirst.frc.team4930.robot.autonomous.Auto10;
 public class Dial
 {
 
-  // get dial number after normalizing to nearest 11th point
+  // return 0-10 dial number after normalizing to nearest 11th point
   static public int getDialNumber() {
     double autoSwitch = RobotMap.dial.get();
     double dialNum = (autoSwitch + 7) / (360 / 11);
