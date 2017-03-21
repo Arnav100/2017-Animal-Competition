@@ -94,7 +94,6 @@ public class Robot extends IterativeRobot
   }
 
   public void robotPeriodic() {
-    Robot.dial.setSelectedReplay();
     Robot.dashboard.update();
   }
 
