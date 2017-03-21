@@ -10,7 +10,7 @@ public class ReplayPlayer
   private Scanner scanner;
   private boolean onTime;
   private long startTimestamp, nextTimestamp, deltaTimestamp;
-  private String alliance;
+  private String alliance, shifter_state;
   private double dtLeft, dtRight;
 
   // instantiate scanner and set the start time
@@ -32,6 +32,14 @@ public class ReplayPlayer
       deltaTimestamp = nextTimestamp - (System.currentTimeMillis() - startTimestamp);
       if (deltaTimestamp <= 0) {
         alliance = scanner.next();
+        shifter_state = scanner.next();
+        // shift if needed
+        if (Robot.inLowGear && Objects.equals(shifter_state, "High")) {
+          Robot.shifter.highGear();
+        }
+        if (!Robot.inLowGear && Objects.equals(shifter_state, "Low")) {
+          Robot.shifter.lowGear();
+        }
         dtLeft = scanner.nextDouble();
         dtRight = scanner.nextDouble();
         // check if alliance matches toggle switch
