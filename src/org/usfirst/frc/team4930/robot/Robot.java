@@ -1,26 +1,14 @@
 package org.usfirst.frc.team4930.robot;
 
-import org.usfirst.frc.team4930.robot.sensors.Dial;
-import org.usfirst.frc.team4930.robot.sensors.Encoders;
-import org.usfirst.frc.team4930.robot.sensors.Gyro;
-import org.usfirst.frc.team4930.robot.sensors.ToggleSwitch;
-import org.usfirst.frc.team4930.robot.subsystems.Climber;
-import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
-import org.usfirst.frc.team4930.robot.subsystems.Intake;
-import org.usfirst.frc.team4930.robot.subsystems.Loader;
-import org.usfirst.frc.team4930.robot.subsystems.Shifter;
-import org.usfirst.frc.team4930.robot.subsystems.Shooter;
-import org.usfirst.frc.team4930.robot.utilities.Dashboard;
-import org.usfirst.frc.team4930.robot.utilities.ReplayPlayer;
-import org.usfirst.frc.team4930.robot.utilities.ReplayRecorder;
+import org.usfirst.frc.team4930.robot.sensors.*;
+import org.usfirst.frc.team4930.robot.subsystems.*;
+import org.usfirst.frc.team4930.robot.utilities.*;
 import com.ctre.CANTalon;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
 public class Robot extends IterativeRobot
 {
@@ -43,6 +31,7 @@ public class Robot extends IterativeRobot
   public static Encoders encoders;
   public static Gyro gyro;
   public static ToggleSwitch allianceToggle;
+  public static Accelerometer accel;
 
   // auto replay setup
   public static Integer dialNumber;
@@ -99,7 +88,10 @@ public class Robot extends IterativeRobot
     UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
     camera.setResolution(320, 240);
     camera.setFPS(20);
+  }
 
+  public void robotPeriodic() {
+    dashboard.update();
   }
 
   public void autonomousInit() {
@@ -111,7 +103,6 @@ public class Robot extends IterativeRobot
 
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
-    dashboard.update();
   }
 
   public void teleopInit() {
@@ -125,7 +116,6 @@ public class Robot extends IterativeRobot
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     dial.setSelectedReplay();
-    dashboard.update();
   }
 
   public void disabledInit() {}
@@ -135,11 +125,10 @@ public class Robot extends IterativeRobot
   }
 
   public void testInit() {
-    testMotor = new CANTalon(21);
+    testMotor = new CANTalon(30);
   }
 
   public void testPeriodic() {
-    LiveWindow.run();
     testMotor.set(0.4);
   }
 }
