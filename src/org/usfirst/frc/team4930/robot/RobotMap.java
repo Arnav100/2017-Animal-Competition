@@ -47,7 +47,7 @@ public class RobotMap
 
     // static values: 0.0 to 1.0, no negatives!
     RobotMap.values.put("open_gadget", 1.0);
-    RobotMap.values.put("close_gadget", 0.22);
+    RobotMap.values.put("close_gadget", 0.10);
     RobotMap.values.put("climber", 1.0);
 
     // initial static values with (+/-) control
@@ -115,7 +115,7 @@ public class RobotMap
   }
 
   public static void disableAllTalons() {
-    // disable all Talons SRXs
+    // stop all Talons SRXs
     RobotMap.dtRMaster.set(0.0);
     RobotMap.dtLMaster.set(0.0);
     RobotMap.intake.set(0.0);

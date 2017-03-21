@@ -112,6 +112,7 @@ public class Robot extends IterativeRobot
     if (Robot.autoCommand != null) {
       Robot.autoCommand.cancel();
     }
+    Robot.accel.resetMax();
     Robot.accel.maxXYZ();
     // Robot.accel.overrideGearGadget();
   }

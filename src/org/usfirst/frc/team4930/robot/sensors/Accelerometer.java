@@ -46,6 +46,12 @@ public class Accelerometer
     }
   }
 
+  public void resetMax() {
+    maxX = 0.0;
+    maxY = 0.0;
+    maxZ = 0.0;
+  }
+
   public void overrideGearGadget() {
     // @todo monitor max accel and adjust accordingly
     if (Math.abs(getZ()) > 8) {
