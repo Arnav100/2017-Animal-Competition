@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  * Autonomous: Drive Straight Across Line
  */
-public class Auto1 extends CommandGroup
+public class Auto001 extends CommandGroup
 {
-  public Auto1() {
+  public Auto001() {
     System.out.println("AUTO 1: Drive Across Line");
     addSequential(new MoveBB(-0.7, 110));
     addSequential(new TurnRightBB(-0.7, 49));

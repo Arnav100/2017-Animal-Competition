@@ -2,12 +2,12 @@ package org.usfirst.frc.team4930.robot.sensors;
 
 import org.usfirst.frc.team4930.robot.Robot;
 import org.usfirst.frc.team4930.robot.RobotMap;
-import org.usfirst.frc.team4930.robot.autonomous.Auto0;
-import org.usfirst.frc.team4930.robot.autonomous.Auto3;
-import org.usfirst.frc.team4930.robot.autonomous.Auto2;
-import org.usfirst.frc.team4930.robot.autonomous.Auto1;
+import org.usfirst.frc.team4930.robot.autonomous.Auto000;
+import org.usfirst.frc.team4930.robot.autonomous.Auto003;
+import org.usfirst.frc.team4930.robot.autonomous.Auto002;
+import org.usfirst.frc.team4930.robot.autonomous.Auto001;
 import org.usfirst.frc.team4930.robot.autonomous.AutoReplay;
-import org.usfirst.frc.team4930.robot.autonomous.Auto10;
+import org.usfirst.frc.team4930.robot.autonomous.Auto010;
 
 public class Dial
 {
@@ -34,17 +34,17 @@ public class Dial
         case 1:
           Robot.autoDescription = "(1) Place Left Gear";
           Robot.replayFilePath = "/home/lvuser/CSVs/NearGear.csv";
-          Robot.autoCommand = new Auto1();
+          Robot.autoCommand = new Auto001();
           break;
         case 2:
           Robot.autoDescription = "(2) Place Middle Gear";
           Robot.replayFilePath = "/home/lvuser/CSVs/MiddleGear.csv";
-          Robot.autoCommand = new Auto2();
+          Robot.autoCommand = new Auto002();
           break;
         case 3:
           Robot.autoDescription = "(3) Place Right Gear";
           Robot.replayFilePath = "/home/lvuser/CSVs/FarGear.csv";
-          Robot.autoCommand = new Auto3();
+          Robot.autoCommand = new Auto003();
           break;
         case 4:
           Robot.autoDescription = "(4) Near Replay";
@@ -79,13 +79,13 @@ public class Dial
         case 10:
           Robot.autoDescription = "(10) Drive Straight to Line";
           Robot.replayFilePath = "/home/lvuser/CSVs/Practice.csv";
-          Robot.autoCommand = new Auto10();
+          Robot.autoCommand = new Auto010();
           break;
         default:
           Robot.dialNumber = 0;
           Robot.autoDescription = "(0) Do Nothing";
           Robot.replayFilePath = "";
-          Robot.autoCommand = new Auto0();
+          Robot.autoCommand = new Auto000();
       }
       System.out.println("AutoDial: " + Robot.autoDescription);
     }

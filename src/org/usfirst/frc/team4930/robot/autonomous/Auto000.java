@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * Autonomous: Do Nothing (literally)
  */
-public class Auto0 extends Command
+public class Auto000 extends Command
 {
-  public Auto0() {}
+  public Auto000() {}
 
   protected void initialize() {
     System.out.println("AUTO 0: Initializing Do Nothing");
