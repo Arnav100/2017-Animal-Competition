@@ -6,12 +6,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * Move using speed and time (dead reckoning)
  */
-public class MoveDR extends Command
+public class GoStraightDR extends Command
 {
   public double speed;
   public double seconds;
 
-  public MoveDR(double speed, double seconds) {
+  public GoStraightDR(double speed, double seconds) {
     this.speed = speed;
     this.seconds = seconds;
     requires(Robot.driveTrain);

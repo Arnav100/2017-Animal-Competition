@@ -6,12 +6,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * Turn left using a gyroscope (bang bang control)
  */
-public class TurnRightBB extends Command
+public class MoveRightSideBB extends Command
 {
   public double speed;
   public int degrees;
 
-  public TurnRightBB(double s, int d) {
+  public MoveRightSideBB(double s, int d) {
     this.speed = s;
     this.degrees = d;
     requires(Robot.driveTrain);

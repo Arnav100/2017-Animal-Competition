@@ -20,6 +20,7 @@ public class Dashboard
 
       currentTime = System.currentTimeMillis();
 
+      // set selected replay dial
       Robot.dial.setSelectedReplay();
 
       // put hard code values
@@ -43,7 +44,8 @@ public class Dashboard
 
       // put dial and alliance side
       SmartDashboard.putString("16", "Replay Selected: " + Robot.autoDescription);
-      SmartDashboard.putString("17", "Alliance Side: " + Robot.allianceToggle.getSide());
+      SmartDashboard.putString("17", "Alliance Switch: " + Robot.switches.getAlliance());
+      SmartDashboard.putString("18", "Replay Switch: " + Robot.switches.getRoutineOrReplay());
 
     }
 

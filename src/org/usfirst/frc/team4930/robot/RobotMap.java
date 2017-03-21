@@ -37,7 +37,8 @@ public class RobotMap
   // robot sensors
   public static AnalogPotentiometer dial;
   public static ADXRS450_Gyro gyro;
-  public static DigitalInput toggleSwitch;
+  public static DigitalInput replayToggleSwitch;
+  public static DigitalInput allianceToggleSwitch;
 
   // static values
   public static HashMap<String, Double> values = new HashMap<String, Double>();
@@ -109,7 +110,8 @@ public class RobotMap
     // instantiate sensors
     RobotMap.dial = new AnalogPotentiometer(0, 300, 0); // channel, range, offset
     RobotMap.gyro = new ADXRS450_Gyro(); // ribbon gyro
-    RobotMap.toggleSwitch = new DigitalInput(9); // DIO
+    RobotMap.replayToggleSwitch = new DigitalInput(8); // DIO
+    RobotMap.allianceToggleSwitch = new DigitalInput(9); // DIO
   }
 
   public static void disableAllTalons() {

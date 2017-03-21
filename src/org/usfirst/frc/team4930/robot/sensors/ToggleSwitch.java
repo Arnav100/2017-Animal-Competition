@@ -1,22 +1,33 @@
 package org.usfirst.frc.team4930.robot.sensors;
 
+import org.usfirst.frc.team4930.robot.Robot;
 import org.usfirst.frc.team4930.robot.RobotMap;
 
 public class ToggleSwitch
 {
 
-  public String getSide() {
+  public String getAlliance() {
     String side;
-    if (RobotMap.toggleSwitch.get()) {
+    if (RobotMap.allianceToggleSwitch.get()) {
+      Robot.isRed = true;
       side = "Red";
     } else {
+      Robot.isRed = false;
       side = "Blue";
     }
     return side;
   }
 
-  public boolean getValue() {
-    return RobotMap.toggleSwitch.get();
+  public String getRoutineOrReplay() {
+    String auto = null;
+    if (RobotMap.replayToggleSwitch.get()) {
+      Robot.isReplaySet = false;
+      auto = "Routine";
+    } else {
+      Robot.isReplaySet = true;
+      auto = "Replay";
+    }
+    return auto;
   }
 
 }

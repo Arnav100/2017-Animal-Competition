@@ -29,7 +29,7 @@ public class Robot extends IterativeRobot
   public static Dial dial;
   public static Encoders encoders;
   public static Gyro gyro;
-  public static ToggleSwitch allianceToggle;
+  public static ToggleSwitch switches;
   public static Accelerometer accel;
 
   // auto replay setup
@@ -41,10 +41,11 @@ public class Robot extends IterativeRobot
   public static ReplayRecorder replayRecorder;
 
   // initial robot states
-  public static boolean inLowGear = true; // robot must start in low gear!
+  public static boolean inLowGear = true;
   public static boolean isRecording = false;
   public static boolean isReplaying = false;
-  public static boolean isAuto = false;
+  public static boolean isRed = false;
+  public static boolean isReplaySet = false;
 
   public void robotInit() {
 
@@ -64,7 +65,7 @@ public class Robot extends IterativeRobot
     Robot.shifter = new Shifter();
     Robot.shooter = new Shooter();
     Robot.dial = new Dial();
-    Robot.allianceToggle = new ToggleSwitch();
+    Robot.switches = new ToggleSwitch();
     Robot.gyro = new Gyro();
 
     // instantiate replay code
@@ -99,7 +100,6 @@ public class Robot extends IterativeRobot
 
   public void autonomousInit() {
     Robot.encoders.reset();
-    Robot.isAuto = true;
     Robot.autoCommand.start();
   }
 
@@ -109,7 +109,6 @@ public class Robot extends IterativeRobot
 
   public void teleopInit() {
     Robot.encoders.reset();
-    Robot.isAuto = false;
     if (Robot.autoCommand != null) {
       Robot.autoCommand.cancel();
     }

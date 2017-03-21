@@ -6,12 +6,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * Move using encoders (bang bang control)
  */
-public class MoveBB extends Command
+public class GoStraightBB extends Command
 {
   public double speed;
   public double inches;
 
-  public MoveBB(double s, double i) {
+  public GoStraightBB(double s, double i) {
     this.speed = s;
     this.inches = i;
     requires(Robot.driveTrain);

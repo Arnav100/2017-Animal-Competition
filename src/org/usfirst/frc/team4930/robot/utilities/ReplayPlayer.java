@@ -18,7 +18,7 @@ public class ReplayPlayer
     scanner = new Scanner(new File(Robot.replayFilePath));
     scanner.useDelimiter(",|\\n");
     onTime = true;
-    alliance = Robot.allianceToggle.getSide();
+    alliance = Robot.switches.getAlliance();
     startTimestamp = System.currentTimeMillis();
     Robot.isReplaying = true;
   }
@@ -35,7 +35,7 @@ public class ReplayPlayer
         dtLeft = scanner.nextDouble();
         dtRight = scanner.nextDouble();
         // check if alliance matches toggle switch
-        if (Objects.equals(alliance, Robot.allianceToggle.getSide())) {
+        if (Objects.equals(alliance, Robot.switches.getAlliance())) {
           RobotMap.dtMasterMotors.tankDrive(dtLeft, dtRight);
         } else {
           RobotMap.dtMasterMotors.tankDrive(dtRight, dtLeft);
