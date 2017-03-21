@@ -10,24 +10,17 @@ public class Dashboard
   public void update() {
 
     // put hard code values
-    SmartDashboard.putString("1",
-        "Agitate: " + String.valueOf(RobotMap.values.get("agitate") * 100));
+    SmartDashboard.putString("1", "Agitate: " + String.valueOf(RobotMap.values.get("agitate") * 100));
     SmartDashboard.putString("2", "Loader: " + String.valueOf(RobotMap.values.get("loader") * 100));
-    SmartDashboard.putString("3",
-        "Shooter: " + String.valueOf(RobotMap.values.get("shooter") * 100));
-    SmartDashboard.putString("4",
-        "Intake: " + String.valueOf(RobotMap.values.get("intake_in") * 100));
-    SmartDashboard.putString("5",
-        "Unload: " + String.valueOf(RobotMap.values.get("intake_out") * 100));
-    SmartDashboard.putString("6",
-        "Clear: " + String.valueOf(RobotMap.values.get("clear_fuel") * 100));
+    SmartDashboard.putString("3", "Shooter: " + String.valueOf(RobotMap.values.get("shooter") * 100));
+    SmartDashboard.putString("4", "Intake: " + String.valueOf(RobotMap.values.get("intake_in") * 100));
+    SmartDashboard.putString("5", "Unload: " + String.valueOf(RobotMap.values.get("intake_out") * 100));
+    SmartDashboard.putString("6", "Clear: " + String.valueOf(RobotMap.values.get("clear_fuel") * 100));
 
     // put sensor values
     SmartDashboard.putString("7", "Gyro Angle: " + String.valueOf(Robot.gyro.getAngle()));
-    SmartDashboard.putString("8",
-        "Left Encoder: " + String.valueOf(Robot.encoders.leftPosInches()));
-    SmartDashboard.putString("9",
-        "Right Encoder: " + String.valueOf(Robot.encoders.rightPosInches()));
+    SmartDashboard.putString("8", "Left Encoder: " + String.valueOf(Robot.encoders.leftPosInches()));
+    SmartDashboard.putString("9", "Right Encoder: " + String.valueOf(Robot.encoders.rightPosInches()));
 
     // put dial and alliance side
     SmartDashboard.putString("10", "Replay Selected: " + Robot.autoDescription);

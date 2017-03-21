@@ -2,7 +2,6 @@ package org.usfirst.frc.team4930.robot.autonomous;
 
 import org.usfirst.frc.team4930.robot.commands.IntakeFuel;
 import org.usfirst.frc.team4930.robot.commands.ShootFuel;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutoPickUpAndShoot extends CommandGroup

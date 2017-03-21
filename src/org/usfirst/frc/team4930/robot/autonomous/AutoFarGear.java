@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
 import org.usfirst.frc.team4930.robot.commands.PlaceGear;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 public class AutoFarGear extends CommandGroup
