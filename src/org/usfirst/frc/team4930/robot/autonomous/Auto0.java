@@ -2,12 +2,15 @@ package org.usfirst.frc.team4930.robot.autonomous;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class AutoDoNothing extends Command
+/**
+ * Autonomous: Do Nothing (literally)
+ */
+public class Auto0 extends Command
 {
-  public AutoDoNothing() {}
+  public Auto0() {}
 
   protected void initialize() {
-    System.out.println("AUTO: Initializing DoNothing()");
+    System.out.println("AUTO 0: Initializing Do Nothing");
   }
 
   protected void execute() {}

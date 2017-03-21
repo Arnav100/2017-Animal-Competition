@@ -108,7 +108,7 @@ public class RobotMap
 
     // instantiate sensors
     dial = new AnalogPotentiometer(0, 300, 0); // channel, range, offset
-    gyro = new ADXRS450_Gyro();
-    toggleSwitch = new DigitalInput(9);
+    gyro = new ADXRS450_Gyro(); // ribbon gyro
+    toggleSwitch = new DigitalInput(9); // DIO
   }
 }

@@ -28,7 +28,7 @@ public class Accelerometer
     return accel.getX();
   }
 
-  public void setMax() {
+  public void maxXYZ() {
     // get max X
     double x = getX();
     if (x > maxX) {
@@ -47,7 +47,8 @@ public class Accelerometer
   }
 
   public void overrideGearGadget() {
-    if (Math.abs(getZ()) > 4) {
+    // @todo monitor max accel and adjust accordingly
+    if (Math.abs(getZ()) > 8) {
       RobotMap.values.put("close_gadget", 1.0);
     } else {
       RobotMap.values.put("close_gadget", initialCloseGadget);

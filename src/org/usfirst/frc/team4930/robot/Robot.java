@@ -75,27 +75,30 @@ public class Robot extends IterativeRobot
     oi = new OI();
     dashboard = new Dashboard();
 
-    // set default settings for subsystems and sensors
+    // set default settings for subsystems
     Robot.climber.brakeMode(true);
     Robot.driveTrain.brakeMode(true);
     Robot.gearGadget.brakeMode(true);
     Robot.intake.brakeMode(false);
     Robot.loader.brakeMode(true);
     Robot.shooter.brakeMode(false);
+
+    // set defaults for sensors
+    Robot.encoders.reset();
     Robot.gyro.calibrating();
 
     // setup USB camera
     UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-    camera.setResolution(320, 240);
+    camera.setResolution(640, 480);
     camera.setFPS(20);
   }
 
   public void robotPeriodic() {
+    dial.setSelectedReplay();
     dashboard.update();
   }
 
   public void autonomousInit() {
-    dial.setSelectedReplay();
     Robot.encoders.reset();
     isAuto = true;
     autoCommand.start();
@@ -106,16 +109,16 @@ public class Robot extends IterativeRobot
   }
 
   public void teleopInit() {
+    Robot.encoders.reset();
     isAuto = false;
     if (autoCommand != null) {
       autoCommand.cancel();
     }
-    Robot.encoders.reset();
+    accel.maxXYZ();
   }
 
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    dial.setSelectedReplay();
   }
 
   public void disabledInit() {}

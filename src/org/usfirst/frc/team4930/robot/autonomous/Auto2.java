@@ -3,12 +3,11 @@ package org.usfirst.frc.team4930.robot.autonomous;
 import org.usfirst.frc.team4930.robot.commands.PlaceGear;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-public class AutoNearGear extends CommandGroup
+public class Auto2 extends CommandGroup
 {
-  public AutoNearGear() {
-    System.out.println("AUTO: Initializing AutoNearGear()");
-    addSequential(new MoveBB(-0.7, 110));
-    addSequential(new TurnRightBB(-0.7, 49));
+  public Auto2() {
+    System.out.println("AUTO: Initializing AutoMiddleGear()");
+    addSequential(new MoveBB(-0.7, 66));
     addSequential(new Timer(0.5));
     addSequential(new PlaceGear());
     addSequential(new MoveBB(0.3, 12));
