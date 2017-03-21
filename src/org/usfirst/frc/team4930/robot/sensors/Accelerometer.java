@@ -9,7 +9,7 @@ public class Accelerometer
 
   double initialCloseGadget;
 
-  double maxX, maxY, maxZ = 0.0;
+  public double maxX, maxY, maxZ = 0.0;
 
   public Accelerometer() {
     accel = new BuiltInAccelerometer();

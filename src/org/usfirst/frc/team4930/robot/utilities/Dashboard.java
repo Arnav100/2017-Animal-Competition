@@ -34,10 +34,16 @@ public class Dashboard
       SmartDashboard.putString("7", "Gyro Angle: " + String.valueOf(Robot.gyro.getAngle()));
       SmartDashboard.putString("8", "Left Encoder: " + String.valueOf(Robot.encoders.leftPosInches()));
       SmartDashboard.putString("9", "Right Encoder: " + String.valueOf(Robot.encoders.rightPosInches()));
+      SmartDashboard.putString("10", "Accel X: " + String.valueOf(Robot.accel.getX()));
+      SmartDashboard.putString("11", "Accel Y: " + String.valueOf(Robot.accel.getY()));
+      SmartDashboard.putString("12", "Accel Z: " + String.valueOf(Robot.accel.getZ()));
+      SmartDashboard.putString("13", "Max X: " + String.valueOf(Robot.accel.maxX));
+      SmartDashboard.putString("14", "Max Y: " + String.valueOf(Robot.accel.maxY));
+      SmartDashboard.putString("15", "Max Z: " + String.valueOf(Robot.accel.maxZ));
 
       // put dial and alliance side
-      SmartDashboard.putString("10", "Replay Selected: " + Robot.autoDescription);
-      SmartDashboard.putString("11", "Alliance Side: " + Robot.allianceToggle.getSide());
+      SmartDashboard.putString("16", "Replay Selected: " + Robot.autoDescription);
+      SmartDashboard.putString("17", "Alliance Side: " + Robot.allianceToggle.getSide());
 
     }
 

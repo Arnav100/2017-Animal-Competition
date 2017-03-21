@@ -114,6 +114,7 @@ public class Robot extends IterativeRobot
       Robot.autoCommand.cancel();
     }
     Robot.accel.maxXYZ();
+    // Robot.accel.overrideGearGadget();
   }
 
   public void teleopPeriodic() {
