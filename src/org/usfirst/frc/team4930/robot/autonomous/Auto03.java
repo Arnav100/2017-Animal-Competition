@@ -6,14 +6,15 @@ import org.usfirst.frc.team4930.robot.commands.ReplayPlayback;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 03r: Place gear (g) in the middle.
- * 
- *       g 
- *       |
- *       | 
- *      [v]
- *  ___________
- *  
+ * Auto Dial (03r): Place gear in the middle.
+ * Red/Blue: Determines direction of ReplayCode.
+ * ReplayCode: Run ReplayCode if ON.
+ *
+ *               g
+ *               |
+ *               |
+ *              [v]
+ *   b _____________________ r
  */
 public class Auto03 extends CommandGroup
 {

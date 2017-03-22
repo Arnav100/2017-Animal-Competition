@@ -5,15 +5,16 @@ import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 02r: Place gear (g) on left side.
- * 
- *     g
- *    / 
- *   |
- *   | 
- *  [v]
- *  ___________
- *  
+ * Auto Dial (02r): Place gear on left side.
+ * Red/Blue: Red Ignored. Blue Accepted.
+ * ReplayCode: Run ReplayCode if ON and Blue selected.
+ *
+ *           g
+ *          /
+ *         |
+ *         |
+ *        [v]
+ *   b _____________________
  */
 public class Auto02 extends CommandGroup
 {

@@ -4,11 +4,12 @@ import org.usfirst.frc.team4930.robot.commands.ReplayPlayback;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 10: Only runs replay code.
- * 
- *           [?]
- *  blue ___________ red
- *  
+ * Auto Dial (10r): Always runs ReplayCode.
+ * Red/Blue: Determines direction of ReplayCode.
+ * ReplayCode: Ignored. Always run ReplayCode.
+ *
+ *              [?]
+ *   b _____________________ r
  */
 public class Auto10 extends CommandGroup
 {

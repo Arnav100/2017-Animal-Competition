@@ -15,8 +15,8 @@ public class Dashboard
 
   public void update() {
 
-    // limit smart dashboard updates to once every half second
-    if (System.currentTimeMillis() > (currentTime + 500)) {
+    // limit smart dashboard updates
+    if (System.currentTimeMillis() > (currentTime + 100)) {
 
       currentTime = System.currentTimeMillis();
 

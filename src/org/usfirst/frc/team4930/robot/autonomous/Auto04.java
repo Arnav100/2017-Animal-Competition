@@ -4,15 +4,16 @@ import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 04r: Place gear (g) on right side.
- * 
- *         g 
- *          \ 
- *           |
- *           | 
- *          [v]
- *  ___________
- *  
+ * Auto Dial (04r): Place gear on right side.
+ * Red/Blue: Red Accepted. Blue Ignored.
+ * ReplayCode: Run ReplayCode if ON and Red selected.
+ *
+ *                   g
+ *                    \
+ *                     |
+ *                     |
+ *                    [v]
+ *     _____________________ r
  */
 public class Auto04 extends CommandGroup
 {

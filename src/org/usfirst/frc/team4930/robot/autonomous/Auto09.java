@@ -4,14 +4,15 @@ import org.usfirst.frc.team4930.robot.commands.ReplayPlayback;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 09r: Place gear (g) in the middle while unloading (u) fuel.
- * 
- *       g 
- *       | u
- *       | 
- *      [v]
- *  ___________
- *  
+ * Auto Dial (09r): Place gear in the middle while unloading fuel for others.
+ * Red/Blue: Determines direction of ReplayCode.
+ * ReplayCode: Run ReplayCode if ON.
+ *
+ *               g
+ *               | u
+ *               |
+ *              [v]
+ *   b _____________________ r
  */
 public class Auto09 extends CommandGroup
 {

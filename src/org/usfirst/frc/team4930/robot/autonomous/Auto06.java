@@ -3,11 +3,12 @@ package org.usfirst.frc.team4930.robot.autonomous;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 06r: Drive short and shoot (s).
+ * Auto Dial (06r): Drive short and shoot.
+ * Red/Blue: Determines direction of ReplayCode.
+ * ReplayCode: Run ReplayCode if ON.
  *
- *      s<-[<]   [>]->s
- * blue _______________ red
- * 
+ *     s<-[<]         [>]->s
+ *   b _____________________ r
  */
 public class Auto06 extends CommandGroup
 {

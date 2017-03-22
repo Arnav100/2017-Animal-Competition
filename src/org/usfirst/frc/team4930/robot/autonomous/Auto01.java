@@ -5,15 +5,16 @@ import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 01: Drive Straight Across Line
- * 
- *            ^
- *            |
- *            |
- *            | 
- *           [^]
- *  ______________
- *  
+ * Auto Dial (01): Drive forward across line.
+ * Red/Blue: Ignored.
+ * ReplayCode: Ignored.
+ *
+ *                     ^
+ *                     |
+ *                     |
+ *                     |
+ *                    [^]
+ *     _____________________
  */
 public class Auto01 extends CommandGroup
 {

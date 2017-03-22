@@ -4,14 +4,15 @@ import org.usfirst.frc.team4930.robot.commands.ReplayPlayback;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 08: Trigger hopper (h) short intake (i) and shoot (s).
- * 
- *      h__         __h
- *    i |  |       |  | i
- *      |  |       |  |
- *      s [v]     [v] s
- * blue _______________ red
- * 
+ * Auto Dial (08): Go to hopper, intake, then shoot.
+ * Red/Blue: Determines direction.
+ * ReplayCode: Ignored.
+ *
+ *     h___             ___h
+ *   i |   |           |   | i
+ *     |   |           |   |
+ *     s  [^]         [^]  s
+ *   b _____________________ r
  */
 public class Auto08 extends CommandGroup
 {

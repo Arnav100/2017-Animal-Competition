@@ -3,11 +3,12 @@ package org.usfirst.frc.team4930.robot.autonomous;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 00: Do Nothing. Absolutely Nothing.
- * 
- *           [?]
- *  blue ___________ red
- *  
+ * Auto Dial (00): Do nothing.
+ * Red/Blue: Ignored.
+ * ReplayCode: Ignored.
+ *
+ *              [?]
+ *     _____________________
  */
 public class Auto00 extends CommandGroup
 {

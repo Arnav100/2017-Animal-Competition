@@ -4,16 +4,17 @@ import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 05r: Intake (i) fuel along window and shoot (s).
- * 
- *         i
- *     [>]----->s
- * ______________ red
- * 
- *      i
- *  s<-----[<]
- * ______________ blue
- * 
+ * Auto Dial (05r): Intake fuel dropped from alliance parters then shoot.
+ * Red/Blue: Determines direction of ReplayCode.
+ * ReplayCode: Run ReplayCode if ON.
+ *
+ *             i
+ *          [>]----------->s
+ *     _____________________ r
+ *
+ *                 i
+ *     s<-----------[<]
+ *   b _____________________
  */
 public class Auto05 extends CommandGroup
 {
