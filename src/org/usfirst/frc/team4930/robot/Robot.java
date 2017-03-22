@@ -108,17 +108,17 @@ public class Robot extends IterativeRobot
   }
 
   public void teleopInit() {
-    Robot.encoders.reset();
     if (Robot.autoCommand != null) {
       Robot.autoCommand.cancel();
     }
+    Robot.encoders.reset();
     Robot.accel.resetMax();
-    Robot.accel.maxXYZ();
-    // Robot.accel.overrideGearGadget();
   }
 
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    Robot.accel.maxXYZ();
+    // Robot.accel.overrideGearGadget();
   }
 
   public void disabledInit() {

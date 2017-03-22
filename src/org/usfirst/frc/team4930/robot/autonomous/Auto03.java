@@ -6,12 +6,12 @@ import org.usfirst.frc.team4930.robot.commands.ReplayPlayback;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 03: Place gear (g) in the middle.
+ * Autonomous 03r: Place gear (g) in the middle.
  * 
  *       g 
  *       |
  *       | 
- *      []
+ *      [v]
  *  ___________
  *  
  */

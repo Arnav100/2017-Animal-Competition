@@ -4,18 +4,6 @@ import java.io.*;
 import org.usfirst.frc.team4930.robot.Robot;
 import org.usfirst.frc.team4930.robot.RobotMap;
 
-// CSV Replay File Sequence
-// (0) long timestamp
-// (1) string alliance "Red"/"Blue"
-// (2) string shifter "Low"/"High"
-// (3) double dtLMaster
-// (4) double dtRMaster
-// (5) double gadgetL
-// (6) double gadgetR
-// (7) double intake
-// (8) double loader
-// (9) double shooter
-
 public class ReplayRecorder
 {
 

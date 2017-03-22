@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *      h__         __h
  *    i |  |       |  | i
  *      |  |       |  |
- *      s  []     []  s
+ *      s [v]     [v] s
  * blue _______________ red
  * 
  */

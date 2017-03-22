@@ -4,7 +4,11 @@ import org.usfirst.frc.team4930.robot.commands.ReplayPlayback;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 10: Only plays back #10 replay code.
+ * Autonomous 10: Only runs replay code.
+ * 
+ *           [?]
+ *  blue ___________ red
+ *  
  */
 public class Auto10 extends CommandGroup
 {

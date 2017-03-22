@@ -4,12 +4,12 @@ import org.usfirst.frc.team4930.robot.commands.ReplayPlayback;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 09: Place gear (g) in the middle while unloading (u) fuel.
+ * Autonomous 09r: Place gear (g) in the middle while unloading (u) fuel.
  * 
  *       g 
  *       | u
  *       | 
- *      []
+ *      [v]
  *  ___________
  *  
  */

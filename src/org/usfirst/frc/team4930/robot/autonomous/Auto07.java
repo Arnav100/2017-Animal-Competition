@@ -5,11 +5,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  * Autonomous 07: Trigger hopper (h) long intake (i) and shoot (s).
  * 
- *      h__         __h
- *      |  |       |  |
- *    i |  |       |  | i
- *      |  |       |  |
- *      s  []     []  s
+ *      h             h
+ *      |\           /|
+ *    i | \         / | i
+ *      |  \       /  |
+ *      s  [v]   [v]  s
  * blue _______________ red
  * 
  */

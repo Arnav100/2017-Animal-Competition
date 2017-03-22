@@ -37,9 +37,7 @@ public class OI
   public JoystickButton j2b3 = new JoystickButton(j2, 3);
   public JoystickButton j2b4 = new JoystickButton(j2, 4);
   public JoystickButton j2b8 = new JoystickButton(j2, 8);
-  public JoystickButton j2b9 = new JoystickButton(j2, 9);
   public JoystickButton j2b10 = new JoystickButton(j2, 10);
-  public JoystickButton j2b11 = new JoystickButton(j2, 11);
   public JoystickButton j2b12 = new JoystickButton(j2, 12);
 
   public OI() {

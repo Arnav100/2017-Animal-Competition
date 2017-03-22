@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  * Autonomous 01: Drive Straight Across Line
  * 
- *          ^
- *          |
- *          |
- *          | 
- *         []
- *  _____________
+ *            ^
+ *            |
+ *            |
+ *            | 
+ *           [^]
+ *  ______________
  *  
  */
 public class Auto01 extends CommandGroup

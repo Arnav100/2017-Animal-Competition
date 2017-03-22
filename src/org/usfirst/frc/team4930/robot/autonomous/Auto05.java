@@ -4,14 +4,14 @@ import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 05: Intake (i) fuel along window and shoot (s).
+ * Autonomous 05r: Intake (i) fuel along window and shoot (s).
  * 
  *         i
- *     []----->s
+ *     [>]----->s
  * ______________ red
  * 
  *      i
- *  s<-----[]
+ *  s<-----[<]
  * ______________ blue
  * 
  */
