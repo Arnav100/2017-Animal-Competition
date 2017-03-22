@@ -4,17 +4,15 @@ import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 05: Pick up fuel along window and shoot.
+ * Autonomous 05: Intake (i) fuel along window and shoot (s).
  * 
+ *         i
+ *     []----->s
+ * ______________ red
  * 
- *       I
- *   []----->s
- * ___________ red
- * 
- * 
- *      I
+ *      i
  *  s<-----[]
- * ___________ blue
+ * ______________ blue
  * 
  */
 public class Auto05 extends CommandGroup

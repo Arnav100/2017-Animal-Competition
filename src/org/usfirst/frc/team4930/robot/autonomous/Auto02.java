@@ -5,14 +5,15 @@ import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 02: Place gear on left side.
+ * Autonomous 02: Place gear (g) on left side.
  * 
- *     g 
+ *     g
  *    / 
  *   |
  *   | 
  *   []
  *  ___________
+ *  
  */
 public class Auto02 extends CommandGroup
 {

@@ -3,15 +3,10 @@ package org.usfirst.frc.team4930.robot.autonomous;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 06: Drive short and shoot.
+ * Autonomous 06: Drive short and shoot (s).
  *
- * 
- *         []->s
- * _____________ red
- * 
- * 
- *  s<-[]
- * _____________ blue
+ *      s<-[]     []->s
+ * blue _______________ red
  * 
  */
 public class Auto06 extends CommandGroup

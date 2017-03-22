@@ -12,7 +12,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *          |
  *          | 
  *         []
- *  ___________
+ *  _____________
+ *  
  */
 public class Auto01 extends CommandGroup
 {

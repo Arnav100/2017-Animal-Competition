@@ -3,18 +3,17 @@ package org.usfirst.frc.team4930.robot.autonomous;
 import org.usfirst.frc.team4930.robot.Robot;
 import org.usfirst.frc.team4930.robot.commands.PlaceGear;
 import org.usfirst.frc.team4930.robot.commands.ReplayPlayback;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 03: Place gear in the middle.
- * 
+ * Autonomous 03: Place gear (g) in the middle.
  * 
  *       g 
  *       |
  *       | 
  *      []
  *  ___________
+ *  
  */
 public class Auto03 extends CommandGroup
 {

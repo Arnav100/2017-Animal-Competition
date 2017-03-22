@@ -27,52 +27,52 @@ public class Dial
       Robot.dialNumber = getDialNum;
       switch (Robot.dialNumber) {
         case 1:
-          Robot.autoDescription = "(1) Place Left Gear";
+          Robot.autoDescription = "(1) Drive Straight To Line";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto01.csv";
           Robot.autoCommand = new Auto01();
           break;
         case 2:
-          Robot.autoDescription = "(2) Place Middle Gear";
+          Robot.autoDescription = "(2r) Place Gear On Left Side";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto02.csv";
           Robot.autoCommand = new Auto02();
           break;
         case 3:
-          Robot.autoDescription = "(3) Place Right Gear";
+          Robot.autoDescription = "(3r) Place Gear In The Middle";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto03.csv";
           Robot.autoCommand = new Auto03();
           break;
         case 4:
-          Robot.autoDescription = "(4)";
+          Robot.autoDescription = "(4r) Place Gear On Right Side";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto04.csv";
           Robot.autoCommand = new Auto04();
           break;
         case 5:
-          Robot.autoDescription = "(5)";
+          Robot.autoDescription = "(5r) Intake Along DS & Shoot";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto05.csv";
           Robot.autoCommand = new Auto05();
           break;
         case 6:
-          Robot.autoDescription = "(6)";
+          Robot.autoDescription = "(6r) Short Turn & Shoot";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto06.csv";
           Robot.autoCommand = new Auto06();
           break;
         case 7:
-          Robot.autoDescription = "(7)";
+          Robot.autoDescription = "(7) Trip Hopper (far) & Shoot";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto07.csv";
           Robot.autoCommand = new Auto07();
           break;
         case 8:
-          Robot.autoDescription = "(8)";
+          Robot.autoDescription = "(8) Trip Hopper (near) & Shoot";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto08.csv";
           Robot.autoCommand = new Auto08();
           break;
         case 9:
-          Robot.autoDescription = "(9)";
+          Robot.autoDescription = "(9r) Place Gear And Unload Fuel";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto09.csv";
           Robot.autoCommand = new Auto09();
           break;
         case 10:
-          Robot.autoDescription = "(10)";
+          Robot.autoDescription = "(10) Replay Code Only";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto10.csv";
           Robot.autoCommand = new Auto10();
           break;

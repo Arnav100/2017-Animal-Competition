@@ -3,11 +3,11 @@ package org.usfirst.frc.team4930.robot.autonomous;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 00: Do Nothing (literally)
+ * Autonomous 00: Do Nothing. Absolutely Nothing.
  * 
- * 
- *      []
- *  ___________
+ *           []
+ *  blue ___________ red
+ *  
  */
 public class Auto00 extends CommandGroup
 {

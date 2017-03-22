@@ -4,7 +4,7 @@ import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- * Autonomous 04: Place gear on right side.
+ * Autonomous 04: Place gear (g) on right side.
  * 
  *         g 
  *          \ 
@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *           | 
  *          []
  *  ___________
+ *  
  */
 public class Auto04 extends CommandGroup
 {
