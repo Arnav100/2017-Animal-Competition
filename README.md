@@ -29,6 +29,8 @@ u = unload command
 * Animal/Lamina's front is on the same side as the intake subsystem.
 * These are copy/pasted from our code hense the JavaDoc comment structure.
 
+### 00-10 AUTONOMOUS DIAL SETTINGS
+
 ```Java
 /**
  * Auto Dial (00): Do nothing.
