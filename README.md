@@ -12,6 +12,7 @@ are dipicted within the diagrams below, the ReplayCode paths are not shown.
 * Auto Dial: Drive-team selects 00 to 10 before the robot is placed on the field.
 * Red/Blue Toggle Switch: Drive-team ALWAYS selects their alliance color.
 * ReplayCode Toggle Switch: Determines if ReplayCode will run after routine ends.
+* Animal/Lamina's front is on the same side as the intake subsystem.
 
 ```
 KEY:
@@ -25,11 +26,7 @@ s = shoot command
 u = unload command
 ```
 
-### GENERAL NOTES:
-* Animal/Lamina's front is on the same side as the intake subsystem.
-* These are copy/pasted from our code hense the JavaDoc comment structure.
-
-### 00-10 AUTONOMOUS DIAL SETTINGS:
+### 00-10 AUTONOMOUS DIAL SETTINGS AND DIAGRAMS:
 
 ```Java
 /**
