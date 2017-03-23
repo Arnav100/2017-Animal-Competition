@@ -14,6 +14,8 @@ are dipicted within the diagrams below, the ReplayCode paths are not shown.
 * ReplayCode Toggle Switch: Determines if ReplayCode will run after routine ends.
 * Animal/Lamina's front is on the same side as the intake subsystem.
 
+### 00-10 AUTONOMOUS DIAL SETTINGS AND DIAGRAMS:
+
 ```
 KEY:
 [^] = Animal/Lamina (with directional arrow indicating robot's front)
@@ -25,8 +27,6 @@ r = boiler on red side
 s = shoot command
 u = unload command
 ```
-
-### 00-10 AUTONOMOUS DIAL SETTINGS AND DIAGRAMS:
 
 ```
 /**
