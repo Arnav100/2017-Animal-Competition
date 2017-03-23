@@ -21,11 +21,11 @@ public class ToggleSwitch
   public String getRoutineOrReplay() {
     String auto = null;
     if (RobotMap.replayToggleSwitch.get()) {
-      Robot.isReplaySet = false;
-      auto = "Routine";
+      Robot.isReplayOn = false;
+      auto = "OFF";
     } else {
-      Robot.isReplaySet = true;
-      auto = "Replay";
+      Robot.isReplayOn = true;
+      auto = "ON";
     }
     return auto;
   }

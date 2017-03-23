@@ -10,10 +10,11 @@ public class GoStraightBB extends Command
 {
   public double speed;
   public double inches;
+  public double backlash = 2; // inches
 
   public GoStraightBB(double s, double i) {
-    this.speed = s;
-    this.inches = i;
+    speed = s;
+    inches = i;
     requires(Robot.driveTrain);
   }
 
@@ -22,23 +23,12 @@ public class GoStraightBB extends Command
   }
 
   protected void execute() {
-    Robot.driveTrain.move(-speed, -speed);
+    Robot.driveTrain.move(speed, speed);
   }
 
   protected boolean isFinished() {
-    // get position in inches
     double i = Robot.encoders.leftPosInches();
-    // approximate backlash formula
-    double b = 1 + (10 * speed);
-    // calculate i based on backlash formula
-    if (i > 1) {
-      i = i - b;
-    }
-    if (i < 1) {
-      i = i + b;
-    }
-    // check if greater or less than the absolute value
-    if (i > inches || i < -inches) {
+    if (Math.abs(i) >= (inches - backlash)) {
       return true;
     } else {
       return false;

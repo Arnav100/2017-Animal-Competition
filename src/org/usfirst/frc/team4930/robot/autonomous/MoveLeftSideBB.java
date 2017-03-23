@@ -10,6 +10,8 @@ public class MoveLeftSideBB extends Command
 {
   public double speed;
   public int degrees;
+  public int heading;
+  public int offset = 2; // degrees
 
   public MoveLeftSideBB(double s, int d) {
     this.speed = s;
@@ -18,19 +20,31 @@ public class MoveLeftSideBB extends Command
   }
 
   protected void initialize() {
-    degrees = (int) (Robot.gyro.getAngle() - degrees + (18 * speed));
+    if (speed > 0) {
+      heading = Robot.gyro.getAngle() + degrees - offset;
+    } else {
+      heading = Robot.gyro.getAngle() - degrees + offset;
+    }
   }
 
   protected void execute() {
-    Robot.driveTrain.move(-speed, speed / 2);
+    Robot.driveTrain.move(speed, speed / 3);
   }
 
   protected boolean isFinished() {
     int angle = Robot.gyro.getAngle();
-    if (angle < degrees || angle > -degrees) {
-      return true;
+    if (speed > 0) {
+      if (angle < heading) {
+        return false;
+      } else {
+        return true;
+      }
     } else {
-      return false;
+      if (angle > heading) {
+        return false;
+      } else {
+        return true;
+      }
     }
   }
 

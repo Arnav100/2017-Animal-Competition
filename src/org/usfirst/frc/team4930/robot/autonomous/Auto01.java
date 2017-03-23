@@ -1,7 +1,5 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
-import org.usfirst.frc.team4930.robot.Robot;
-import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -19,20 +17,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auto01 extends CommandGroup
 {
   public Auto01() {
-    if (Robot.isReplaySet) {
-      System.out.println("REPLAY 01: Initializing");
-      addSequential(new ReplayPlayback());
-    } else {
-      System.out.println("AUTO 01: Initializing");
-      addSequential(new GoStraightBB(-0.7, 110));
-      if (Robot.isRed) {
-        addSequential(new MoveRightSideBB(-0.7, 49));
-      } else {
-        addSequential(new MoveLeftSideBB(-0.7, 49));
-      }
-      addSequential(new Timer(0.5));
-      addSequential(new PlaceGear());
-      addSequential(new GoStraightBB(0.3, 12));
-    }
+    System.out.println("AUTO 01: Initializing");
+    // 4 ft/s * .75 = 3 ft/s
+    // 4 ft/s * 4.5s = 13.5 ft
+    addSequential(new GoStraightDR(0.75, 4.5), 4.5);
   }
 }

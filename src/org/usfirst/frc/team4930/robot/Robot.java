@@ -45,7 +45,7 @@ public class Robot extends IterativeRobot
   public static boolean isRecording = false;
   public static boolean isReplaying = false;
   public static boolean isRed = false;
-  public static boolean isReplaySet = false;
+  public static boolean isReplayOn = false;
 
   public void robotInit() {
 

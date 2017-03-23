@@ -4,12 +4,14 @@ import org.usfirst.frc.team4930.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Turn left using a gyroscope (bang bang control)
+ * Turn right using a gyroscope (bang bang control)
  */
 public class MoveRightSideBB extends Command
 {
   public double speed;
   public int degrees;
+  public int heading;
+  public int offset = 2; // degrees
 
   public MoveRightSideBB(double s, int d) {
     this.speed = s;
@@ -18,19 +20,31 @@ public class MoveRightSideBB extends Command
   }
 
   protected void initialize() {
-    degrees = (int) (Robot.gyro.getAngle() + degrees - (18 * speed));
+    if (speed > 0) {
+      heading = Robot.gyro.getAngle() - degrees + offset;
+    } else {
+      heading = Robot.gyro.getAngle() + degrees - offset;
+    }
   }
 
   protected void execute() {
-    Robot.driveTrain.move(speed / 2, -speed);
+    Robot.driveTrain.move(speed / 3, speed);
   }
 
   protected boolean isFinished() {
     int angle = Robot.gyro.getAngle();
-    if (angle > degrees || angle < -degrees) {
-      return true;
+    if (speed > 0) {
+      if (angle > heading) {
+        return false;
+      } else {
+        return true;
+      }
     } else {
-      return false;
+      if (angle < heading) {
+        return false;
+      } else {
+        return true;
+      }
     }
   }
 

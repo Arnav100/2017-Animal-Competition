@@ -11,9 +11,9 @@ public class GoStraightDR extends Command
   public double speed;
   public double seconds;
 
-  public GoStraightDR(double speed, double seconds) {
-    this.speed = speed;
-    this.seconds = seconds;
+  public GoStraightDR(double s, double sec) {
+    speed = s;
+    seconds = sec;
     requires(Robot.driveTrain);
   }
 
