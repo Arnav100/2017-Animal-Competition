@@ -8,10 +8,10 @@ switches every time they are on the field. Finally, only the autonomous routines
 are dipicted within the diagrams below, the ReplayCode paths are not shown.
 
 ### GENERAL ASSUMPTIONS:
-Animal/Lamina: Robot is in working order and placed in starting position.
-Auto Dial: Drive-team selects 00 to 10 before the robot is placed on the field.
-Red/Blue Toggle Switch: Drive-team ALWAYS selects their alliance color.
-ReplayCode Toggle Switch: Determines if ReplayCode will run after routine ends.
+* Animal/Lamina: Robot is in working order and placed in starting position.
+* Auto Dial: Drive-team selects 00 to 10 before the robot is placed on the field.
+* Red/Blue Toggle Switch: Drive-team ALWAYS selects their alliance color.
+* ReplayCode Toggle Switch: Determines if ReplayCode will run after routine ends.
 
 ```
 KEY:
@@ -29,7 +29,7 @@ u = unload command
 * Animal/Lamina's front is on the same side as the intake subsystem.
 * These are copy/pasted from our code hense the JavaDoc comment structure.
 
-### 00-10 AUTONOMOUS DIAL SETTINGS
+### 00-10 AUTONOMOUS DIAL SETTINGS:
 
 ```Java
 /**
