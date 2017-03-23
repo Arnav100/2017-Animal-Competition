@@ -1,5 +1,4 @@
-
-ANIMAL/LAMINA AUTONOMOUS SELECTION SHEET
+### ANIMAL/LAMINA AUTONOMOUS SELECTION SHEET
 There are 26 different on-board autonomous routines when combined with Red/Blue
 options and ReplayCode. The autonomous dial numbers with the (##r) distinction
 indicate that the ReplayCode toggle switch is a valid option, otherwise it is
@@ -8,12 +7,13 @@ switches, the drive-team MUST intentionally select a dial and then BOTH toggle
 switches every time they are on the field. Finally, only the autonomous routines
 are dipicted within the diagrams below, the ReplayCode paths are not shown.
 
-GENERAL ASSUMPTIONS:
+### GENERAL ASSUMPTIONS:
 Animal/Lamina: Robot is in working order and placed in starting position.
 Auto Dial: Drive-team selects 00 to 10 before the robot is placed on the field.
 Red/Blue Toggle Switch: Drive-team ALWAYS selects their alliance color.
 ReplayCode Toggle Switch: Determines if ReplayCode will run after routine ends.
 
+```
 KEY:
 [^] = Animal/Lamina (with directional arrow indicating robot's front)
 b = boiler on blue side
@@ -23,8 +23,9 @@ i = intake command
 r = boiler on red side
 s = shoot command
 u = unload command
+```
 
-GENERAL NOTES:
+### GENERAL NOTES:
 * Animal/Lamina's front is on the same side as the intake subsystem.
 * These are copy/pasted from our code hense the JavaDoc comment structure.
 
