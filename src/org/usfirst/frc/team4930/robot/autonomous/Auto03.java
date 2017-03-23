@@ -1,8 +1,7 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
 import org.usfirst.frc.team4930.robot.Robot;
-import org.usfirst.frc.team4930.robot.commands.PlaceGear;
-import org.usfirst.frc.team4930.robot.commands.ReplayPlayback;
+import org.usfirst.frc.team4930.robot.commands.*;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -19,16 +18,19 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auto03 extends CommandGroup
 {
   public Auto03() {
+
+    System.out.println("AUTO 03: Initializing");
+
+    addSequential(new GoStraightBB(-0.75, 30), 4);
+    addSequential(new GoStraightBB(-0.4, 10), 2);
+    addSequential(new PlaceGear());
+    addParallel(new GoStraightBB(0.4, 10), 2);
+    addParallel(new PlaceGear());
+    addSequential(new Timer(0.3));
+
     if (Robot.isReplayOn) {
-      System.out.println("REPLAY 03: Initializing");
       addSequential(new ReplayPlayback());
-    } else {
-      System.out.println("AUTO 03: Initializing");
-      addSequential(new GoStraightBB(-0.7, 110));
-      addSequential(new MoveLeftSideBB(-0.7, 49));
-      addSequential(new Timer(0.5));
-      addSequential(new PlaceGear());
-      addSequential(new GoStraightBB(0.3, 12));
     }
+
   }
 }

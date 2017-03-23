@@ -10,14 +10,14 @@ public class ReplayPlayback extends Command
   protected void initialize() {
     try {
       Robot.replayPlayer.setup();
-      System.out.println("Replay Init");
+      System.out.println("REPLAY Initializing");
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     }
   }
 
   protected void execute() {
-    System.out.println("Replay Exec");
+    System.out.println("REPLAY Executing");
     Robot.replayPlayer.play();
   }
 
@@ -26,7 +26,7 @@ public class ReplayPlayback extends Command
   }
 
   protected void end() {
-    System.out.println("Replay Finished");
+    System.out.println("REPLAY Finished");
     Robot.replayPlayer.end();
   }
 

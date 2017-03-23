@@ -20,33 +20,19 @@ public class Auto02 extends CommandGroup
 {
   public Auto02() {
 
-    // if !isRed and isReplaySet then run ReplayCode
+    System.out.println("AUTO 02: Initializing");
 
-    if (Robot.isReplayOn) {
-      System.out.println("REPLAY 02: Initializing");
+    addSequential(new GoStraightBB(-0.75, 40), 4);
+    addSequential(new MoveRightSideBB(-0.75, 45), 3);
+    addSequential(new GoStraightBB(-0.4, 10), 2);
+    addSequential(new PlaceGear());
+    addParallel(new GoStraightBB(0.4, 10), 2);
+    addParallel(new PlaceGear());
+    addSequential(new Timer(0.3));
+
+    if (!Robot.isRed && Robot.isReplayOn) {
       addSequential(new ReplayPlayback());
-    } else {
-      System.out.println("AUTO 02: Initializing");
-      addSequential(new GoStraightBB(-0.7, 66));
-      addSequential(new Timer(0.5));
-      addSequential(new PlaceGear());
-      addSequential(new GoStraightBB(0.3, 12));
     }
 
-    if (Robot.isReplayOn) {
-      System.out.println("REPLAY 01: Initializing");
-      addSequential(new ReplayPlayback());
-    } else {
-      System.out.println("AUTO 01: Initializing");
-      addSequential(new GoStraightBB(-0.7, 110));
-      if (Robot.isRed) {
-        addSequential(new MoveRightSideBB(-0.7, 49));
-      } else {
-        addSequential(new MoveLeftSideBB(-0.7, 49));
-      }
-      addSequential(new Timer(0.5));
-      addSequential(new PlaceGear());
-      addSequential(new GoStraightBB(0.3, 12));
-    }
   }
 }

@@ -14,7 +14,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Auto10 extends CommandGroup
 {
   public Auto10() {
-    System.out.println("REPLAY 10: Initializing");
+
+    System.out.println("AUTO 10: Initializing");
+
     addSequential(new ReplayPlayback());
+
   }
 }
