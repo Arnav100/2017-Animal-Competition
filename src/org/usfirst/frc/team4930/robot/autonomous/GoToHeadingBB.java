@@ -30,7 +30,7 @@ public class GoToHeadingBB extends Command
 
   protected boolean isFinished() {
     int angle = Robot.gyro.getAngle();
-    if (angle < (heading + offset) && angle > (heading - offset)) {
+    if (angle <= (heading + offset) && angle >= (heading - offset)) {
       return true;
     } else {
       return false;
