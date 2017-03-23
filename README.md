@@ -28,6 +28,7 @@ GENERAL NOTES:
 * Animal/Lamina's front is on the same side as the intake subsystem.
 * These are copy/pasted from our code hense the JavaDoc comment structure.
 
+```Java
 /**
  * Auto Dial (00): Do nothing.
  * Red/Blue: Ignored.
@@ -156,3 +157,4 @@ GENERAL NOTES:
  *              [?]
  *   b _____________________ r
  */
+```

@@ -24,7 +24,7 @@ public class GoStraightDR extends Command
   }
 
   protected boolean isFinished() {
-    return seconds < timeSinceInitialized();
+    return seconds <= timeSinceInitialized();
   }
 
   protected void end() {
