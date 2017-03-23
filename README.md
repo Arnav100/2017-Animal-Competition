@@ -150,9 +150,9 @@ u = unload command
  */
 
 /**
- * Auto Dial (10r): Always runs ReplayCode.
+ * Auto Dial (10): Always runs ReplayCode.
  * Red/Blue: Determines direction of ReplayCode.
- * ReplayCode: Ignored. Always run ReplayCode.
+ * ReplayCode: Ignored.
  *
  *              [?]
  *   b _____________________ r

@@ -57,12 +57,12 @@ public class Dial
           Robot.autoCommand = new Auto06();
           break;
         case 7:
-          Robot.autoDescription = "(07) Trip Hopper (backwards) & Shoot";
+          Robot.autoDescription = "(07) Trip Hopper (angle) & Shoot";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto07.csv";
           Robot.autoCommand = new Auto07();
           break;
         case 8:
-          Robot.autoDescription = "(08) Trip Hopper (forwards) & Shoot";
+          Robot.autoDescription = "(08) Trip Hopper (turns) & Shoot";
           Robot.replayFilePath = "/home/lvuser/CSVs/Auto08.csv";
           Robot.autoCommand = new Auto08();
           break;
