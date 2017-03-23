@@ -28,7 +28,7 @@ u = unload command
 
 ### 00-10 AUTONOMOUS DIAL SETTINGS AND DIAGRAMS:
 
-```Java
+```
 /**
  * Auto Dial (00): Do nothing.
  * Red/Blue: Ignored.
