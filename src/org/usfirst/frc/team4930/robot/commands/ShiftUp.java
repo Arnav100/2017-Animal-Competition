@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4930.robot.commands;
 
 import org.usfirst.frc.team4930.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 public class ShiftUp extends Command
@@ -21,5 +22,7 @@ public class ShiftUp extends Command
 
   protected void end() {}
 
-  protected void interrupted() {}
+  protected void interrupted() {
+    end();
+  }
 }
