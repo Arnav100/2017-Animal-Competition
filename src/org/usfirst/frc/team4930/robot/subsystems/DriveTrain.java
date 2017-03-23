@@ -13,7 +13,6 @@ public class DriveTrain extends Subsystem
   }
 
   public void move(double left, double right) {
-    System.out.println("LEFT: " + String.valueOf(left) + " RIGHT: " + String.valueOf(right));
     leftSide = left;
     rightSide = right;
     RobotMap.dtMasterMotors.tankDrive(left, right);

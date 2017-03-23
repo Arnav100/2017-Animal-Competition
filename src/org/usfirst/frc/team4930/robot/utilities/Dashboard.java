@@ -47,6 +47,8 @@ public class Dashboard
       SmartDashboard.putString("17", "Alliance Switch: " + Robot.switches.getAlliance());
       SmartDashboard.putString("18", "Replay Switch: " + Robot.switches.getRoutineOrReplay());
 
+      SmartDashboard.putString("Current Cam", String.valueOf(Robot.cameras.currentCam));
+
     }
 
   }

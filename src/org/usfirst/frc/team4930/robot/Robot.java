@@ -56,6 +56,7 @@ public class Robot extends IterativeRobot
     Robot.driveTrain = new DriveTrain();
 
     // instantiate the rest of the subsystems and sensors
+    Robot.accel = new Accelerometer();
     Robot.cameras = new Cameras();
     Robot.climber = new Climber();
     Robot.gearGadget = new GearGadget();

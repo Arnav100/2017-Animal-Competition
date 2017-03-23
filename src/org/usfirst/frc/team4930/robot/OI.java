@@ -23,7 +23,7 @@ public class OI
 
   // all joystick1 buttons
   public JoystickButton j1b1 = new JoystickButton(j1, 1);
-  public JoystickButton j1b2 = new JoystickButton(j1, 2);
+  public JoystickButton j1b3 = new JoystickButton(j1, 3);
   public JoystickButton j1b7 = new JoystickButton(j1, 7);
   public JoystickButton j1b8 = new JoystickButton(j1, 8);
   public JoystickButton j1b9 = new JoystickButton(j1, 9);
@@ -55,7 +55,7 @@ public class OI
     // joystick1 button actions
     j1b1.whenPressed(new ShiftUp());
     j1b1.whenReleased(new ShiftDown());
-    j1b2.whenPressed(new ToggleCamera());
+    j1b3.whenPressed(new ToggleCamera());
     j1b7.whenPressed(new ValueDown("intake_in"));
     j1b8.whenPressed(new ValueUp("intake_in"));
     j1b9.whenPressed(new ValueDown("intake_out"));
