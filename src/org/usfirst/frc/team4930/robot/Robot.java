@@ -121,7 +121,9 @@ public class Robot extends IterativeRobot
     if (autoCommand != null) {
       autoCommand.cancel();
     }
+
     Robot.encoders.reset();
+
   }
 
   public void teleopPeriodic() {
