@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4930.robot.autonomous;
 
 import org.usfirst.frc.team4930.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**

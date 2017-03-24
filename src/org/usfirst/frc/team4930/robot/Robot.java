@@ -14,9 +14,7 @@ import org.usfirst.frc.team4930.robot.subsystems.Shooter;
 import org.usfirst.frc.team4930.robot.utilities.Dashboard;
 import org.usfirst.frc.team4930.robot.utilities.ReplayPlayer;
 import org.usfirst.frc.team4930.robot.utilities.ReplayRecorder;
-
 import com.ctre.CANTalon;
-
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;

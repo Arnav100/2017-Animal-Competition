@@ -48,7 +48,7 @@ public class RobotMap
 
     // static values: 0.0 to 1.0, no negatives!
     values.put("open_gadget", 1.0);
-    values.put("close_gadget", 0.16);
+    values.put("close_gadget", 0.22);
     values.put("climber", 1.0);
 
     // initial static values with (+/-) control
