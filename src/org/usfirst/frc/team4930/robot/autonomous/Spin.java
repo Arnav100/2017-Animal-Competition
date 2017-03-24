@@ -4,17 +4,13 @@ import org.usfirst.frc.team4930.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- * Spin using a gyroscope (bang bang control)
- * 
- * @todo
- */
-public class SpinLeftBB extends Command
+public class Spin extends Command
 {
   public double speed;
   public int degree;
+  public boolean direction;
 
-  public SpinLeftBB(double s, int d) {
+  public Spin(double s, int d) {
     this.speed = s;
     this.degree = d;
     requires(Robot.driveTrain);
@@ -25,11 +21,17 @@ public class SpinLeftBB extends Command
   }
 
   protected void execute() {
-    Robot.driveTrain.move(-speed, speed);
+    if (this.degree > 0) {
+      Robot.driveTrain.move(speed, -speed);
+      direction = !(Robot.gyro.getAngle() < degree + Robot.gyro.getStart());
+    } else {
+      Robot.driveTrain.move(-speed, speed);
+      direction = !(Robot.gyro.getAngle() > degree + Robot.gyro.getStart());
+    }
   }
 
   protected boolean isFinished() {
-    return !(Robot.gyro.getAngle() > degree + Robot.gyro.getStart());
+    return direction;
   }
 
   protected void end() {

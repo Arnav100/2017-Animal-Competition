@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 public class Gyro
 {
   private final ADXRS450_Gyro gyro = RobotMap.gyro;
+  public double start;
 
   public int getAngle() {
     return (int) gyro.getAngle();
@@ -17,4 +18,11 @@ public class Gyro
     gyro.calibrate();
   }
 
+  public void setStart() {
+    start = gyro.getAngle();
+  }
+
+  public double getStart() {
+    return start;
+  }
 }

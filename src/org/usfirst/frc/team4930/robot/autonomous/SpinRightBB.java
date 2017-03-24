@@ -11,32 +11,25 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class SpinRightBB extends Command
 {
-  public int degree;
   public double speed;
+  public int degree;
 
-  public SpinRightBB(int d, double s) {
-    this.degree = d;
+  public SpinRightBB(double s, int d) {
     this.speed = s;
+    this.degree = d;
     requires(Robot.driveTrain);
   }
 
   protected void initialize() {
-    Robot.gyro.calibrating();
+    Robot.gyro.setStart();
   }
 
   protected void execute() {
-    if (degree < 180)
-      Robot.driveTrain.move(this.speed, -this.speed);
-    else
-      Robot.driveTrain.move(-this.speed, this.speed);
+    Robot.driveTrain.move(speed, -speed);
   }
 
   protected boolean isFinished() {
-    if (Robot.gyro.getAngle() < degree) {
-      return false;
-    } else {
-      return true;
-    }
+    return !(Robot.gyro.getAngle() < degree + Robot.gyro.getStart());
   }
 
   protected void end() {
