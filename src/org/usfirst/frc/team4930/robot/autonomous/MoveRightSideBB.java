@@ -28,7 +28,7 @@ public class MoveRightSideBB extends Command
   }
 
   protected void execute() {
-    Robot.driveTrain.move((speed / 3), speed);
+    Robot.driveTrain.auto((speed / 3), speed);
   }
 
   protected boolean isFinished() {

@@ -4,23 +4,23 @@ import org.usfirst.frc.team4930.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Move using speed and time (dead reckoning)
+ * Turn left using a gyroscope (bang bang control)
  */
-public class GoStraightDR extends Command
+public class MoveLeftSideDR extends Command
 {
   public double speed;
   public double seconds;
 
-  public GoStraightDR(double s, double sec) {
-    speed = s;
-    seconds = sec;
+  public MoveLeftSideDR(double s, double sec) {
+    this.speed = s;
+    this.seconds = sec;
     requires(Robot.driveTrain);
   }
 
   protected void initialize() {}
 
   protected void execute() {
-    Robot.driveTrain.auto(speed, speed);
+    Robot.driveTrain.auto(speed, 0.0);
   }
 
   protected boolean isFinished() {

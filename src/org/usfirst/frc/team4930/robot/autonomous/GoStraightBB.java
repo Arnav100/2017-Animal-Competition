@@ -9,12 +9,11 @@ import edu.wpi.first.wpilibj.command.Command;
 public class GoStraightBB extends Command
 {
   public double speed;
-  public double inches;
-  public double backlash = 2; // inches
+  public double ticks;
 
-  public GoStraightBB(double s, double i) {
+  public GoStraightBB(double s, double t) {
     speed = s;
-    inches = i;
+    ticks = t;
     requires(Robot.driveTrain);
   }
 
@@ -23,12 +22,12 @@ public class GoStraightBB extends Command
   }
 
   protected void execute() {
-    Robot.driveTrain.move(speed, speed);
+    Robot.driveTrain.auto(speed, speed);
   }
 
   protected boolean isFinished() {
-    double i = Robot.encoders.leftPosInches();
-    if (Math.abs(i) >= (inches - backlash)) {
+    double i = Robot.encoders.leftPosRaw();
+    if (Math.abs(i) >= ticks) {
       return true;
     } else {
       return false;

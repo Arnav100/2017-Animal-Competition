@@ -10,7 +10,7 @@ public class ReplayPlayer
   private Scanner scanner;
   private boolean onTime;
   private long startTimestamp, nextTimestamp, deltaTimestamp;
-  private String alliance, shifter_state;
+  private String alliance;
   private double dtLeft, dtRight;
 
   // instantiate scanner and set the start time
@@ -21,6 +21,8 @@ public class ReplayPlayer
     alliance = Robot.switches.getAlliance();
     startTimestamp = System.currentTimeMillis();
     Robot.isReplaying = true;
+    Robot.driveTrain.brakeMode(false);
+    RobotMap.dtMasterMotors.setSafetyEnabled(false);
   }
 
   // set motor values if current time matches the start time
@@ -32,14 +34,6 @@ public class ReplayPlayer
       deltaTimestamp = nextTimestamp - (System.currentTimeMillis() - startTimestamp);
       if (deltaTimestamp <= 0) {
         alliance = scanner.next();
-        shifter_state = scanner.next();
-        // shift if needed
-        if (Robot.inLowGear && Objects.equals(shifter_state, "High")) {
-          Robot.shifter.highGear();
-        }
-        if (!Robot.inLowGear && Objects.equals(shifter_state, "Low")) {
-          Robot.shifter.lowGear();
-        }
         dtLeft = scanner.nextDouble();
         dtRight = scanner.nextDouble();
         // check if alliance matches toggle switch
@@ -79,5 +73,7 @@ public class ReplayPlayer
       scanner.close();
       scanner = null;
     }
+    Robot.driveTrain.brakeMode(true);
+    RobotMap.dtMasterMotors.setSafetyEnabled(false);
   }
 }

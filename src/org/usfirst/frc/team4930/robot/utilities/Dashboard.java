@@ -33,8 +33,8 @@ public class Dashboard
 
       // put sensor values
       SmartDashboard.putString("7", "Gyro Angle: " + String.valueOf(Robot.gyro.getAngle()));
-      SmartDashboard.putString("8", "Left Encoder: " + String.valueOf(Robot.encoders.leftPosInches()));
-      SmartDashboard.putString("9", "Right Encoder: " + String.valueOf(Robot.encoders.rightPosInches()));
+      SmartDashboard.putString("8", "Left Encoder: " + String.valueOf(Robot.encoders.leftPosRaw()));
+      SmartDashboard.putString("9", "Right Encoder: " + String.valueOf(Robot.encoders.rightPosRaw()));
       SmartDashboard.putString("10", "Accel X: " + String.valueOf(Robot.accel.getX()));
       SmartDashboard.putString("11", "Accel Y: " + String.valueOf(Robot.accel.getY()));
       SmartDashboard.putString("12", "Accel Z: " + String.valueOf(Robot.accel.getZ()));
@@ -46,8 +46,6 @@ public class Dashboard
       SmartDashboard.putString("16", "Replay Selected: " + Robot.autoDescription);
       SmartDashboard.putString("17", "Alliance Switch: " + Robot.switches.getAlliance());
       SmartDashboard.putString("18", "Replay Switch: " + Robot.switches.getRoutineOrReplay());
-
-      SmartDashboard.putString("Current Cam", String.valueOf(Robot.cameras.currentCam));
 
     }
 

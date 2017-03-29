@@ -24,6 +24,10 @@ public class DriveTrain extends Subsystem
     move(left, right);
   }
 
+  public void auto(double left, double right) {
+    move(-left, -right);
+  }
+
   public void stop() {
     RobotMap.dtMasterMotors.stopMotor();
   }

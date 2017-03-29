@@ -17,6 +17,8 @@ public class ReplayRecorder
     alliance = Robot.switches.getAlliance();
     startTimestamp = System.currentTimeMillis();
     Robot.isRecording = true;
+    Robot.driveTrain.brakeMode(false);
+    RobotMap.dtMasterMotors.setSafetyEnabled(false);
   }
 
   // write a timestamp, the motor values, then make a new line
@@ -25,12 +27,6 @@ public class ReplayRecorder
       writer.append("" + (System.currentTimeMillis() - startTimestamp));
       // alliance
       writer.append("," + alliance);
-      // record state of shifter
-      if (Robot.inLowGear) {
-        writer.append("," + "Low");
-      } else {
-        writer.append("," + "High");
-      }
       // drive train left
       writer.append("," + Robot.oi.j0.getY());
       // drive train right
@@ -57,5 +53,7 @@ public class ReplayRecorder
       writer.flush();
       writer.close();
     }
+    Robot.driveTrain.brakeMode(true);
+    RobotMap.dtMasterMotors.setSafetyEnabled(false);
   }
 }

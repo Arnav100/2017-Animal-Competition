@@ -95,6 +95,17 @@ public class RobotMap
     RobotMap.dtRMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
     RobotMap.dtLMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
 
+    // RobotMap.dtRMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    // RobotMap.dtLMaster.setFeedbackDevice(FeedbackDevice.QuadEncoder);
+    // RobotMap.dtLMaster.changeControlMode(CANTalon.TalonControlMode.Position);
+    // RobotMap.dtRMaster.changeControlMode(CANTalon.TalonControlMode.Position);
+    RobotMap.dtRMaster.reverseSensor(true);
+    //
+    // RobotMap.dtRMaster.setPID(0.5, 0.001, 0.0); // Set the PID constants (p, i, d)
+    // RobotMap.dtRMaster.enableControl(); // Enable PID control on the talon
+    // RobotMap.dtLMaster.setPID(0.5, 0.001, 0.0); // Set the PID constants (p, i, d)
+    // RobotMap.dtLMaster.enableControl(); // Enable PID control on the talon
+
     // instantiate pneumatic system
     RobotMap.compressor = new Compressor(50); // device id
     RobotMap.solenoid = new Solenoid(50, 5); // device id, channel

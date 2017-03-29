@@ -22,9 +22,9 @@ public class GoToHeadingBB extends Command
 
   protected void execute() {
     if (heading < Robot.gyro.getAngle()) {
-      Robot.driveTrain.move(-speed, speed);
+      Robot.driveTrain.auto(-speed, speed);
     } else {
-      Robot.driveTrain.move(speed, -speed);
+      Robot.driveTrain.auto(speed, -speed);
     }
   }
 
