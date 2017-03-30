@@ -1,9 +1,24 @@
 package org.usfirst.frc.team4930.robot;
 
-import org.usfirst.frc.team4930.robot.sensors.*;
-import org.usfirst.frc.team4930.robot.subsystems.*;
-import org.usfirst.frc.team4930.robot.utilities.*;
+import org.usfirst.frc.team4930.robot.sensors.Accelerometer;
+import org.usfirst.frc.team4930.robot.sensors.Cameras;
+import org.usfirst.frc.team4930.robot.sensors.Dial;
+import org.usfirst.frc.team4930.robot.sensors.Encoders;
+import org.usfirst.frc.team4930.robot.sensors.Gyro;
+import org.usfirst.frc.team4930.robot.sensors.ToggleSwitch;
+import org.usfirst.frc.team4930.robot.subsystems.Climber;
+import org.usfirst.frc.team4930.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4930.robot.subsystems.GearGadget;
+import org.usfirst.frc.team4930.robot.subsystems.Intake;
+import org.usfirst.frc.team4930.robot.subsystems.Loader;
+import org.usfirst.frc.team4930.robot.subsystems.Shifter;
+import org.usfirst.frc.team4930.robot.subsystems.Shooter;
+import org.usfirst.frc.team4930.robot.utilities.Dashboard;
+import org.usfirst.frc.team4930.robot.utilities.ReplayPlayer;
+import org.usfirst.frc.team4930.robot.utilities.ReplayRecorder;
+
 import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -86,6 +101,7 @@ public class Robot extends IterativeRobot
     // camera.setResolution(640, 480);
     // camera.setFPS(20);
 
+    // set saftey and brake modes for all talons
     OI.motorControllerSafetyAndBrakes(false, true);
   }
 

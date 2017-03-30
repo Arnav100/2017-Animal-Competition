@@ -54,8 +54,6 @@ public class Dashboard
       SmartDashboard.putString("16", "Replay Selected: " + Robot.autoDescription);
       SmartDashboard.putString("17", "Alliance Switch: " + Robot.switches.getAlliance());
       SmartDashboard.putString("18", "Replay Switch: " + Robot.switches.getRoutineOrReplay());
-
-      SmartDashboard.putString("19", "Gear Gadget Value: " + String.valueOf(RobotMap.values.get("close_gadget") * 100));
     }
 
   }

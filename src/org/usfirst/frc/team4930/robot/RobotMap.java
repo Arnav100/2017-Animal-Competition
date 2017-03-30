@@ -1,9 +1,11 @@
 package org.usfirst.frc.team4930.robot;
 
 import java.util.HashMap;
+
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
+
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Compressor;
@@ -47,7 +49,7 @@ public class RobotMap
 
     // static values: 0.0 to 1.0, no negatives!
     RobotMap.values.put("open_gadget", 1.0);
-    RobotMap.values.put("close_gadget", 0.10);
+    RobotMap.values.put("close_gadget", 0.22);
     RobotMap.values.put("climber", 1.0);
 
     // initial static values with (+/-) control
