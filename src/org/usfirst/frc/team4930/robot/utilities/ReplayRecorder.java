@@ -1,8 +1,7 @@
 package org.usfirst.frc.team4930.robot.utilities;
 
 import java.io.*;
-import org.usfirst.frc.team4930.robot.Robot;
-import org.usfirst.frc.team4930.robot.RobotMap;
+import org.usfirst.frc.team4930.robot.*;
 
 public class ReplayRecorder
 {
@@ -17,8 +16,7 @@ public class ReplayRecorder
     alliance = Robot.switches.getAlliance();
     startTimestamp = System.currentTimeMillis();
     Robot.isRecording = true;
-    Robot.driveTrain.brakeMode(false);
-    RobotMap.dtMasterMotors.setSafetyEnabled(false);
+    OI.motorControllerSafetyAndBrakes(false, false);
   }
 
   // write a timestamp, the motor values, then make a new line
@@ -53,7 +51,6 @@ public class ReplayRecorder
       writer.flush();
       writer.close();
     }
-    Robot.driveTrain.brakeMode(true);
-    RobotMap.dtMasterMotors.setSafetyEnabled(false);
+    OI.motorControllerSafetyAndBrakes(false, true);
   }
 }

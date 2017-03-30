@@ -110,14 +110,6 @@ public class RobotMap
     RobotMap.compressor = new Compressor(50); // device id
     RobotMap.solenoid = new Solenoid(50, 5); // device id, channel
 
-    // disable saftey settings on replay code motors
-    RobotMap.dtMasterMotors.setSafetyEnabled(false);
-    RobotMap.intake.setSafetyEnabled(false);
-    RobotMap.loader.setSafetyEnabled(false);
-    RobotMap.shooter.setSafetyEnabled(false);
-    RobotMap.gadgetL.setSafetyEnabled(false);
-    RobotMap.gadgetR.setSafetyEnabled(false);
-
     // instantiate sensors
     RobotMap.dial = new AnalogPotentiometer(0, 300, 0); // channel, range, offset
     RobotMap.gyro = new ADXRS450_Gyro(); // ribbon gyro

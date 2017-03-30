@@ -77,14 +77,6 @@ public class Robot extends IterativeRobot
     Robot.oi = new OI();
     Robot.dashboard = new Dashboard();
 
-    // set default settings for subsystems
-    Robot.climber.brakeMode(true);
-    Robot.driveTrain.brakeMode(true);
-    Robot.gearGadget.brakeMode(true);
-    Robot.intake.brakeMode(false);
-    Robot.loader.brakeMode(true);
-    Robot.shooter.brakeMode(false);
-
     // set defaults for sensors
     Robot.encoders.reset();
     Robot.gyro.calibrating();
@@ -93,6 +85,8 @@ public class Robot extends IterativeRobot
     // UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
     // camera.setResolution(640, 480);
     // camera.setFPS(20);
+
+    OI.motorControllerSafetyAndBrakes(false, true);
   }
 
   public void robotPeriodic() {

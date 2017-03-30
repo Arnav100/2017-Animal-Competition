@@ -72,4 +72,18 @@ public class OI
     j2b10.whenPressed(new ReplayStopRecord());
     j2b12.whenPressed(new ReplayPlayback());
   }
+
+  public static void motorControllerSafetyAndBrakes(boolean safety, boolean brake) {
+    RobotMap.dtMasterMotors.setSafetyEnabled(safety);
+    Robot.driveTrain.brakeMode(brake);
+    RobotMap.intake.setSafetyEnabled(safety);
+    Robot.intake.brakeMode(false);
+    RobotMap.loader.setSafetyEnabled(safety);
+    Robot.loader.brakeMode(brake);
+    RobotMap.shooter.setSafetyEnabled(safety);
+    Robot.shooter.brakeMode(false);
+    RobotMap.gadgetL.setSafetyEnabled(safety);
+    RobotMap.gadgetR.setSafetyEnabled(safety);
+    Robot.gearGadget.brakeMode(brake);
+  }
 }

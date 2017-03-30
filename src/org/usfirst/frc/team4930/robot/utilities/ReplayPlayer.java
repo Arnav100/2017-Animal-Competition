@@ -21,8 +21,7 @@ public class ReplayPlayer
     alliance = Robot.switches.getAlliance();
     startTimestamp = System.currentTimeMillis();
     Robot.isReplaying = true;
-    Robot.driveTrain.brakeMode(false);
-    RobotMap.dtMasterMotors.setSafetyEnabled(false);
+    OI.motorControllerSafetyAndBrakes(false, false);
   }
 
   // set motor values if current time matches the start time
@@ -73,7 +72,6 @@ public class ReplayPlayer
       scanner.close();
       scanner = null;
     }
-    Robot.driveTrain.brakeMode(true);
-    RobotMap.dtMasterMotors.setSafetyEnabled(false);
+    OI.motorControllerSafetyAndBrakes(false, true);
   }
 }
