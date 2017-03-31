@@ -1,8 +1,13 @@
 package org.usfirst.frc.team4930.robot.utilities;
 
-import java.io.*;
-import java.util.*;
-import org.usfirst.frc.team4930.robot.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Objects;
+import java.util.Scanner;
+
+import org.usfirst.frc.team4930.robot.OI;
+import org.usfirst.frc.team4930.robot.Robot;
+import org.usfirst.frc.team4930.robot.RobotMap;
 
 public class ReplayPlayer
 {
@@ -15,7 +20,7 @@ public class ReplayPlayer
 
   // instantiate scanner and set the start time
   public void setup() throws FileNotFoundException {
-    scanner = new Scanner(new File(Robot.replayFilePath));
+    scanner = new Scanner(new File(Robot.replayFilePath + ".csv"));
     scanner.useDelimiter(",|\\n");
     onTime = true;
     alliance = Robot.switches.getAlliance();

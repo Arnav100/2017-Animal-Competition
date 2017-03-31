@@ -1,7 +1,15 @@
 package org.usfirst.frc.team4930.robot.utilities;
 
-import java.io.*;
-import org.usfirst.frc.team4930.robot.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.usfirst.frc.team4930.robot.OI;
+import org.usfirst.frc.team4930.robot.Robot;
+import org.usfirst.frc.team4930.robot.RobotMap;
 
 public class ReplayRecorder
 {
@@ -12,15 +20,28 @@ public class ReplayRecorder
 
   // instantiate writer and set the start time
   public void setup() throws IOException {
-    writer = new FileWriter(Robot.replayFilePath);
+    writer = new FileWriter(Robot.replayFilePath + ".csv");
+    moveFile();
     alliance = Robot.switches.getAlliance();
     startTimestamp = System.currentTimeMillis();
     Robot.isRecording = true;
     OI.motorControllerSafetyAndBrakes(false, false);
   }
 
+  public void moveFile() throws IOException {
+    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    Date date = new Date();
+    String time = dateFormat.format(date);
+    File original = new File(Robot.replayFilePath + ".csv");
+    File backUp = new File("../backups/" + Robot.replayFilePath + time + ".csv");
+    original.renameTo(backUp);
+  }
+
   // write a timestamp, the motor values, then make a new line
   public void record() throws IOException {
+    if (timeToStop()) {
+      end();
+    }
     if (writer != null) {
       writer.append("" + (System.currentTimeMillis() - startTimestamp));
       // alliance
@@ -52,5 +73,11 @@ public class ReplayRecorder
       writer.close();
     }
     OI.motorControllerSafetyAndBrakes(false, true);
+  }
+
+  public boolean timeToStop() {
+    if ((System.currentTimeMillis() - startTimestamp) >= 15000)
+      return true;
+    return false;
   }
 }
