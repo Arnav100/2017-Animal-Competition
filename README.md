@@ -1,3 +1,5 @@
+*** Note: This is a work in progress. Programmers are never "done". ***
+
 ### ANIMAL/LAMINA AUTONOMOUS SELECTION SHEET
 There are 26 different on-board autonomous routines when combined with Red/Blue
 options and ReplayCode. The autonomous dial numbers with the (##r) distinction
