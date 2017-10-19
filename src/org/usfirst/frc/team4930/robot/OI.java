@@ -43,31 +43,31 @@ public class OI
   public OI() {
 
     // joystick0 button actions
-    j0b1.whileHeld(new IntakeFuel());
-    j0b4.whileHeld(new UnloadHopper());
-    j0b7.whenPressed(new ValueDown("agitate"));
-    j0b8.whenPressed(new ValueUp("agitate"));
-    j0b9.whenPressed(new ValueDown("loader"));
-    j0b10.whenPressed(new ValueUp("loader"));
-    j0b11.whenPressed(new ValueDown("shooter"));
-    j0b12.whenPressed(new ValueUp("shooter"));
+//	j0b1.whileHeld(new IntakeFuel());
+//    j0b4.whileHeld(new UnloadHopper());
+//    j0b7.whenPressed(new ValueDown("agitate"));
+//    j0b8.whenPressed(new ValueUp("agitate"));
+//    j0b9.whenPressed(new ValueDown("loader"));
+//    j0b10.whenPressed(new ValueUp("loader"));
+//    j0b11.whenPressed(new ValueDown("shooter"));
+//    j0b12.whenPressed(new ValueUp("shooter"));
 
     // joystick1 button actions
     j1b1.whenPressed(new ShiftUp());
     j1b1.whenReleased(new ShiftDown());
     j1b3.whenPressed(new ToggleCamera());
-    j1b7.whenPressed(new ValueDown("intake_in"));
-    j1b8.whenPressed(new ValueUp("intake_in"));
-    j1b9.whenPressed(new ValueDown("intake_out"));
-    j1b10.whenPressed(new ValueUp("intake_out"));
-    j1b11.whenPressed(new ValueDown("clear_fuel"));
-    j1b12.whenPressed(new ValueUp("clear_fuel"));
+//    j1b7.whenPressed(new ValueDown("intake_in"));
+//    j1b8.whenPressed(new ValueUp("intake_in"));
+//    j1b9.whenPressed(new ValueDown("intake_out"));
+//    j1b10.whenPressed(new ValueUp("intake_out"));
+//    j1b11.whenPressed(new ValueDown("clear_fuel"));
+//    j1b12.whenPressed(new ValueUp("clear_fuel"));
 
     // joystick2 button actions
-    j2b1.whileHeld(new ShootingSequence());
+//    j2b1.whileHeld(new ShootingSequence());
     j2b2.whenPressed(new PlaceGear());
     j2b3.whileHeld(new ClimbRope());
-    j2b4.whileHeld(new ClearShooter());
+//    j2b4.whileHeld(new ClearShooter());
     j2b8.whenPressed(new ReplayRecord());
     j2b10.whenPressed(new ReplayStopRecord());
     j2b12.whenPressed(new ReplayPlayback());
