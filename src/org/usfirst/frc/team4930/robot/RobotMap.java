@@ -68,9 +68,9 @@ public class RobotMap
     RobotMap.intake = new CANTalon(27);
     RobotMap.climber = new CANTalon(29);
     RobotMap.shooter = new CANTalon(31);
-    RobotMap.gadgetL = new CANTalon(32);
+    RobotMap.gadgetL = new CANTalon(34);
     RobotMap.loader = new CANTalon(33);
-    RobotMap.gadgetR = new CANTalon(34);
+    RobotMap.gadgetR = new CANTalon(32);
 
     // right side slave setup
     RobotMap.dtRSlave1.changeControlMode(TalonControlMode.Follower);
